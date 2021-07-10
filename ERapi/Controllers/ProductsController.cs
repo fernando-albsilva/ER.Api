@@ -29,17 +29,17 @@ namespace ER.Controllers
 
       [HttpGet]
       [Route("Products")]
-      public IEnumerable<Product> GetProducts()
+      public IEnumerable<Product> GetAll()
       {
-          var products = repository.GetProducts();
+          var products = repository.GetAll();
           return products;
       } 
 
       [HttpGet]
       [Route("Product")]
-       public Product GetProduct(Guid id)
+       public Product GetById(Guid id)
       {
-          var product = repository.GetProduct(id);
+          var product = repository.GetById(id);
           return product;
       } 
     }
