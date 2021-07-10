@@ -64,7 +64,7 @@ namespace ER.Controllers
           Console.WriteLine(objeto);
       }
 
-      [HttpPost]
+      [HttpDelete]
       [Route("Product/Delete")]
        public void Delete(string objeto)
       {
