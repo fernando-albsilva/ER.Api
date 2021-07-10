@@ -3,6 +3,7 @@ using ER.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using ER.Entities;
 using System;
+using ER.Interfaces;
 
 namespace ER.Controllers
 {
@@ -12,11 +13,11 @@ namespace ER.Controllers
     
     public class ProductsController : ControllerBase
     {
-      private readonly ProductRepository repository;
+      private readonly IBaseProductRepository repository;
 
-      public ProductsController()
+      public ProductsController(IBaseProductRepository repository)
       {
-         repository = new ProductRepository();
+         this.repository = repository;
       }
 
     //   [HttpGet]
