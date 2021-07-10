@@ -16,11 +16,13 @@ namespace ER.Controllers
     
     public class ProductsController : ControllerBase
     {
-      private readonly IBaseReadProductRepository repository;
+      private readonly IBaseReadProductRepository readRepository;
+      private readonly IBaseProductRepository writeRepository;
 
-      public ProductsController(IBaseReadProductRepository repository)
+      public ProductsController(IBaseReadProductRepository readRepository,IBaseProductRepository writeRepository)
       {
-         this.repository = repository;
+         this.readRepository = readRepository;
+         this.writeRepository = writeRepository;
       }
 
       #region Querys
@@ -29,26 +31,15 @@ namespace ER.Controllers
       [Route("Products")]
       public IEnumerable<ProductDto> GetAll()
       {
-          var products = repository.GetAll().Select( product => new ProductDto{
-             Id = product.Id,
-             Name = product.Name,
-             UnitValue = product.UnitValue,
-             Cost = product.Cost
-          });
-          return products;
+          var productDtoList = readRepository.GetAll();
+          return productDtoList;
       } 
 
       [HttpGet]
       [Route("Product")]
        public ProductDto GetById(Guid id)
       {
-          var product = repository.GetById(id);
-          var productDto = new ProductDto{
-             Id = product.Id,
-             Name = product.Name,
-             UnitValue = product.UnitValue,
-             Cost = product.Cost
-          };
+          var productDto = readRepository.GetById(id);
           return productDto;
       }
 
