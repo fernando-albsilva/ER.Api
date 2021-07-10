@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using ER.Entities;
+using ER.States;
 
 namespace ER.Interfaces
 {
     public interface IBaseProductRepository
     {
-        void Save();
-        void Delete();
-        void Update();
+        public void Save(ProductState state);
+        public void Delete();
+        public void Update();
     }
 }

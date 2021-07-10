@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using ER.Dtos;
+using ER.Models;
 
 namespace ER.Interfaces
 {
     public interface IBaseReadProductRepository
     {
-        public ProductDto GetById(Guid Id);
-        public IEnumerable<ProductDto> GetAll();
+        public ProductModel GetById(Guid Id);
+        public IEnumerable<ProductModel> GetAll();
     }
 }

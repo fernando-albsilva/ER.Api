@@ -1,9 +1,9 @@
 using System;
 using ER.Entities;
 
-namespace ER.Dtos
+namespace ER.Models
 {
-    public class ProductDto : BaseEntity
+    public class ProductModel : BaseEntity
     {
          public string Name { get; set; }
         public double UnitValue { get; set; }

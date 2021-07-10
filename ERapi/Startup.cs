@@ -31,7 +31,7 @@ namespace ERapi
             //just having one coppy of instance
             services.AddSingleton<IBaseReadProductRepository,ProductReadRepository>();
             services.AddSingleton<IBaseProductRepository,ProductRepository>();
-
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
