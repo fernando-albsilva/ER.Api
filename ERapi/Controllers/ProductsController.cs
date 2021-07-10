@@ -2,8 +2,11 @@ using System.Collections.Generic;
 using ER.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using ER.Entities;
+using ER.Dtos;
 using System;
 using ER.Interfaces;
+using System.Linq;
+
 
 namespace ER.Controllers
 {
@@ -13,35 +16,44 @@ namespace ER.Controllers
     
     public class ProductsController : ControllerBase
     {
-      private readonly IBaseProductRepository repository;
+      private readonly IBaseReadProductRepository repository;
 
-      public ProductsController(IBaseProductRepository repository)
+      public ProductsController(IBaseReadProductRepository repository)
       {
          this.repository = repository;
       }
 
-    //   [HttpGet]
-    //   [Route("Products")]
-    //   public IEnumerable<Product> GetProducts()
-    //   {
-    //       var products = repository.GetProducts();
-    //       return products;
-    //   } 
-
+      #region Querys
+      
       [HttpGet]
       [Route("Products")]
-      public IEnumerable<Product> GetAll()
+      public IEnumerable<ProductDto> GetAll()
       {
-          var products = repository.GetAll();
+          var products = repository.GetAll().Select( product => new ProductDto{
+             Id = product.Id,
+             Name = product.Name,
+             UnitValue = product.UnitValue,
+             Cost = product.Cost
+          });
           return products;
       } 
 
       [HttpGet]
       [Route("Product")]
-       public Product GetById(Guid id)
+       public ProductDto GetById(Guid id)
       {
           var product = repository.GetById(id);
-          return product;
-      } 
+          var productDto = new ProductDto{
+             Id = product.Id,
+             Name = product.Name,
+             UnitValue = product.UnitValue,
+             Cost = product.Cost
+          };
+          return productDto;
+      }
+
+      #endregion 
+
+
     }
 }

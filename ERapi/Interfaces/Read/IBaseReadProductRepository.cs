@@ -4,11 +4,8 @@ using ER.Entities;
 
 namespace ER.Interfaces
 {
-    public interface IBaseProductRepository
+    public interface IBaseReadProductRepository
     {
-        void save();
-        void Update();
-        void Delete();
         public Product GetById(Guid Id);
         public IEnumerable<Product> GetAll();
     }

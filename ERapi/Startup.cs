@@ -29,6 +29,7 @@ namespace ERapi
         public void ConfigureServices(IServiceCollection services)
         {
             //just having one coppy of instance
+            services.AddSingleton<IBaseReadProductRepository,ProductReadRepository>();
             services.AddSingleton<IBaseProductRepository,ProductRepository>();
 
             services.AddControllers();
