@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ER.Interfaces;
 using ER.Repositories;
+using ER.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +32,7 @@ namespace ERapi
             //just having one coppy of instance
             services.AddSingleton<IBaseReadProductRepository,ProductReadRepository>();
             services.AddSingleton<IBaseProductRepository,ProductRepository>();
+            services.AddSingleton<ISqlConnectionFactory,SqlConnectionFactory>();
             
             services.AddControllers();
             services.AddSwaggerGen(c =>
