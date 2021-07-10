@@ -1,3 +1,10 @@
+C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.csprojAssemblyReference.cache
+C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.AssemblyInfoInputs.cache
+C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.AssemblyInfo.cs
+C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.csproj.CoreCompileInputs.cache
+C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\PICHAU\Desktop\WebApi\ERapi\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\PICHAU\Desktop\WebApi\ERapi\bin\Debug\net5.0\appsettings.json
 C:\Users\PICHAU\Desktop\WebApi\ERapi\bin\Debug\net5.0\ERapi.exe
@@ -11,13 +18,6 @@ C:\Users\PICHAU\Desktop\WebApi\ERapi\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Users\PICHAU\Desktop\WebApi\ERapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\PICHAU\Desktop\WebApi\ERapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\PICHAU\Desktop\WebApi\ERapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.csprojAssemblyReference.cache
-C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.AssemblyInfoInputs.cache
-C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.AssemblyInfo.cs
-C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.csproj.CoreCompileInputs.cache
-C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\ERapi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\staticwebassets\ERapi.StaticWebAssets.Manifest.cache
 C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\staticwebassets\ERapi.StaticWebAssets.xml
 C:\Users\PICHAU\Desktop\WebApi\ERapi\obj\Debug\net5.0\scopedcss\bundle\ERapi.styles.css
