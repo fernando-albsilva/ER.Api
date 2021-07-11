@@ -1,12 +1,13 @@
 using System.Collections.Generic;
-using ER.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
+using ER.Repositories;
 using ER.Commands;
 using ER.Models;
-using System;
 using ER.Interfaces;
-using System.Linq;
 using ER.Aggregates;
+using ER.CommandHandler;
 
 namespace ER.Controllers
 {
@@ -17,14 +18,16 @@ namespace ER.Controllers
     public class ProductsController : ControllerBase
     {
       private readonly IBaseReadProductRepository readRepository;
-      private readonly IBaseProductRepository writeRepository;
+      private readonly IBaseWriteProductRepository writeRepository;
+      private readonly IProductCommandHandler productCommandHandler;
 
       private ProductAggregate aggregate;
 
-      public ProductsController(IBaseReadProductRepository readRepository,IBaseProductRepository writeRepository)
+      public ProductsController(IBaseReadProductRepository readRepository,IBaseWriteProductRepository writeRepository,IProductCommandHandler productCommandHandler)
       {
          this.readRepository = readRepository;
          this.writeRepository = writeRepository;
+         this.productCommandHandler = productCommandHandler;
       }
 
       #region Querys
@@ -45,31 +48,29 @@ namespace ER.Controllers
           return productModel;
       }
 
-      #endregion 
+    #endregion 
 
     #region Commands
 
       [HttpPost]
       [Route("Product/Create")]
-       public void Create(CreateProduct cmd)
+      public void Create(CreateProduct cmd)
       {
-          cmd.Id = Guid.NewGuid();
-          aggregate = new ProductAggregate(cmd);
-          writeRepository.Save(aggregate.State);
+          productCommandHandler.Handle(cmd);
       }
 
       [HttpPut]
       [Route("Product/Update")]
-       public void Update(string objeto)
+      public void Update(UpdateProduct cmd)
       {
-          Console.WriteLine(objeto);
+          productCommandHandler.Handle(cmd);
       }
 
       [HttpDelete]
       [Route("Product/Delete")]
-       public void Delete(string objeto)
+      public void Delete(Guid Id)
       {
-          Console.WriteLine(objeto);
+          productCommandHandler.Handle(Id);
       }
 
     #endregion
