@@ -53,6 +53,7 @@ namespace ER.Controllers
       [Route("Product/Create")]
        public void Create(CreateProduct cmd)
       {
+          cmd.Id = Guid.NewGuid();
           aggregate = new ProductAggregate(cmd);
           writeRepository.Save(aggregate.State);
       }

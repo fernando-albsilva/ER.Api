@@ -6,8 +6,8 @@ namespace ER.Commands
     public class SaveCommand : BaseEntity
     {
         public string Name { get; set; }
-        public double UnitValue { get; set; }
-        public double Cost { get; set; }
+        public decimal UnitValue { get; set; }
+        public decimal Cost { get; set; }
 
     }
 

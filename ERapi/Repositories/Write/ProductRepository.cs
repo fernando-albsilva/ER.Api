@@ -19,19 +19,31 @@ namespace ER.Repositories
         {
 
             Console.WriteLine(state);
-                       try
+            try
             {
-                SqlConnection sqlConn = new SqlConnection(this.SqlConnectionFactory.GetConnectionString());
+                SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
 
                 sqlConn.Open();
 
-                queyString = "insert into tabela_produto (nome,valor,custo_unitario) values  ('" + produto.Nome +  "','" + produto.Valor.ToString()+ "','" + produto.Custo.ToString()+"')";
+                var queryString = "insert into Product (Id,Name,UnitValue,Cost) values  ('" + state.Id +  "','" + state.Name+ "',@valor,@custo)";
 
-                SqlCommand cmd = new SqlCommand(queyString, sqlConn);
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+             
+                SqlParameter param  = new SqlParameter();
 
-                cmd.ExecuteNonQuery();
+                param.ParameterName = "@valor";
+                param.Value = state.UnitValue;
+                sqlCmd.Parameters.Add(param);
 
-                cmd.Dispose();
+                param  = new SqlParameter();
+
+                param.ParameterName = "@custo";
+                param.Value = state.Cost;
+                sqlCmd.Parameters.Add(param);
+
+                sqlCmd.ExecuteNonQuery();
+
+                sqlCmd.Dispose();
 
             }
             catch (SqlException ex)
