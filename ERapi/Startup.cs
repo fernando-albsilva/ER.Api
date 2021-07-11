@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ER.Interfaces;
-using ER.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,7 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-
+using ER.Interfaces;
+using ER.Repositories;
+using ER.Infrastructure;
+using ER.CommandHandler;
 namespace ERapi
 {
     public class Startup
@@ -29,9 +30,18 @@ namespace ERapi
         public void ConfigureServices(IServiceCollection services)
         {
             //just having one coppy of instance
-            services.AddSingleton<IBaseReadProductRepository,ProductReadRepository>();
-            services.AddSingleton<IBaseProductRepository,ProductRepository>();
+            //Sql connection
+            services.AddSingleton<ISqlConnectionFactory,SqlConnectionFactory>();
             
+            //Repositories ( Read )
+            services.AddSingleton<IBaseReadProductRepository,ProductReadRepository>();
+            
+            //Reopsitories ( Write )
+            services.AddSingleton<IBaseWriteProductRepository,ProductWriteRepository>();
+            
+            //CommandHandlers
+            services.AddSingleton<IProductCommandHandler,ProductCommandHandler>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

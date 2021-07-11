@@ -4,10 +4,10 @@ using ER.States;
 
 namespace ER.Interfaces
 {
-    public interface IBaseProductRepository
+    public interface IBaseWriteProductRepository
     {
         public void Save(ProductState state);
-        public void Delete();
-        public void Update();
+        public void Delete(Guid Id);
+        public void Update(ProductState state);
     }
 }
