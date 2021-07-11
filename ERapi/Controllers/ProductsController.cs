@@ -21,8 +21,6 @@ namespace ER.Controllers
       private readonly IBaseWriteProductRepository writeRepository;
       private readonly IProductCommandHandler productCommandHandler;
 
-      private ProductAggregate aggregate;
-
       public ProductsController(IBaseReadProductRepository readRepository,IBaseWriteProductRepository writeRepository,IProductCommandHandler productCommandHandler)
       {
          this.readRepository = readRepository;
