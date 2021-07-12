@@ -43,6 +43,10 @@ namespace ERapi
             services.AddSingleton<IProductCommandHandler,ProductCommandHandler>();
 
             services.AddControllers();
+
+            services.AddCors(options => options.AddDefaultPolicy(
+                builder => builder.AllowAnyOrigin()
+            ));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ERapi", Version = "v1" });
@@ -62,6 +66,8 @@ namespace ERapi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
