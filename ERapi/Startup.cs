@@ -38,9 +38,13 @@ namespace ERapi
             
             //Reopsitories ( Write )
             services.AddSingleton<IBaseWriteProductRepository,ProductWriteRepository>();
-            
+            services.AddSingleton<IBaseWriteFunctionRepository,FunctionWriteRepository>();
+
             //CommandHandlers
             services.AddSingleton<IProductCommandHandler,ProductCommandHandler>();
+            services.AddSingleton<IFunctionCommandHandler,FunctionCommandHandler>();
+
+
 
             services.AddControllers();
 

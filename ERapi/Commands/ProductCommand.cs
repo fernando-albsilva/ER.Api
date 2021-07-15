@@ -3,7 +3,7 @@ using ER.Entities;
 
 namespace ER.Commands
 {
-    public class SaveCommand : BaseEntity
+    public class SaveProductCommand : BaseEntity
     {
         public string Name { get; set; }
         public decimal UnitValue { get; set; }
@@ -11,11 +11,11 @@ namespace ER.Commands
 
     }
 
-    public class CreateProduct : SaveCommand
+    public class CreateProduct : SaveProductCommand
     {
 
     }
-      public class UpdateProduct : SaveCommand
+      public class UpdateProduct : SaveProductCommand
     {
 
     }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PICHAU\\Desktop\\WebApi\\ERapi\\ERapi.csproj": {}
+    "F:\\Projeto\\ER.Api\\ERapi\\ERapi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PICHAU\\Desktop\\WebApi\\ERapi\\ERapi.csproj": {
+    "F:\\Projeto\\ER.Api\\ERapi\\ERapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PICHAU\\Desktop\\WebApi\\ERapi\\ERapi.csproj",
+        "projectUniqueName": "F:\\Projeto\\ER.Api\\ERapi\\ERapi.csproj",
         "projectName": "ERapi",
-        "projectPath": "C:\\Users\\PICHAU\\Desktop\\WebApi\\ERapi\\ERapi.csproj",
-        "packagesPath": "C:\\Users\\PICHAU\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PICHAU\\Desktop\\WebApi\\ERapi\\obj\\",
+        "projectPath": "F:\\Projeto\\ER.Api\\ERapi\\ERapi.csproj",
+        "packagesPath": "C:\\Users\\linco\\.nuget\\packages\\",
+        "outputPath": "F:\\Projeto\\ER.Api\\ERapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\PICHAU\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\linco\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

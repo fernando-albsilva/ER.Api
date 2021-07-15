@@ -32,7 +32,7 @@ namespace ER.Aggregates
   
         }
 
-        public void validadeProductCommand(SaveCommand cmd)
+        public void validadeProductCommand(SaveProductCommand cmd)
         {
             if (String.IsNullOrEmpty(cmd.Name))
             {
