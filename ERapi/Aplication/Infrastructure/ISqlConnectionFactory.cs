@@ -1,4 +1,4 @@
-namespace ER.Infrastructure
+namespace ERapi.Aplication.Infrastructure
 {
     public interface ISqlConnectionFactory
     {

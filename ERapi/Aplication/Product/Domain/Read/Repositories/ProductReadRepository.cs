@@ -1,12 +1,11 @@
-using ER.Interfaces;
-using ER.Models;
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using ER.Infrastructure;
 using System.Data.SqlClient;
+using ERapi.Aplication.Infrastructure;
+using ERapi.Aplication.Product.Domain.Read.Model;
 
-namespace ER.Repositories
+namespace ERapi.Aplication.Product.Domain.Read.Repositories
 {
     public class ProductReadRepository : IBaseReadProductRepository
     {
@@ -29,15 +28,15 @@ namespace ER.Repositories
                 var queyString = "select * from Product where Product.Id = @Id ";
 
                 SqlCommand sqlCmd = new SqlCommand(queyString, sqlConn);
-                
-                SqlParameter param  = new SqlParameter();
+
+                SqlParameter param = new SqlParameter();
 
                 param.ParameterName = "@Id";
                 param.Value = Id.ToString();
                 sqlCmd.Parameters.Add(param);
 
                 SqlDataReader dados = sqlCmd.ExecuteReader();
-               
+
 
                 ProductModel productModel = new ProductModel();
 
@@ -50,7 +49,7 @@ namespace ER.Repositories
                     productModel.Cost = dados.GetDecimal(3);
 
                 }
-                
+
                 dados.Close();
 
                 return productModel;
@@ -66,7 +65,7 @@ namespace ER.Repositories
 
         public IEnumerable<ProductModel> GetAll()
         {
-           try
+            try
             {
                 SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
 
@@ -75,13 +74,13 @@ namespace ER.Repositories
                 var queyString = "select * from Product";
 
                 SqlCommand sqlCmd = new SqlCommand(queyString, sqlConn);
-                
+
                 SqlDataReader dados = sqlCmd.ExecuteReader();
-               
+
                 ProductModel productModel = new ProductModel();
-                
-                this.products = new List<ProductModel>();
-                
+
+                products = new List<ProductModel>();
+
                 while (dados.Read())
                 {
 
@@ -91,10 +90,10 @@ namespace ER.Repositories
                     productModel.Cost = dados.GetDecimal(3);
 
                     products.Add(productModel);
-                    
+
                     productModel = new ProductModel();
                 }
-                
+
                 dados.Close();
 
                 return products;
@@ -106,6 +105,6 @@ namespace ER.Repositories
                 throw new NotImplementedException();
 
             }
-       }
+        }
     }
 }

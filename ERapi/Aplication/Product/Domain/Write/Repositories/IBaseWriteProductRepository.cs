@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using ER.States;
+using ERapi.Aplication.Product.Domain.Write.States;
 
-namespace ER.Interfaces
+namespace ERapi.Aplication.Product.Domain.Write.Repositories
 {
     public interface IBaseWriteProductRepository
     {

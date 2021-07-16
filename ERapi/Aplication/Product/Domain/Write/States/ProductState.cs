@@ -1,6 +1,6 @@
-using ER.Entities;
+using ERapi.Aplication.Product.Domain.Write.Entities;
 
-namespace ER.States
+namespace ERapi.Aplication.Product.Domain.Write.States
 {
     public class ProductState : BaseEntity
     {

@@ -1,7 +1,7 @@
 using System;
-using ER.Entities;
+using ERapi.Aplication.Product.Domain.Write.Entities;
 
-namespace ER.Commands
+namespace ERapi.Aplication.Product.Domain.Write.Commands
 {
     public class SaveProductCommand : BaseEntity
     {
@@ -15,7 +15,7 @@ namespace ER.Commands
     {
 
     }
-      public class UpdateProduct : SaveProductCommand
+    public class UpdateProduct : SaveProductCommand
     {
 
     }

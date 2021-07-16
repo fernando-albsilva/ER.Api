@@ -1,5 +1,5 @@
 using System;
-using ER.Commands;
+using ERapi.Aplication.Product.Domain.Write.Commands;
 
 namespace ER.Interfaces
 {

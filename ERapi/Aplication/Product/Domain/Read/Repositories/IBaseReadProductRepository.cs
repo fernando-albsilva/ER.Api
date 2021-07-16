@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using ER.Models;
+using ERapi.Aplication.Product.Domain.Read.Model;
 
-namespace ER.Interfaces
+namespace ERapi.Aplication.Product.Domain.Read.Repositories
 {
     public interface IBaseReadProductRepository
     {

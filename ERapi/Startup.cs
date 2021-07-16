@@ -15,6 +15,11 @@ using ER.Interfaces;
 using ER.Repositories;
 using ER.Infrastructure;
 using ER.CommandHandler;
+using ERapi.Aplication.Infrastructure;
+using ERapi.Aplication.Product.Domain.Read.Repositories;
+using ERapi.Aplication.Product.Domain.Write.CommandHandlers;
+using ERapi.Aplication.Product.Domain.Write.Repositories;
+
 namespace ERapi
 {
     public class Startup

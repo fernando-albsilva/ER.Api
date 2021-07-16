@@ -1,8 +1,8 @@
 using System;
-using ER.Commands;
-using ER.States;
+using ERapi.Aplication.Product.Domain.Write.Commands;
+using ERapi.Aplication.Product.Domain.Write.States;
 
-namespace ER.Aggregates
+namespace ERapi.Aplication.Product.Domain.Write.Aggregates
 {
     public class ProductAggregate
     {
@@ -25,24 +25,24 @@ namespace ER.Aggregates
 
         public void Change(UpdateProduct cmd)
         {
-                validadeProductCommand(cmd);
-                this.State.Name = cmd.Name;
-                this.State.UnitValue = cmd.UnitValue;
-                this.State.Cost = cmd.Cost;
-  
+            validadeProductCommand(cmd);
+            State.Name = cmd.Name;
+            State.UnitValue = cmd.UnitValue;
+            State.Cost = cmd.Cost;
+
         }
 
         public void validadeProductCommand(SaveProductCommand cmd)
         {
-            if (String.IsNullOrEmpty(cmd.Name))
+            if (string.IsNullOrEmpty(cmd.Name))
             {
                 throw new Exception("Não existe nome do produto.");
             }
-            if(cmd.UnitValue == 0)
+            if (cmd.UnitValue == 0)
             {
                 throw new Exception("Não existe Valor Unitario do produto.");
             }
-             if(cmd.Cost == 0)
+            if (cmd.Cost == 0)
             {
                 throw new Exception("Não existe Valor do Custo do produto.");
             }

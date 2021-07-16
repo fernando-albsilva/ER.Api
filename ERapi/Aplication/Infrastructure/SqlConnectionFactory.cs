@@ -1,3 +1,5 @@
+using ERapi.Aplication.Infrastructure;
+
 namespace ER.Infrastructure
 {
     public class SqlConnectionFactory : ISqlConnectionFactory

@@ -1,9 +1,9 @@
 using System;
-using ER.Entities;
+using ERapi.Aplication.Product.Domain.Read.BaseModel;
 
-namespace ER.Models
+namespace ERapi.Aplication.Product.Domain.Read.Model
 {
-    public class ProductModel : BaseEntity
+    public class ProductModel : BaseReadModel
     {
         public string Name { get; set; }
         public decimal UnitValue { get; set; }

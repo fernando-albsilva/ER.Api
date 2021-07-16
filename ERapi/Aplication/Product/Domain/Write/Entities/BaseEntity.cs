@@ -1,6 +1,6 @@
 using System;
 
-namespace ER.Entities
+namespace ERapi.Aplication.Product.Domain.Write.Entities
 {
     public class BaseEntity
     {

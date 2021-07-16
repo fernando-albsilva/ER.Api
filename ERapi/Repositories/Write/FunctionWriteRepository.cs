@@ -1,10 +1,10 @@
-using ER.Infrastructure;
 using ER.Interfaces;
 using ER.States;
+using ERapi.Aplication.Infrastructure;
 using System;
 using System.Data.SqlClient;
 
-namespace ER.Repositories 
+namespace ER.Repositories
 {
 
     public class FunctionWriteRepository : IBaseWriteFunctionRepository
