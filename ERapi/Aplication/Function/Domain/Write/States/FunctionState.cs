@@ -1,4 +1,4 @@
-namespace ER.States
+namespace ERapi.Aplication.Function.Domain.Write.States
 {
 
     public class FunctionState

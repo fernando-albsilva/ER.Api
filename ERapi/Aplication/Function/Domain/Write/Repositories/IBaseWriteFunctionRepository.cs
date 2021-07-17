@@ -1,6 +1,6 @@
-using ER.States;
+using ERapi.Aplication.Function.Domain.Write.States;
 
-namespace ER.Interfaces 
+namespace ERapi.Aplication.Function.Domain.Write.Repositories
 {
 
     public interface IBaseWriteFunctionRepository

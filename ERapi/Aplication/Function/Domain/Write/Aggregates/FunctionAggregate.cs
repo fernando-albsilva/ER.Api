@@ -1,8 +1,8 @@
-using ER.Commands;
-using ER.States;
+using ERapi.Aplication.Function.Domain.Write.Commands;
+using ERapi.Aplication.Function.Domain.Write.States;
 using System;
 
-namespace ER.Aggregates
+namespace ERapi.Aplication.Function.Domain.Write.Aggregates
 {
 
     public class FunctionAggregate
@@ -10,7 +10,7 @@ namespace ER.Aggregates
 
         public FunctionState State;
 
-        public FunctionAggregate(CreateFunction cmd) 
+        public FunctionAggregate(CreateFunction cmd)
         {
 
             ValidateFunctionCommand(cmd);
@@ -26,7 +26,7 @@ namespace ER.Aggregates
 
         public void ValidateFunctionCommand(SaveFunctionCommand cmd)
         {
-            if(string.IsNullOrEmpty(cmd.Type))
+            if (string.IsNullOrEmpty(cmd.Type))
             {
                 throw new Exception("Nao existe tipo da funcao");
             }

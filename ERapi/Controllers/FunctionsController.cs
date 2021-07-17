@@ -1,5 +1,5 @@
-using ER.Commands;
-using ER.Interfaces;
+using ERapi.Aplication.Function.Domain.Write.CommandHandllers;
+using ERapi.Aplication.Function.Domain.Write.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;
 

@@ -1,7 +1,7 @@
 using System;
-using ER.Commands;
+using ERapi.Aplication.Function.Domain.Write.Commands;
 
-namespace ER.Interfaces
+namespace ERapi.Aplication.Function.Domain.Write.CommandHandllers
 {
 
     public interface IFunctionCommandHandler

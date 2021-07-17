@@ -1,10 +1,9 @@
-using ER.Interfaces;
-using ER.States;
+using ERapi.Aplication.Function.Domain.Write.States;
 using ERapi.Aplication.Infrastructure;
 using System;
 using System.Data.SqlClient;
 
-namespace ER.Repositories
+namespace ERapi.Aplication.Function.Domain.Write.Repositories
 {
 
     public class FunctionWriteRepository : IBaseWriteFunctionRepository
@@ -23,10 +22,10 @@ namespace ER.Repositories
         {
 
             Console.WriteLine(state);
-            try 
+            try
             {
                 SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
-           
+
                 sqlConn.Open();
 
                 var queryString = "INSERT INTO [dbo].[Function] ([Type]) VALUES (@type)";
@@ -44,7 +43,7 @@ namespace ER.Repositories
                 sqlCmd.Dispose();
 
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine(ex.ToString());
             }
