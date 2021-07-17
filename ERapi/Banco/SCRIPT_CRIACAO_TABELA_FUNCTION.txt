@@ -1,0 +1,18 @@
+CREATE TABLE [Function]
+(
+	Funtion_Id int IDENTITY(1002,1) PRIMARY KEY,
+	Type nvarchar(80)
+);
+
+BEGIN
+INSERT INTO [Function] ([Type]) VALUES 
+('Desenvolvedor FrontEnd'),
+('Desenvolvedor BackEnd'),
+('Desenvolvedor Mobile'),
+('QA'),
+('PO'),
+('Tech Lead'),
+('CEO'),
+('DBA'),
+('Scrum Master')
+END
