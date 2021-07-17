@@ -70,7 +70,7 @@ namespace ER.Controllers
         }
 
         [HttpDelete]
-        [Route("Function/Delete")]
+        [Route("Functions/Delete")]
         
         public void Delete(int id)
         {
