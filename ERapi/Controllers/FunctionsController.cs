@@ -4,18 +4,21 @@ using ERapi.Aplication.Function.Domain.Write.CommandHandllers;
 using ERapi.Aplication.Function.Domain.Write.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 
 namespace ER.Controllers
 {
 
+    //GET  /Functions
+
     [ApiController]
-    public class FunctionController : ControllerBase
+    public class FunctionsController : ControllerBase
     {
 
         private readonly IFunctionCommandHandler functionCommandHandler;
         private readonly IBaseReadFunctionRepository readFunctionRepository;
 
-        public FunctionController(IFunctionCommandHandler functionCommandHandler, IBaseReadFunctionRepository readFunctionRepository)
+        public FunctionsController(IFunctionCommandHandler functionCommandHandler, IBaseReadFunctionRepository readFunctionRepository)
         {
             this.functionCommandHandler = functionCommandHandler;
             this.readFunctionRepository = readFunctionRepository;
@@ -25,9 +28,16 @@ namespace ER.Controllers
 
         #region Querys
 
+        [HttpGet]
+        [Route("Functions/GetAll")]
+        public IEnumerable<FunctionModel> GetAll()
+        {
+            var functionModelList = readFunctionRepository.GetAll();
+            return functionModelList;
+        }
 
         [HttpGet]
-        [Route("Function/GetById")]
+        [Route("Functions/GetById")]
         public FunctionModel GetById(int id)
         {
             var functionModel = readFunctionRepository.GetById(id);
@@ -41,13 +51,15 @@ namespace ER.Controllers
 
 
         [HttpPost]
-        [Route("Function/Create")]
+        [Route("Functions/Create")]
         public void Create(CreateFunction cmd)
         {
 
             functionCommandHandler.Handle(cmd);
 
         }
+
+        
 
         #endregion
 

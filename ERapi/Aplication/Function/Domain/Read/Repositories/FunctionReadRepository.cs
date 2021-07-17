@@ -20,7 +20,46 @@ namespace ERapi.Aplication.Function.Domain.Read.Repositories
 
         public IEnumerable<FunctionModel> GetAll()
         {
-            throw new System.NotImplementedException();
+            
+            try 
+            {
+                SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+            
+                sqlConn.Open();
+
+                var queryString = "SELECT * FROM [ER].[dbo].[Function]";
+
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+
+                SqlDataReader dados = sqlCmd.ExecuteReader();
+
+                FunctionModel functionModel = new FunctionModel();
+
+                List<FunctionModel> functions = new List<FunctionModel>();
+
+                while(dados.Read())
+                {
+                    functionModel.Id = dados.GetInt32(0);
+                    functionModel.Type = dados.GetString(1);
+
+                    functions.Add(functionModel);
+
+                    functionModel = new FunctionModel();
+                }
+
+                dados.Close();
+
+                return functions;
+            }
+            catch(SqlException ex) 
+            {
+
+                Console.WriteLine(ex.ToString());
+                throw new NotImplementedException();
+
+            }
+
+
         }
 
         public FunctionModel GetById(int id)
