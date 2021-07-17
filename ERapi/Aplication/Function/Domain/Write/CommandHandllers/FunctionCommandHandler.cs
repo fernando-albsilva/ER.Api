@@ -55,7 +55,9 @@ namespace ERapi.Aplication.Function.Domain.Write.CommandHandllers
 
         public void Handle(int id)
         {
-            throw new System.NotImplementedException();
+            FunctionModel functionModel = readFunctionReposirory.GetById(id);
+            ValidateId(functionModel);
+            writeFunctionRepository.Delete(functionModel.Id);
         }
 
 

@@ -68,7 +68,14 @@ namespace ER.Controllers
             functionCommandHandler.Handle(cmd);
 
         }
+
+        [HttpDelete]
+        [Route("Function/Delete")]
         
+        public void Delete(int id)
+        {
+            functionCommandHandler.Handle(id);
+        }
 
         #endregion
 

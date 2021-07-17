@@ -87,7 +87,30 @@ namespace ERapi.Aplication.Function.Domain.Write.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+
+                sqlConn.Open();
+
+                var queryString = "DELETE FROM [dbo].[Function] WHERE [Function_Id] = @Id";
+
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+
+                SqlParameter param = new SqlParameter();
+
+                param.ParameterName = "@Id";
+                param.Value = id;
+                sqlCmd.Parameters.Add(param);
+
+                sqlCmd.ExecuteNonQuery();
+
+                sqlCmd.Dispose();
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 
