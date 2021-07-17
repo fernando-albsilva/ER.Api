@@ -19,6 +19,7 @@ using ERapi.Aplication.Product.Domain.Write.CommandHandlers;
 using ERapi.Aplication.Product.Domain.Write.Repositories;
 using ERapi.Aplication.Function.Domain.Write.CommandHandllers;
 using ERapi.Aplication.Function.Domain.Write.Repositories;
+using ERapi.Aplication.Function.Domain.Read.Repositories;
 
 namespace ERapi
 {
@@ -40,7 +41,8 @@ namespace ERapi
             
             //Repositories ( Read )
             services.AddSingleton<IBaseReadProductRepository,ProductReadRepository>();
-            
+            services.AddSingleton<IBaseReadFunctionRepository, FunctionReadRepository>();
+
             //Reopsitories ( Write )
             services.AddSingleton<IBaseWriteProductRepository,ProductWriteRepository>();
             services.AddSingleton<IBaseWriteFunctionRepository,FunctionWriteRepository>();
