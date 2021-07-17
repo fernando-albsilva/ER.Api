@@ -9,6 +9,11 @@ namespace ERapi.Aplication.Function.Domain.Write.CommandHandllers
 
         public void Handle(CreateFunction cmd);
 
+
+        public void Handle(UpdateFunction cmd);
+
+
+        public void Handle(int id);
     }
 
 }

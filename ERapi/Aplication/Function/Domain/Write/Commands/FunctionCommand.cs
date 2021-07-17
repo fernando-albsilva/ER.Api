@@ -11,7 +11,12 @@ namespace ERapi.Aplication.Function.Domain.Write.Commands
     public class CreateFunction : SaveFunctionCommand
     {
 
+        
 
+    }
+
+    public class UpdateFunction : SaveFunctionCommand
+    {
 
     }
 

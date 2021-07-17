@@ -59,6 +59,15 @@ namespace ER.Controllers
 
         }
 
+        [HttpPut]
+        [Route("Functions/Update")]
+
+        public void Update(UpdateFunction cmd)
+        {
+
+            functionCommandHandler.Handle(cmd);
+
+        }
         
 
         #endregion

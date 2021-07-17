@@ -10,6 +10,12 @@ namespace ERapi.Aplication.Function.Domain.Write.Aggregates
 
         public FunctionState State;
 
+        public FunctionAggregate(FunctionState state)
+        {
+            this.State = state;
+
+        }
+
         public FunctionAggregate(CreateFunction cmd)
         {
 
@@ -23,6 +29,15 @@ namespace ERapi.Aplication.Function.Domain.Write.Aggregates
 
         }
 
+        public void Change(UpdateFunction cmd) 
+        {
+            ValidateFunctionCommand(cmd);
+            State.Id = cmd.Id;
+            State.Type = cmd.Type;
+        }
+
+
+
 
         public void ValidateFunctionCommand(SaveFunctionCommand cmd)
         {
@@ -33,6 +48,7 @@ namespace ERapi.Aplication.Function.Domain.Write.Aggregates
         }
 
     }
+
 
 
 }
