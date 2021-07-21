@@ -11,15 +11,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using ER.Interfaces;
 using ER.Infrastructure;
 using ERapi.Aplication.Infrastructure;
 using ERapi.Aplication.Product.Domain.Read.Repositories;
-using ERapi.Aplication.Product.Domain.Write.CommandHandlers;
 using ERapi.Aplication.Product.Domain.Write.Repositories;
 using ERapi.Aplication.Function.Domain.Write.CommandHandllers;
 using ERapi.Aplication.Function.Domain.Write.Repositories;
 using ERapi.Aplication.Function.Domain.Read.Repositories;
+using ERapi.Aplication.Worker.Domain.Write.CommandHandlers;
+using ERapi.Aplication.Worker.Domain.Write.Repositories;
+using ERapi.Aplication.Product.Domain.Write.CommandHandlers;
 
 namespace ERapi
 {
@@ -46,11 +47,12 @@ namespace ERapi
             //Reopsitories ( Write )
             services.AddSingleton<IBaseWriteProductRepository,ProductWriteRepository>();
             services.AddSingleton<IBaseWriteFunctionRepository,FunctionWriteRepository>();
+            services.AddSingleton<IBaseWriteWorkerRepository, WorkerWriteRepository>();
 
             //CommandHandlers
             services.AddSingleton<IProductCommandHandler,ProductCommandHandler>();
             services.AddSingleton<IFunctionCommandHandler,FunctionCommandHandler>();
-
+            services.AddSingleton<IWorkerCommandHandler,WorkerCommandHandler>();
 
 
             services.AddControllers();

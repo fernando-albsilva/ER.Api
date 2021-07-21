@@ -1,9 +1,9 @@
 using System;
 using ERapi.Aplication.Product.Domain.Write.Commands;
 
-namespace ER.Interfaces
+namespace ERapi.Aplication.Product.Domain.Write.CommandHandlers
 {
-    public interface IProductCommandHandler 
+    public interface IProductCommandHandler
     {
         public void Handle(CreateProduct cmd);
 

@@ -1,5 +1,4 @@
 using System;
-using ER.Interfaces;
 using ERapi.Aplication.Product.Domain.Read.Repositories;
 using ERapi.Aplication.Product.Domain.Read.Model;
 using ERapi.Aplication.Product.Domain.Write.Aggregates;
