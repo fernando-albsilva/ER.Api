@@ -21,6 +21,8 @@ using ERapi.Aplication.Function.Domain.Read.Repositories;
 using ERapi.Aplication.Worker.Domain.Write.CommandHandlers;
 using ERapi.Aplication.Worker.Domain.Write.Repositories;
 using ERapi.Aplication.Product.Domain.Write.CommandHandlers;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
 
 namespace ERapi
 {
@@ -38,31 +40,42 @@ namespace ERapi
         {
             //just having one coppy of instance
             //Sql connection
-            services.AddSingleton<ISqlConnectionFactory,SqlConnectionFactory>();
+            services.AddScoped<ISqlConnectionFactory,SqlConnectionFactory>();
             
             //Repositories ( Read )
-            services.AddSingleton<IBaseReadProductRepository,ProductReadRepository>();
-            services.AddSingleton<IBaseReadFunctionRepository, FunctionReadRepository>();
+            services.AddScoped<IBaseReadProductRepository,ProductReadRepository>();
+            services.AddScoped<IBaseReadFunctionRepository, FunctionReadRepository>();
 
             //Reopsitories ( Write )
-            services.AddSingleton<IBaseWriteProductRepository,ProductWriteRepository>();
-            services.AddSingleton<IBaseWriteFunctionRepository,FunctionWriteRepository>();
-            services.AddSingleton<IBaseWriteWorkerRepository, WorkerWriteRepository>();
+            services.AddScoped<IBaseWriteProductRepository,ProductWriteRepository>();
+            services.AddScoped<IBaseWriteFunctionRepository,FunctionWriteRepository>();
+            services.AddScoped<IBaseWriteWorkerRepository, WorkerWriteRepository>();
 
             //CommandHandlers
-            services.AddSingleton<IProductCommandHandler,ProductCommandHandler>();
-            services.AddSingleton<IFunctionCommandHandler,FunctionCommandHandler>();
-            services.AddSingleton<IWorkerCommandHandler,WorkerCommandHandler>();
+            services.AddScoped<IProductCommandHandler,ProductCommandHandler>();
+            services.AddScoped<IFunctionCommandHandler,FunctionCommandHandler>();
+            services.AddScoped<IWorkerCommandHandler,WorkerCommandHandler>();
 
 
             services.AddControllers();
 
             services.AddCors(options => options.AddDefaultPolicy(
-                builder => builder.AllowAnyOrigin()
+                builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()
             ));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ERapi", Version = "v1" });
+            });
+
+            //Configuracao Nhibernate
+            var connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ER;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            var _sessionFactory = Fluently.Configure()
+                                      .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connStr))
+                                      .Mappings(m => m.FluentMappings.AddFromAssembly(GetType().Assembly))
+                                      .BuildSessionFactory();
+            services.AddScoped(factory =>
+            {
+                return _sessionFactory.OpenSession();
             });
         }
 

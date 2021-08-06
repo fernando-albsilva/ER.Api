@@ -5,9 +5,9 @@ namespace ERapi.Aplication.Product.Domain.Read.Model
 {
     public class ProductModel : BaseReadModel
     {
-        public string Name { get; set; }
-        public decimal UnitValue { get; set; }
-        public decimal Cost { get; set; }
+        public virtual string Name { get; set; }
+        public virtual decimal UnitValue { get; set; }
+        public virtual decimal Cost { get; set; }
 
     }
 }

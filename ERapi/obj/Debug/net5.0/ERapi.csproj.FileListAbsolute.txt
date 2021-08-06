@@ -68,3 +68,47 @@ F:\Projeto\ER.Api\ERapi\obj\Debug\net5.0\ERapi.dll
 F:\Projeto\ER.Api\ERapi\obj\Debug\net5.0\ref\ERapi.dll
 F:\Projeto\ER.Api\ERapi\obj\Debug\net5.0\ERapi.pdb
 F:\Projeto\ER.Api\ERapi\obj\Debug\net5.0\ERapi.genruntimeconfig.cache
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.AssemblyInfoInputs.cache
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.AssemblyInfo.cs
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.csproj.CoreCompileInputs.cache
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\appsettings.json
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\ERapi.exe
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\ERapi.deps.json
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\ERapi.runtimeconfig.json
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\ERapi.runtimeconfig.dev.json
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\ERapi.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\ref\ERapi.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\ERapi.pdb
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\Antlr3.Runtime.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\FluentNHibernate.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\Iesi.Collections.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\NHibernate.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\Remotion.Linq.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\Remotion.Linq.EagerFetching.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.csprojAssemblyReference.cache
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\staticwebassets\ERapi.StaticWebAssets.Manifest.cache
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\staticwebassets\ERapi.StaticWebAssets.xml
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\scopedcss\bundle\ERapi.styles.css
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.RazorTargetAssemblyInfo.cache
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.csproj.CopyComplete
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ref\ERapi.dll
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.pdb
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.genruntimeconfig.cache

@@ -8,37 +8,40 @@ using ERapi.Aplication.Product.Domain.Write.Commands;
 using ERapi.Aplication.Product.Domain.Write.Repositories;
 using ERapi.Aplication.Product.Domain.Write.CommandHandlers;
 
+
 namespace ER.Controllers
 {
     //GET  /Products
-
-
+  
     [ApiController]
     public class ProductsController : ControllerBase
     {
       private readonly IBaseReadProductRepository readRepository;
       private readonly IBaseWriteProductRepository writeRepository;
       private readonly IProductCommandHandler productCommandHandler;
+      
 
-      public ProductsController(IBaseReadProductRepository readRepository,IBaseWriteProductRepository writeRepository,IProductCommandHandler productCommandHandler)
+        public ProductsController(IBaseReadProductRepository readRepository,IBaseWriteProductRepository writeRepository,IProductCommandHandler productCommandHandler)
       {
          this.readRepository = readRepository;
          this.writeRepository = writeRepository;
          this.productCommandHandler = productCommandHandler;
-      }
+       
+        }
 
       #region Querys
       
       [HttpGet]
-      [Route("Products/GetAll")]
+      [Route("Product/GetAll")]
       public IEnumerable<ProductModel> GetAll()
       {
-          var ProductModelList = readRepository.GetAll();
-          return ProductModelList;
-      } 
+            var ProductModelList = readRepository.GetAll();
+            return ProductModelList;
+        
+        } 
 
       [HttpGet]
-      [Route("Products/GetById")]
+      [Route("Product/GetById")]
        public ProductModel GetById(Guid id)
       {
           var productModel = readRepository.GetById(id);
@@ -50,7 +53,7 @@ namespace ER.Controllers
     #region Commands
 
       [HttpPost]
-      [Route("Product/Create")]
+      [Route("Product/Create")] 
       public void Create(CreateProduct cmd)
       {
           productCommandHandler.Handle(cmd);
