@@ -13,7 +13,7 @@ namespace ERapi.Aplication.Product.Domain.Maps.Write
         {   
             Table("Product");
 
-            Id(x => x.Id);
+            Id(x => x.Id).GeneratedBy.Assigned();
 
             Map(x => x.Name);
             Map(x => x.UnitValue);

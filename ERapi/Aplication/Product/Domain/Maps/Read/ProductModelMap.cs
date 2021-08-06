@@ -11,7 +11,8 @@ namespace ERapi.Aplication.Product.Domain.Maps
     {
         public ProductModelMap()
         {
-            
+            ReadOnly();
+
             Table("Product");
             
             Id(x => x.Id);

@@ -7,7 +7,7 @@ namespace ERapi.Aplication.Product.Domain.Write.Repositories
     public interface IBaseWriteProductRepository
     {
         public void Save(ProductState state);
-        public void Delete(Guid Id);
+        public void Delete(ProductState state);
         public void Update(ProductState state);
     }
 }

@@ -46,7 +46,14 @@ namespace ERapi.Aplication.Product.Domain.Write.CommandHandlers
         {
             ProductModel productModel = readRepository.GetById(Id);
             ValidadeId(productModel);
-            writeRepository.Delete(productModel.Id);
+            ProductState state = new ProductState
+            {
+                Id = productModel.Id,
+                Name = productModel.Name,
+                UnitValue = productModel.UnitValue,
+                Cost = productModel.Cost
+            };
+            writeRepository.Delete(state);
         }
 
         private void ValidadeId(ProductModel productModel)
