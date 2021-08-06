@@ -13,6 +13,8 @@ namespace ERapi
     {
         public static void Main(string[] args)
         {
+            NHibernateProfilerBootstrapper.PreStart();
+
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -24,3 +26,4 @@ namespace ERapi
                 });
     }
 }
+

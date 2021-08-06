@@ -4,6 +4,6 @@ namespace ERapi.Aplication.Product.Domain.Write.Entities
 {
     public class BaseEntity
     {
-        public Guid Id { get; set; }
+        public virtual Guid Id { get; set; }
     }
 }

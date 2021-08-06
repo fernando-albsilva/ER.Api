@@ -4,9 +4,9 @@ namespace ERapi.Aplication.Product.Domain.Write.States
 {
     public class ProductState : BaseEntity
     {
-        public string Name { get; set; }
-        public decimal UnitValue { get; set; }
-        public decimal Cost { get; set; }
+        public virtual string Name { get; set; }
+        public virtual decimal UnitValue { get; set; }
+        public virtual decimal Cost { get; set; }
 
     }
 }

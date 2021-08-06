@@ -3,18 +3,26 @@ using System.Data;
 using System.Data.SqlClient;
 using ERapi.Aplication.Infrastructure;
 using ERapi.Aplication.Product.Domain.Write.States;
+using NHibernate;
 
 namespace ERapi.Aplication.Product.Domain.Write.Repositories
 {
     public class ProductWriteRepository : IBaseWriteProductRepository
     {
         private ISqlConnectionFactory sqlConnectionFactory;
-        public ProductWriteRepository(ISqlConnectionFactory sqlConnectionFactory)
+        private readonly ISession _session;
+        public ProductWriteRepository(ISqlConnectionFactory sqlConnectionFactory, ISession _session)
         {
             this.sqlConnectionFactory = sqlConnectionFactory;
+            this._session = _session;
         }
 
         public void Save(ProductState state)
+        {
+            _session.Save(state);
+        }
+
+       /* public void Save(ProductState state)
         {
 
             Console.WriteLine(state);
@@ -51,7 +59,7 @@ namespace ERapi.Aplication.Product.Domain.Write.Repositories
                 Console.WriteLine(ex.ToString());
 
             }
-        }
+        }*/
         public void Delete(Guid Id)
         {
 

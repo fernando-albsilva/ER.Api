@@ -111,3 +111,4 @@ C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.dll
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ref\ERapi.dll
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.pdb
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.genruntimeconfig.cache
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.csprojAssemblyReference.cache
