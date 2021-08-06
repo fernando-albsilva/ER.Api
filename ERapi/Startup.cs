@@ -28,6 +28,7 @@ namespace ERapi
 {
     public class Startup
     {
+     
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -67,8 +68,10 @@ namespace ERapi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ERapi", Version = "v1" });
             });
 
-            //Configuracao Nhibernate
-            var connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ER;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            //NHibernate Configuration
+            var sqlConnectionFactory = new SqlConnectionFactory();
+            var connStr = sqlConnectionFactory.GetConnectionString();
+            // var connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ER;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             var _sessionFactory = Fluently.Configure()
                                       .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connStr))
                                       .Mappings(m => m.FluentMappings.AddFromAssembly(GetType().Assembly))
