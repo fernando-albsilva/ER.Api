@@ -57,7 +57,16 @@ namespace ERapi.Aplication.Function.Domain.Write.CommandHandllers
         {
             FunctionModel functionModel = readFunctionReposirory.GetById(id);
             ValidateId(functionModel);
-            writeFunctionRepository.Delete(functionModel.Id);
+            FunctionState state = new FunctionState
+            {
+                Id = functionModel.Id,
+                Type = functionModel.Type
+            };
+
+
+
+
+            writeFunctionRepository.Delete(state);
         }
 
 

@@ -1,15 +1,12 @@
 ﻿using ERapi.Aplication.Product.Domain.Read.Model;
 using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace ERapi.Aplication.Product.Domain.Maps
 {
-    public class ProductModelMap : ClassMap<ProductModel>
+    public class FunctionModelMap : ClassMap<ProductModel>
     {
-        public ProductModelMap()
+        public FunctionModelMap()
         {
             ReadOnly();
 

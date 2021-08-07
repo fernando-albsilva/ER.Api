@@ -1,4 +1,3 @@
-using System;
 using ERapi.Aplication.Function.Domain.Write.Commands;
 
 namespace ERapi.Aplication.Function.Domain.Write.CommandHandllers

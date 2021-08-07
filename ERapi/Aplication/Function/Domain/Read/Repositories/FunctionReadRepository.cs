@@ -1,24 +1,39 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Linq;
 using ERapi.Aplication.Function.Domain.Read.Model;
-using ERapi.Aplication.Infrastructure;
+using NHibernate;
 
 namespace ERapi.Aplication.Function.Domain.Read.Repositories
 {
 
     public class FunctionReadRepository : IBaseReadFunctionRepository
     {
-        private ISqlConnectionFactory sqlConnectionFactory;
-
-        public FunctionReadRepository(ISqlConnectionFactory sqlConnectionFactory)
+        private readonly ISession _session;
+        public FunctionReadRepository(ISession _session)
         {
 
-            this.sqlConnectionFactory = sqlConnectionFactory;
+            this._session = _session;
 
         }
 
-        public IEnumerable<FunctionModel> GetAll()
+        public FunctionModel GetById(int id)
+        {
+            var function = new FunctionModel();
+            var list = _session.Query<FunctionModel>().Where(x => x.Id == id).ToList();
+
+            function = list.ElementAt(0);
+
+            return function;
+        }
+
+         public IEnumerable<FunctionModel> GetAll()
+        {
+            var list = _session.Query<FunctionModel>().ToList();
+            return list;
+        }
+
+        /*public IEnumerable<FunctionModel> GetAll()
         {
             
             try 
@@ -60,53 +75,53 @@ namespace ERapi.Aplication.Function.Domain.Read.Repositories
             }
 
 
-        }
+        }*/
 
-        public FunctionModel GetById(int id)
-        {
-           
-            try
-            {
+        /* public FunctionModel GetById(int id)
+         {
 
-                SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+             try
+             {
 
-                sqlConn.Open();
+                 SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
 
-                var queryString = "SELECT * FROM [ER].[dbo].[Function] WHERE [Function_Id] = @Id";
+                 sqlConn.Open();
 
-                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+                 var queryString = "SELECT * FROM [ER].[dbo].[Function] WHERE [Function_Id] = @Id";
 
-                SqlParameter param = new SqlParameter();
+                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
 
-                param.ParameterName = "@Id";
-                param.Value = id.ToString();
-                sqlCmd.Parameters.Add(param);
+                 SqlParameter param = new SqlParameter();
 
-                SqlDataReader dados = sqlCmd.ExecuteReader();
+                 param.ParameterName = "@Id";
+                 param.Value = id.ToString();
+                 sqlCmd.Parameters.Add(param);
 
-                FunctionModel functionModel = new FunctionModel();
+                 SqlDataReader dados = sqlCmd.ExecuteReader();
 
-                while(dados.Read())
-                {
+                 FunctionModel functionModel = new FunctionModel();
 
-                    functionModel.Id = dados.GetInt32(0);
-                    functionModel.Type = dados.GetString(1);
+                 while(dados.Read())
+                 {
 
-                }
+                     functionModel.Id = dados.GetInt32(0);
+                     functionModel.Type = dados.GetString(1);
 
-                dados.Close();
+                 }
 
-                return functionModel;
-            
-            }
-            catch (SqlException ex)
-            {
+                 dados.Close();
 
-                Console.WriteLine(ex.ToString());
-                throw new NotImplementedException();
+                 return functionModel;
 
-            }
+             }
+             catch (SqlException ex)
+             {
 
-        }
+                 Console.WriteLine(ex.ToString());
+                 throw new NotImplementedException();
+
+             }
+
+         }*/
     }
 }

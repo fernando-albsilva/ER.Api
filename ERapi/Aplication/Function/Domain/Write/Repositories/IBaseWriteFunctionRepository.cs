@@ -10,7 +10,7 @@ namespace ERapi.Aplication.Function.Domain.Write.Repositories
 
         public void Update(FunctionState state);
 
-        public void Delete(int id);
+        public void Delete(FunctionState state);
 
     }
 

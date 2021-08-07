@@ -1,6 +1,3 @@
-using System;
-using System.Data;
-using System.Data.SqlClient;
 using ERapi.Aplication.Infrastructure;
 using ERapi.Aplication.Product.Domain.Write.States;
 using NHibernate;
@@ -9,11 +6,10 @@ namespace ERapi.Aplication.Product.Domain.Write.Repositories
 {
     public class ProductWriteRepository : IBaseWriteProductRepository
     {
-        private ISqlConnectionFactory sqlConnectionFactory;
         private readonly ISession _session;
-        public ProductWriteRepository(ISqlConnectionFactory sqlConnectionFactory, ISession _session)
+        public ProductWriteRepository(ISession _session)
         {
-            this.sqlConnectionFactory = sqlConnectionFactory;
+
             this._session = _session;
         }
 

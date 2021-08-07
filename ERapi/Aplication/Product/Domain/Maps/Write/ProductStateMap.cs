@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ERapi.Aplication.Product.Domain.Maps.Write
 {
-    public class ProductStateMap : ClassMap<ProductState>
+    public class FunctionStateMap : ClassMap<ProductState>
     {
-        public ProductStateMap()
+        public FunctionStateMap()
         {   
             Table("Product");
 

@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using System.Data.SqlClient;
-using ERapi.Aplication.Infrastructure;
 using ERapi.Aplication.Product.Domain.Read.Model;
 using NHibernate;
 
@@ -10,12 +8,9 @@ namespace ERapi.Aplication.Product.Domain.Read.Repositories
 {
     public class ProductReadRepository : IBaseReadProductRepository
     {
-        private ISqlConnectionFactory sqlConnectionFactory;
-        private List<ProductModel> products;
         private readonly ISession _session;
-        public ProductReadRepository(ISqlConnectionFactory sqlConnectionFactory, ISession _session)
+        public ProductReadRepository(ISession _session)
         {
-            this.sqlConnectionFactory = sqlConnectionFactory;
             this._session = _session;
         }
 
