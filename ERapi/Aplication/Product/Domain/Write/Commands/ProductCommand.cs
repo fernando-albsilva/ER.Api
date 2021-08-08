@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ERapi.Aplication.Product.Domain.Write.Entities;
 
 namespace ERapi.Aplication.Product.Domain.Write.Commands
@@ -19,4 +20,16 @@ namespace ERapi.Aplication.Product.Domain.Write.Commands
     {
 
     }
+
+    public class DeleteProduct : BaseEntity
+    { 
+
+    }
+
+    public class DeleteProductList 
+    {
+        public List<Guid> id = new List<Guid>();
+        
+    }
+
 }

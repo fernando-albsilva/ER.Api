@@ -42,9 +42,9 @@ namespace ERapi.Aplication.Product.Domain.Write.CommandHandlers
             writeRepository.Update(aggregate.State);
         }
 
-        public void Handle(Guid Id)
+        public void Handle(DeleteProduct cmd)
         {
-            ProductModel productModel = readRepository.GetById(Id);
+            ProductModel productModel = readRepository.GetById(cmd.Id);
             ValidadeId(productModel);
             ProductState state = new ProductState
             {

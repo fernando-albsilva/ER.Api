@@ -11,7 +11,6 @@ using ERapi.Aplication.Product.Domain.Write.CommandHandlers;
 
 namespace ER.Controllers
 {
-    //GET  /Products
   
     [ApiController]
     public class ProductsController : ControllerBase
@@ -32,7 +31,7 @@ namespace ER.Controllers
       #region Querys
       
       [HttpGet]
-      [Route("Product/GetAll")]
+      [Route("Products/GetAll")]
       public IEnumerable<ProductModel> GetAll()
       {
             var ProductModelList = readRepository.GetAll();
@@ -41,7 +40,7 @@ namespace ER.Controllers
         } 
 
       [HttpGet]
-      [Route("Product/GetById")]
+      [Route("Products/GetById")]
        public ProductModel GetById(Guid id)
       {
           var productModel = readRepository.GetById(id);
@@ -53,27 +52,35 @@ namespace ER.Controllers
     #region Commands
 
       [HttpPost]
-      [Route("Product/Create")] 
+      [Route("Products/Create")] 
       public void Create(CreateProduct cmd)
       {
           productCommandHandler.Handle(cmd);
       }
 
-      [HttpPut]
-      [Route("Product/Update")]
+      [HttpPost]
+      [Route("Products/Update")]
       public void Update(UpdateProduct cmd)
       {
           productCommandHandler.Handle(cmd);
       }
 
-      [HttpDelete]
-      [Route("Product/Delete")]
-      public void Delete(Guid Id)
+      [HttpPost]
+      [Route("Products/Delete")]
+      public void Delete(DeleteProduct cmd)
       {
-          productCommandHandler.Handle(Id);
+          productCommandHandler.Handle(cmd);
       }
 
-    #endregion
+        [HttpPost]
+        [Route("Products/DeleteByList")]
+        public void Delete(DeleteProductList cmd)
+        {
+           var i =2;
+            // productCommandHandler.Handle(cmd);
+        }
+
+        #endregion
 
     }
 }

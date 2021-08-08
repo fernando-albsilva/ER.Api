@@ -9,6 +9,6 @@ namespace ERapi.Aplication.Product.Domain.Write.CommandHandlers
 
         public void Handle(UpdateProduct cmd);
 
-        public void Handle(Guid Id);
+        public void Handle(DeleteProduct cmd);
     }
 }
