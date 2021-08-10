@@ -23,6 +23,6 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\PICHAU\.nuget\packages\microsoft.extensions.apidescription.server\3.0.0</PkgMicrosoft_Extensions_ApiDescription_Server>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\PICHAU\.nuget\packages\microsoft.codeanalysis.analyzers\3.0.0</PkgMicrosoft_CodeAnalysis_Analyzers>
-    <PkgNHibernateProfiler Condition=" '$(PkgNHibernateProfiler)' == '' ">C:\Users\PICHAU\.nuget\packages\nhibernateprofiler\6.0.6024</PkgNHibernateProfiler>
+    <PkgNHibernateProfiler Condition=" '$(PkgNHibernateProfiler)' == '' ">C:\Users\PICHAU\.nuget\packages\nhibernateprofiler\6.0.6025</PkgNHibernateProfiler>
   </PropertyGroup>
 </Project>

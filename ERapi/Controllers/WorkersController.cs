@@ -1,8 +1,8 @@
-using ERapi.Aplication.Worker.Domain.Commands;
-using ERapi.Aplication.Worker.Domain.Write.CommandHandlers;
+using Application.Aplication.Worker.Domain.Write.CommandHandlers;
+using Application.Aplication.Worker.Domain.Write.Commands;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ER.Controllers 
+namespace ERapi.Controllers 
 {
 
 [ApiController]
@@ -10,7 +10,7 @@ public class WorkersController : ControllerBase
 {
 
     private readonly IWorkerCommandHandler workerCommandHandler;
-    public WorkersController(IWorkerCommandHandler workerCommandHandler)
+        public WorkersController(IWorkerCommandHandler workerCommandHandler)
     {
         this.workerCommandHandler = workerCommandHandler;
     }

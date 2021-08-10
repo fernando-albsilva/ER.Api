@@ -11,18 +11,18 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using ER.Infrastructure;
-using ERapi.Aplication.Infrastructure;
-using ERapi.Aplication.Product.Domain.Read.Repositories;
-using ERapi.Aplication.Product.Domain.Write.Repositories;
-using ERapi.Aplication.Function.Domain.Write.CommandHandllers;
-using ERapi.Aplication.Function.Domain.Write.Repositories;
-using ERapi.Aplication.Function.Domain.Read.Repositories;
-using ERapi.Aplication.Worker.Domain.Write.CommandHandlers;
-using ERapi.Aplication.Worker.Domain.Write.Repositories;
-using ERapi.Aplication.Product.Domain.Write.CommandHandlers;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using Application;
+using Application.Aplication.Infrastructure;
+using Application.Aplication.Product.Domain.Read.Repositories;
+using Application.Aplication.Function.Domain.Read.Repositories;
+using Application.Aplication.Product.Domain.Write.Repositories;
+using Application.Aplication.Function.Domain.Write.Repositories;
+using Application.Aplication.Worker.Domain.Write.Repositories;
+using Application.Aplication.Product.Domain.Write.CommandHandlers;
+using Application.Aplication.Function.Domain.Write.CommandHandllers;
+using Application.Aplication.Worker.Domain.Write.CommandHandlers;
 
 namespace ERapi
 {

@@ -1,12 +1,13 @@
-using ERapi.Aplication.Function.Domain.Read.Model;
-using ERapi.Aplication.Function.Domain.Read.Repositories;
-using ERapi.Aplication.Function.Domain.Write.CommandHandllers;
-using ERapi.Aplication.Function.Domain.Write.Commands;
+
+using Application.Aplication.Function.Domain.Read.Model;
+using Application.Aplication.Function.Domain.Read.Repositories;
+using Application.Aplication.Function.Domain.Write.CommandHandllers;
+using Application.Aplication.Function.Domain.Write.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 
-namespace ER.Controllers
+namespace ERapi.Controllers
 {
 
     //GET  /Functions

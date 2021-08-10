@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Tx8VCDdjvS1xRFCwuzvbqL13m/i09uWJx2TFMLgAL3oswRjntBFmvZl04V6vUuaofZzYM7uM3awsMO2a7pXiUQ==",
+  "dgSpecHash": "OHds81tUINSmt+qWRccZBmyxQfrv2j3E+w5MGKYrlU1Sa6T3AwiqVbMy5kZOgt++mRaXsmsp+UzvCaGibh3VUA==",
   "success": true,
   "projectFilePath": "C:\\Users\\PICHAU\\Desktop\\Easy Restaurant Api\\ERapi\\ERapi.csproj",
   "expectedPackageFiles": [
@@ -28,7 +28,7 @@
     "C:\\Users\\PICHAU\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\nhibernate\\5.3.9\\nhibernate.5.3.9.nupkg.sha512",
-    "C:\\Users\\PICHAU\\.nuget\\packages\\nhibernateprofiler\\6.0.6024\\nhibernateprofiler.6.0.6024.nupkg.sha512",
+    "C:\\Users\\PICHAU\\.nuget\\packages\\nhibernateprofiler\\6.0.6025\\nhibernateprofiler.6.0.6025.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\remotion.linq\\2.2.0\\remotion.linq.2.2.0.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\remotion.linq.eagerfetching\\2.2.0\\remotion.linq.eagerfetching.2.2.0.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

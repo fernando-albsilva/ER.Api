@@ -421,7 +421,7 @@
           "lib/netcoreapp2.0/NHibernate.dll": {}
         }
       },
-      "NHibernateProfiler/6.0.6024": {
+      "NHibernateProfiler/6.0.6025": {
         "type": "package",
         "dependencies": {
           "Azure.Storage.Blobs": "12.6.0",
@@ -461,11 +461,10 @@
           "lib/netcoreapp2.1/HibernatingRhinos.Profiler.Appender.dll": {}
         },
         "contentFiles": {
-          "contentFiles/cs/netcoreapp2.1/NHibernateProfilerBootstrapper.cs.pp": {
-            "buildAction": "Compile",
-            "codeLanguage": "cs",
-            "copyToOutput": false,
-            "ppOutputPath": "NHibernateProfilerBootstrapper.cs"
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
           }
         }
       },
@@ -2260,6 +2259,21 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "FluentNHibernate": "3.1.0",
+          "NHibernate": "5.3.9",
+          "NHibernateProfiler": "6.0.6025"
+        },
+        "compile": {
+          "bin/placeholder/Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Application.dll": {}
+        }
       }
     }
   },
@@ -2981,10 +2995,10 @@
         "nhibernate.nuspec"
       ]
     },
-    "NHibernateProfiler/6.0.6024": {
-      "sha512": "PcM/BkCvC77jAbqSOe1SfUW6tTySOcBGTOb5L+i2jCg7+vH13wNsbbinx7I4AKpmmPaP958JHGU4xRNcGxL4JQ==",
+    "NHibernateProfiler/6.0.6025": {
+      "sha512": "v2VTfMnAEKCbmM6zdSmkEMRduWsfrSMP0XWUxXhbC3K73PJ0S163Z3nPtDMmC4iislMnQsbKEdaQZUc6z47gqA==",
       "type": "package",
-      "path": "nhibernateprofiler/6.0.6024",
+      "path": "nhibernateprofiler/6.0.6025",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -3003,7 +3017,7 @@
         "lib/netcoreapp2.1/HibernatingRhinos.Profiler.Appender.xml",
         "lib/netstandard2.0/HibernatingRhinos.Profiler.Appender.dll",
         "lib/netstandard2.0/HibernatingRhinos.Profiler.Appender.xml",
-        "nhibernateprofiler.6.0.6024.nupkg.sha512",
+        "nhibernateprofiler.6.0.6025.nupkg.sha512",
         "nhibernateprofiler.nuspec",
         "tools/AutoUpdater.NET.dll",
         "tools/Azure.Core.dll",
@@ -3040,6 +3054,7 @@
         "tools/gudusoft.gsqlparser.dll",
         "tools/init.ps1",
         "tools/license.txt",
+        "tools/log.txt",
         "tools/log4net.dll"
       ]
     },
@@ -7736,13 +7751,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "Application/1.0.0": {
+      "type": "project",
+      "path": "../Application/Application.csproj",
+      "msbuildProject": "../Application/Application.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "FluentNHibernate >= 3.1.0",
-      "NHibernate >= 5.3.9",
-      "NHibernateProfiler >= 6.0.6024",
+      "Application >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3",
       "System.Data.SqlClient >= 4.8.2"
     ]
@@ -7778,7 +7796,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\PICHAU\\Desktop\\Easy Restaurant Api\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\PICHAU\\Desktop\\Easy Restaurant Api\\Application\\Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -7791,18 +7813,6 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "FluentNHibernate": {
-            "target": "Package",
-            "version": "[3.1.0, )"
-          },
-          "NHibernate": {
-            "target": "Package",
-            "version": "[5.3.9, )"
-          },
-          "NHibernateProfiler": {
-            "target": "Package",
-            "version": "[6.0.6024, )"
-          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.6.3, )"

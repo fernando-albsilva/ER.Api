@@ -33,9 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "ERapi/1.0.0": {
         "dependencies": {
-          "FluentNHibernate": "3.1.0",
-          "NHibernate": "5.3.9",
-          "NHibernateProfiler": "6.0.6024",
+          "Application": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "System.Data.SqlClient": "4.8.2",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -704,7 +702,7 @@
           "lib/netcoreapp2.0/NHibernate.dll": {}
         }
       },
-      "NHibernateProfiler/6.0.6024": {
+      "NHibernateProfiler/6.0.6025": {
         "dependencies": {
           "Azure.Storage.Blobs": "12.6.0",
           "Google.Protobuf": "3.13.0",
@@ -739,7 +737,7 @@
         "runtime": {
           "lib/netcoreapp2.1/HibernatingRhinos.Profiler.Appender.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.6024.0"
+            "fileVersion": "6.0.6025.0"
           }
         },
         "compile": {
@@ -1737,6 +1735,19 @@
           "System.Text.Encoding": "4.3.0",
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
+        }
+      },
+      "Application/1.0.0": {
+        "dependencies": {
+          "FluentNHibernate": "3.1.0",
+          "NHibernate": "5.3.9",
+          "NHibernateProfiler": "6.0.6025"
+        },
+        "runtime": {
+          "Application.dll": {}
+        },
+        "compile": {
+          "Application.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3613,12 +3624,12 @@
       "path": "nhibernate/5.3.9",
       "hashPath": "nhibernate.5.3.9.nupkg.sha512"
     },
-    "NHibernateProfiler/6.0.6024": {
+    "NHibernateProfiler/6.0.6025": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PcM/BkCvC77jAbqSOe1SfUW6tTySOcBGTOb5L+i2jCg7+vH13wNsbbinx7I4AKpmmPaP958JHGU4xRNcGxL4JQ==",
-      "path": "nhibernateprofiler/6.0.6024",
-      "hashPath": "nhibernateprofiler.6.0.6024.nupkg.sha512"
+      "sha512": "sha512-v2VTfMnAEKCbmM6zdSmkEMRduWsfrSMP0XWUxXhbC3K73PJ0S163Z3nPtDMmC4iislMnQsbKEdaQZUc6z47gqA==",
+      "path": "nhibernateprofiler/6.0.6025",
+      "hashPath": "nhibernateprofiler.6.0.6025.nupkg.sha512"
     },
     "Remotion.Linq/2.2.0": {
       "type": "package",
@@ -4403,6 +4414,11 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
       "type": "referenceassembly",
