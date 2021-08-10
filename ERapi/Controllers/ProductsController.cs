@@ -74,10 +74,9 @@ namespace ER.Controllers
 
         [HttpPost]
         [Route("Products/DeleteByList")]
-        public void Delete(DeleteProductList cmd)
+        public void DeleteByList(DeleteProductList cmd)
         {
-           var i =2;
-            // productCommandHandler.Handle(cmd);
+           /* productCommandHandler.Handle(cmd);*/
         }
 
         #endregion
