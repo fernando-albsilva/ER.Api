@@ -9,7 +9,7 @@ namespace Application.Aplication.Product.Domain.Maps.Read
             public FunctionModelMap()
             {
                   ReadOnly();
-                  Schema("dbo");
+                  
                   Table("Product");
 
                   Id(x => x.Id);
