@@ -4,11 +4,11 @@ using FluentNHibernate.Mapping;
 
 namespace Application.Aplication.Product.Domain.Maps.Read
 {
-      public class FunctionModelMap : ClassMap<ProductModel>
+      public class ProductModelMap : ClassMap<ProductModel>
       {
-            public FunctionModelMap()
+            public ProductModelMap()
             {
-                  ReadOnly();
+                   ReadOnly();
                   
                   Table("Product");
 

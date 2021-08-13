@@ -23,6 +23,7 @@ using Application.Aplication.Worker.Domain.Write.Repositories;
 using Application.Aplication.Product.Domain.Write.CommandHandlers;
 using Application.Aplication.Function.Domain.Write.CommandHandllers;
 using Application.Aplication.Worker.Domain.Write.CommandHandlers;
+using Application.Aplication.Product.Domain.Maps.Read;
 
 namespace ERapi
 {
@@ -41,7 +42,7 @@ namespace ERapi
         {
             //just having one coppy of instance
             //Sql connection
-            services.AddScoped<ISqlConnectionFactory,SqlConnectionFactory>();
+            services.AddSingleton<ISqlConnectionFactory,SqlConnectionFactory>();
             
             //Repositories ( Read )
             services.AddScoped<IBaseReadProductRepository,ProductReadRepository>();
@@ -71,11 +72,15 @@ namespace ERapi
             //NHibernate Configuration
             var sqlConnectionFactory = new SqlConnectionFactory();
             var connStr = sqlConnectionFactory.GetConnectionString();
-            // var connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ER;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            var _sessionFactory = Fluently.Configure()
+           //  var connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ER;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+           /* var _sessionFactory = Fluently.Configure()
                                       .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connStr))
                                       .Mappings(m => m.FluentMappings.AddFromAssembly(GetType().Assembly))
-                                      .BuildSessionFactory();
+                                      .BuildSessionFactory();*/
+            var _sessionFactory = Fluently.Configure()
+                            .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connStr))
+                            .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ProductModelMap>())
+                            .BuildSessionFactory();
             services.AddScoped(factory =>
             {
                 return _sessionFactory.OpenSession();

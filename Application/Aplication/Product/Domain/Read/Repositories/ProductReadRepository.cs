@@ -3,109 +3,117 @@ using System;
 using System.Linq;
 using NHibernate;
 using Application.Aplication.Product.Domain.Read.Model;
+using System.Data.SqlClient;
+using Application.Aplication.Infrastructure;
 
 namespace Application.Aplication.Product.Domain.Read.Repositories
 {
       public class ProductReadRepository : IBaseReadProductRepository
       {
             private readonly ISession _session;
-            public ProductReadRepository(ISession _session)
+
+        public ISqlConnectionFactory sqlConnectionFactory;
+        private List<ProductModel> products;
+
+        public ProductReadRepository(ISession _session, ISqlConnectionFactory SqlConnectionFactory)
             {
                   this._session = _session;
+            this.sqlConnectionFactory = SqlConnectionFactory;
+
             }
 
 
-            /*  public ProductModel GetById(Guid Id)
+        /*  public ProductModel GetById(Guid Id)
+          {
+              try
               {
-                  try
-                  {
-                      SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+                  SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
 
-                      sqlConn.Open();
+                  sqlConn.Open();
 
-                      var queyString = "select * from Product where Product.Id = @Id ";
+                  var queyString = "select * from Product where Product.Id = @Id ";
 
-                      SqlCommand sqlCmd = new SqlCommand(queyString, sqlConn);
+                  SqlCommand sqlCmd = new SqlCommand(queyString, sqlConn);
 
-                      SqlParameter param = new SqlParameter();
+                  SqlParameter param = new SqlParameter();
 
-                      param.ParameterName = "@Id";
-                      param.Value = Id.ToString();
-                      sqlCmd.Parameters.Add(param);
+                  param.ParameterName = "@Id";
+                  param.Value = Id.ToString();
+                  sqlCmd.Parameters.Add(param);
 
-                      SqlDataReader dados = sqlCmd.ExecuteReader();
+                  SqlDataReader dados = sqlCmd.ExecuteReader();
 
 
-                      ProductModel productModel = new ProductModel();
+                  ProductModel productModel = new ProductModel();
 
-                      while (dados.Read())
-                      {
-
-                          productModel.Id = Guid.Parse(dados.GetString(0));
-                          productModel.Name = dados.GetString(1);
-                          productModel.UnitValue = dados.GetDecimal(2);
-                          productModel.Cost = dados.GetDecimal(3);
-
-                      }
-
-                      dados.Close();
-
-                      return productModel;
-                  }
-                  catch (SqlException ex)
+                  while (dados.Read())
                   {
 
-                      Console.WriteLine(ex.ToString());
-                      throw new NotImplementedException();
+                      productModel.Id = Guid.Parse(dados.GetString(0));
+                      productModel.Name = dados.GetString(1);
+                      productModel.UnitValue = dados.GetDecimal(2);
+                      productModel.Cost = dados.GetDecimal(3);
 
                   }
-              }*/
 
-            /* public IEnumerable<ProductModel> GetAll()
-             {
-                 try
-                 {
-                     SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+                  dados.Close();
 
-                     sqlConn.Open();
+                  return productModel;
+              }
+              catch (SqlException ex)
+              {
 
-                     var queyString = "select * from Product";
+                  Console.WriteLine(ex.ToString());
+                  throw new NotImplementedException();
 
-                     SqlCommand sqlCmd = new SqlCommand(queyString, sqlConn);
+              }
+          }*/
 
-                     SqlDataReader dados = sqlCmd.ExecuteReader();
+       /* public IEnumerable<ProductModel> GetAll()
+        {
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
 
-                     ProductModel productModel = new ProductModel();
+                sqlConn.Open();
 
-                     products = new List<ProductModel>();
+                var queyString = "select * from Product";
 
-                     while (dados.Read())
-                     {
+                SqlCommand sqlCmd = new SqlCommand(queyString, sqlConn);
 
-                         productModel.Id = Guid.Parse(dados.GetString(0));
-                         productModel.Name = dados.GetString(1).TrimEnd();
-                         productModel.UnitValue = dados.GetDecimal(2);
-                         productModel.Cost = dados.GetDecimal(3);
+                SqlDataReader dados = sqlCmd.ExecuteReader();
 
-                         products.Add(productModel);
+                ProductModel productModel = new ProductModel();
 
-                         productModel = new ProductModel();
-                     }
+                products = new List<ProductModel>();
 
-                     dados.Close();
+                while (dados.Read())
+                {
 
-                     return products;
-                 }
-                 catch (SqlException ex)
-                 {
+                    productModel.Id = Guid.Parse(dados.GetString(0));
+                    productModel.Name = dados.GetString(1).TrimEnd();
+                    productModel.UnitValue = dados.GetDecimal(2);
+                    productModel.Cost = dados.GetDecimal(3);
 
-                     Console.WriteLine(ex.ToString());
-                     throw new NotImplementedException();
+                    products.Add(productModel);
 
-                 }
-             }*/
+                    productModel = new ProductModel();
+                }
 
-            public ProductModel GetById(Guid Id)
+                dados.Close();
+
+                return products;
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+                throw new NotImplementedException();
+
+            }
+        }*/
+
+        public ProductModel GetById(Guid Id)
             {
                   var product = new ProductModel();
                   var list = _session.Query<ProductModel>().Where(x => x.Id == Id).ToList();
@@ -115,10 +123,10 @@ namespace Application.Aplication.Product.Domain.Read.Repositories
                   return product;
             }
 
-            public IEnumerable<ProductModel> GetAll()
-            {
-                  var list = _session.Query<ProductModel>().ToList();
-                  return list;
-            }
-      }
+        public IEnumerable<ProductModel> GetAll()
+        {
+            var list = this._session.Query<ProductModel>().ToList();
+            return list;
+        }
+    }
 }

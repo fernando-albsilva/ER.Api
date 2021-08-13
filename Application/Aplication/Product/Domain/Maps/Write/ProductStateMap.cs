@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Application.Aplication.Product.Domain.Maps.Write
 {
-      public class FunctionStateMap : ClassMap<ProductState>
+      public class ProductStateMap : ClassMap<ProductState>
       {
-            public FunctionStateMap()
+            public ProductStateMap()
             {
                   Table("Product");
 
