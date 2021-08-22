@@ -1,5 +1,7 @@
 using Application.Aplication.Product.Domain.Write.States;
 using NHibernate;
+using System;
+using System.Linq;
 
 namespace Application.Aplication.Product.Domain.Write.Repositories
 {
@@ -12,15 +14,30 @@ namespace Application.Aplication.Product.Domain.Write.Repositories
                   this._session = _session;
             }
 
-            public void Save(ProductState state)
+            public ProductState GetById(Guid Id)
             {
-                  using (var tran = _session.BeginTransaction())
-                  {
-                        _session.Save(state);
-                        tran.Commit();
-                  }
+                var productState = new ProductState();
+                var list = _session.Query<ProductState>().Where(x => x.Id == Id).ToList();
 
+                productState = list.ElementAt(0);
+
+                if (list.Count < 1)
+                {
+                    productState.Id = Guid.Empty;
+                }
+
+                return productState;
             }
+
+            public void Save(ProductState state)
+                {
+                      using (var tran = _session.BeginTransaction())
+                      {
+                            _session.Save(state);
+                            tran.Commit();
+                      }
+
+                }
 
             public void Delete(ProductState state)
             {
@@ -41,117 +58,119 @@ namespace Application.Aplication.Product.Domain.Write.Repositories
                   }
             }
 
-            /* public void Save(ProductState state)
+
+
+        /* public void Save(ProductState state)
+         {
+
+             Console.WriteLine(state);
+             try
+             {
+                 SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+
+                 sqlConn.Open();
+
+                 var queryString = "INSERT INTO Product (Id,Name,UnitValue,Cost) VALUES  ('" + state.Id + "','" + state.Name + "',@valor,@custo)";
+
+                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+
+                 SqlParameter param = new SqlParameter();
+
+                 param.ParameterName = "@valor";
+                 param.Value = state.UnitValue;
+                 sqlCmd.Parameters.Add(param);
+
+                 param = new SqlParameter();
+
+                 param.ParameterName = "@custo";
+                 param.Value = state.Cost;
+                 sqlCmd.Parameters.Add(param);
+
+                 sqlCmd.ExecuteNonQuery();
+
+                 sqlCmd.Dispose();
+
+             }
+             catch (SqlException ex)
              {
 
-                 Console.WriteLine(state);
-                 try
-                 {
-                     SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+                 Console.WriteLine(ex.ToString());
 
-                     sqlConn.Open();
+             }
+         }*/
+        /* public void Delete(Guid Id)
+         {
 
-                     var queryString = "INSERT INTO Product (Id,Name,UnitValue,Cost) VALUES  ('" + state.Id + "','" + state.Name + "',@valor,@custo)";
+             try
+             {
+                 SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
 
-                     SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+                 sqlConn.Open();
 
-                     SqlParameter param = new SqlParameter();
+                 var queryString = "DELETE  FROM Product WHERE Product.Id = @Id";
 
-                     param.ParameterName = "@valor";
-                     param.Value = state.UnitValue;
-                     sqlCmd.Parameters.Add(param);
+                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
 
-                     param = new SqlParameter();
+                 SqlParameter param = new SqlParameter();
 
-                     param.ParameterName = "@custo";
-                     param.Value = state.Cost;
-                     sqlCmd.Parameters.Add(param);
+                 param.ParameterName = "@Id";
+                 param.Value = Id.ToString("D");
+                 sqlCmd.Parameters.Add(param);
 
-                     sqlCmd.ExecuteNonQuery();
+                 sqlCmd.ExecuteNonQuery();
 
-                     sqlCmd.Dispose();
+                 sqlCmd.Dispose();
 
-                 }
-                 catch (SqlException ex)
-                 {
-
-                     Console.WriteLine(ex.ToString());
-
-                 }
-             }*/
-            /* public void Delete(Guid Id)
+             }
+             catch (SqlException ex)
              {
 
-                 try
-                 {
-                     SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+                 Console.WriteLine(ex.ToString());
 
-                     sqlConn.Open();
-
-                     var queryString = "DELETE  FROM Product WHERE Product.Id = @Id";
-
-                     SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
-
-                     SqlParameter param = new SqlParameter();
-
-                     param.ParameterName = "@Id";
-                     param.Value = Id.ToString("D");
-                     sqlCmd.Parameters.Add(param);
-
-                     sqlCmd.ExecuteNonQuery();
-
-                     sqlCmd.Dispose();
-
-                 }
-                 catch (SqlException ex)
-                 {
-
-                     Console.WriteLine(ex.ToString());
-
-                 }
-             }*/
-            /*    public void Update(ProductState state)
+             }
+         }*/
+        /*    public void Update(ProductState state)
+         {
+             Console.WriteLine(state);
+             try
              {
-                 Console.WriteLine(state);
-                 try
-                 {
-                     SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+                 SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
 
-                     sqlConn.Open();
+                 sqlConn.Open();
 
-                     var queryString = "UPDATE Product SET Name = '" + state.Name + "', UnitValue = @valor, Cost = @custo WHERE Product.Id = @Id";
+                 var queryString = "UPDATE Product SET Name = '" + state.Name + "', UnitValue = @valor, Cost = @custo WHERE Product.Id = @Id";
 
-                     SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
 
-                     SqlParameter param = new SqlParameter();
+                 SqlParameter param = new SqlParameter();
 
-                     param.ParameterName = "@valor";
-                     param.Value = state.UnitValue;
-                     sqlCmd.Parameters.Add(param);
+                 param.ParameterName = "@valor";
+                 param.Value = state.UnitValue;
+                 sqlCmd.Parameters.Add(param);
 
-                     param = new SqlParameter();
+                 param = new SqlParameter();
 
-                     param.ParameterName = "@custo";
-                     param.Value = state.Cost;
-                     sqlCmd.Parameters.Add(param);
+                 param.ParameterName = "@custo";
+                 param.Value = state.Cost;
+                 sqlCmd.Parameters.Add(param);
 
-                     param = new SqlParameter();
+                 param = new SqlParameter();
 
-                     param.ParameterName = "@Id";
-                     param.Value = state.Id.ToString("D");
-                     sqlCmd.Parameters.Add(param);
+                 param.ParameterName = "@Id";
+                 param.Value = state.Id.ToString("D");
+                 sqlCmd.Parameters.Add(param);
 
-                     sqlCmd.ExecuteNonQuery();
+                 sqlCmd.ExecuteNonQuery();
 
-                     sqlCmd.Dispose();
+                 sqlCmd.Dispose();
 
-                 }
-                 catch (SqlException ex)
-                 {
+             }
+             catch (SqlException ex)
+             {
 
-                     Console.WriteLine(ex.ToString());
+                 Console.WriteLine(ex.ToString());
 
-                 }
-             }*/
-      }
+             }
+         }*/
+    }
 }

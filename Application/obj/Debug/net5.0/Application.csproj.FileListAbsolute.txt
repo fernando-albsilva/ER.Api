@@ -9,3 +9,4 @@ C:\Users\PICHAU\Desktop\Easy Restaurant Api\Application\obj\Debug\net5.0\Applica
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\Application\obj\Debug\net5.0\Application.dll
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\Application\obj\Debug\net5.0\ref\Application.dll
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\Application\obj\Debug\net5.0\Application.pdb
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\Application\obj\Debug\net5.0\Application.csprojAssemblyReference.cache

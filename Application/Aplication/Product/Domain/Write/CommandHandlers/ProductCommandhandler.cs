@@ -5,6 +5,7 @@ using Application.Aplication.Product.Domain.Write.Commands;
 using Application.Aplication.Product.Domain.Write.Repositories;
 using Application.Aplication.Product.Domain.Write.States;
 using Application.Aplication.Product.Domain.Write.Aggregates;
+using System.Collections.Generic;
 
 namespace Application.Aplication.Product.Domain.Write.CommandHandlers
 {
@@ -28,42 +29,38 @@ namespace Application.Aplication.Product.Domain.Write.CommandHandlers
 
             public void Handle(UpdateProduct cmd)
             {
-                  ProductModel productModel = readRepository.GetById(cmd.Id);
-                  ValidadeId(productModel);
-                  ProductState state = new ProductState
-                  {
-                        Id = productModel.Id,
-                        Name = productModel.Name,
-                        UnitValue = productModel.UnitValue,
-                        Cost = productModel.Cost
-                  };
-                  var aggregate = new ProductAggregate(state);
+                  ProductState productState = writeRepository.GetById(cmd.Id);
+                  ValidadeId(productState);
+                  var aggregate = new ProductAggregate(productState);
                   aggregate.Change(cmd);
                   writeRepository.Update(aggregate.State);
             }
 
-            public void Handle(DeleteProduct cmd)
+            public void Handle(Guid Id)
             {
-                  ProductModel productModel = readRepository.GetById(cmd.Id);
-                  ValidadeId(productModel);
-                  ProductState state = new ProductState
-                  {
-                        Id = productModel.Id,
-                        Name = productModel.Name,
-                        UnitValue = productModel.UnitValue,
-                        Cost = productModel.Cost
-                  };
-                  writeRepository.Delete(state);
+                  ProductState productState = writeRepository.GetById(Id);
+                  ValidadeId(productState);
+                  writeRepository.Delete(productState);
             }
 
-            private void ValidadeId(ProductModel productModel)
+            public void Handle(List<Guid> idList)
             {
-
-                  if (productModel.Id == Guid.Empty)
-                  {
-                        throw new Exception("Não existe registro com esse Id.");
-                  }
-
+                 foreach (Guid element in idList)
+                 {
+                    ProductState productState = writeRepository.GetById(element);
+                    ValidadeId(productState);
+                    writeRepository.Delete(productState);
+                 }
             }
+
+            private void ValidadeId(ProductState productState)
+                {
+
+                      if (productState.Id == Guid.Empty)
+                      {
+                            throw new Exception("Não existe registro com esse Id.");
+                      }
+
+                }
       }
 }

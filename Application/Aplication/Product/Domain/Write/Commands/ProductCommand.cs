@@ -28,7 +28,7 @@ namespace Application.Aplication.Product.Domain.Write.Commands
 
       public class DeleteProductList
       {
-            public List<Guid> id = new List<Guid>();
+            public List<Guid> idList = new List<Guid>();
 
       }
 

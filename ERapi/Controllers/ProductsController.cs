@@ -20,62 +20,78 @@ namespace ERapi.Controllers
       
 
         public ProductsController(IBaseReadProductRepository readRepository,IBaseWriteProductRepository writeRepository,IProductCommandHandler productCommandHandler)
-      {
+        {
          this.readRepository = readRepository;
          this.writeRepository = writeRepository;
          this.productCommandHandler = productCommandHandler;
        
         }
 
-      #region Querys
+        #region Querys
       
-      [HttpGet]
-      [Route("Products/GetAll")]
-      public IEnumerable<ProductModel> GetAll()
-      {
+        [HttpGet]
+        [Route("Products/GetAll")]
+        public IEnumerable<ProductModel> GetAll()
+        {
             var ProductModelList = readRepository.GetAll();
             return ProductModelList;
         
         } 
 
-      [HttpGet]
-      [Route("Products/GetById")]
-       public ProductModel GetById(Guid id)
-      {
-          var productModel = readRepository.GetById(id);
-          return productModel;
-      }
+        [HttpGet]
+        [Route("Products/GetById")]
+        public ProductModel GetById(Guid id)
+        {
+            var productModel = readRepository.GetById(id);
+            return productModel;
+        }
 
-    #endregion 
+        #endregion 
 
-    #region Commands
+        #region Commands
 
-      [HttpPost]
-      [Route("Products/Create")] 
-      public void Create(CreateProduct cmd)
-      {
-          productCommandHandler.Handle(cmd);
-      }
+        [HttpPost]
+        [Route("Products/Create")] 
+        public void Create(CreateProduct cmd)
+        {
+            productCommandHandler.Handle(cmd);
+        }
 
-      [HttpPost]
-      [Route("Products/Update")]
-      public void Update(UpdateProduct cmd)
-      {
-          productCommandHandler.Handle(cmd);
-      }
+        [HttpPut]
+        [Route("Products/Update")]
+        public void Update(UpdateProduct cmd)
+        {
+            productCommandHandler.Handle(cmd);
+        }
 
-      [HttpPost]
-      [Route("Products/Delete")]
-      public void Delete(DeleteProduct cmd)
-      {
-          productCommandHandler.Handle(cmd);
-      }
+        [HttpDelete]
+        [Route("Products/Delete")]
+        public void Delete(Guid Id)
+        {
+            productCommandHandler.Handle(Id);
+        }
 
         [HttpPost]
         [Route("Products/DeleteByList")]
-        public void DeleteByList(DeleteProductList cmd)
+        public void DeleteByList(List<Guid> IdList)
         {
-           /* productCommandHandler.Handle(cmd);*/
+            productCommandHandler.Handle(IdList);
+        }
+
+        #endregion
+
+        #region testes
+
+        [HttpPost]
+        [Route("Products/CreateProductsTest")]
+        public void CreateTest(CreateProduct cmd)
+        {
+            for(var i=0; i<10; i++)
+            {
+                cmd.Id = Guid.NewGuid();
+                cmd.Name = "Product" + i.ToString();
+                productCommandHandler.Handle(cmd);
+            }   
         }
 
         #endregion

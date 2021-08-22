@@ -3,8 +3,7 @@ using System;
 using System.Linq;
 using NHibernate;
 using Application.Aplication.Product.Domain.Read.Model;
-using System.Data.SqlClient;
-using Application.Aplication.Infrastructure;
+
 
 namespace Application.Aplication.Product.Domain.Read.Repositories
 {
@@ -12,15 +11,10 @@ namespace Application.Aplication.Product.Domain.Read.Repositories
       {
             private readonly ISession _session;
 
-        public ISqlConnectionFactory sqlConnectionFactory;
-        private List<ProductModel> products;
-
-        public ProductReadRepository(ISession _session, ISqlConnectionFactory SqlConnectionFactory)
-            {
+        public ProductReadRepository(ISession _session)
+        {
                   this._session = _session;
-            this.sqlConnectionFactory = SqlConnectionFactory;
-
-            }
+        }
 
 
         /*  public ProductModel GetById(Guid Id)
