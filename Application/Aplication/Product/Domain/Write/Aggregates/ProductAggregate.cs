@@ -7,9 +7,13 @@ namespace Application.Aplication.Product.Domain.Write.Aggregates
       public class ProductAggregate
       {
             public ProductState State;
+
+            public ProductAggregate()
+            {
+            }
             public ProductAggregate(ProductState state)
             {
-                  State = state;
+                    State = state;
             }
             public ProductAggregate(CreateProduct cmd)
             {
@@ -32,7 +36,7 @@ namespace Application.Aplication.Product.Domain.Write.Aggregates
 
             }
 
-            public void validadeProductCommand(SaveProductCommand cmd)
+            public void validadeProductCommand(UpdateProductCommand cmd)
             {
                   if (string.IsNullOrEmpty(cmd.Name))
                   {

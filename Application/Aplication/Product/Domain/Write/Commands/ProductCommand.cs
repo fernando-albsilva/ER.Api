@@ -4,7 +4,7 @@ using Application.Aplication.Product.Domain.Write.Entities;
 
 namespace Application.Aplication.Product.Domain.Write.Commands
 {
-      public class SaveProductCommand : BaseEntity
+      public class UpdateProductCommand : BaseEntity
       {
             public string Name { get; set; }
             public decimal UnitValue { get; set; }
@@ -12,11 +12,11 @@ namespace Application.Aplication.Product.Domain.Write.Commands
 
       }
 
-      public class CreateProduct : SaveProductCommand
+      public class CreateProduct : UpdateProductCommand
       {
 
       }
-      public class UpdateProduct : SaveProductCommand
+      public class UpdateProduct : UpdateProductCommand
       {
 
       }
