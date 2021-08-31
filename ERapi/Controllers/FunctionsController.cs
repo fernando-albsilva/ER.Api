@@ -78,6 +78,14 @@ namespace ERapi.Controllers
             functionCommandHandler.Handle(id);
         }
 
+
+        [HttpPost]
+        [Route("Functions/DeleteByList")]
+        public void DeleteByList(List<int> IdList)
+        {
+            functionCommandHandler.Handle(IdList);
+        }
+
         #endregion
 
     }

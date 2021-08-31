@@ -1,0 +1,11 @@
+
+CREATE TABLE Worker(
+    Worker_Id nvarchar(60) NOT NULL,
+    Function_Id int NOT NULL,
+	Name nvarchar(100) NOT NULL,
+	Cpf nvarchar(20),
+	Phone_Number nvarchar(20),
+	Adress nvarchar(150),
+	Email nvarchar(100),
+    PRIMARY KEY (Worker_Id),
+    CONSTRAINT FK_Function_Id FOREIGN KEY (Function_Id) REFERENCES dbo.[Function](Id) );

@@ -23,6 +23,7 @@ namespace Test
         [Test]
         public void novo_teste()
         {
+
             var cmd = new UpdateProduct();
             cmd.Id = Guid.NewGuid();
             cmd.Name = "";

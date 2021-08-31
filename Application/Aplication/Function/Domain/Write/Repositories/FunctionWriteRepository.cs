@@ -1,6 +1,6 @@
 using Application.Aplication.Function.Domain.Write.States;
 using NHibernate;
-
+using System.Linq;
 
 namespace Application.Aplication.Function.Domain.Write.Repositories
 {
@@ -42,102 +42,117 @@ namespace Application.Aplication.Function.Domain.Write.Repositories
                   }
             }
 
-            /*public void Save(FunctionState state)
+            public FunctionState GetById(int Id)
             {
+                var functionState = new FunctionState();
+                var list = _session.Query<FunctionState>().Where(x => x.Id == Id).ToList();
 
-                Console.WriteLine(state);
-                try
+                functionState = list.ElementAt(0);
+
+                if (list.Count < 1)
                 {
-                    SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
-
-                    sqlConn.Open();
-
-                    var queryString = "INSERT INTO [dbo].[Function] ([Type]) VALUES (@type)";
-
-                    SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
-
-                    SqlParameter param = new SqlParameter();
-
-                    param.ParameterName = "@type";
-                    param.Value = state.Type;
-                    sqlCmd.Parameters.Add(param);
-
-                    sqlCmd.ExecuteNonQuery();
-
-                    sqlCmd.Dispose();
-
-                }
-                catch (SqlException ex)
-                {
-                    Console.WriteLine(ex.ToString());
+                    functionState.Id = 0;
                 }
 
-            }*/
+                return functionState;
+            }
 
-            /* public void Update(FunctionState state)
+        /*public void Save(FunctionState state)
+        {
+
+            Console.WriteLine(state);
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+
+                sqlConn.Open();
+
+                var queryString = "INSERT INTO [dbo].[Function] ([Type]) VALUES (@type)";
+
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+
+                SqlParameter param = new SqlParameter();
+
+                param.ParameterName = "@type";
+                param.Value = state.Type;
+                sqlCmd.Parameters.Add(param);
+
+                sqlCmd.ExecuteNonQuery();
+
+                sqlCmd.Dispose();
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+        }*/
+
+        /* public void Update(FunctionState state)
+         {
+             try
              {
-                 try
-                 {
-                     SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+                 SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
 
-                     sqlConn.Open();
+                 sqlConn.Open();
 
-                     var queryString = "UPDATE [dbo].[Function] SET [Type] = @Type WHERE	[Function_Id] = @Id";
+                 var queryString = "UPDATE [dbo].[Function] SET [Type] = @Type WHERE	[Function_Id] = @Id";
 
-                     SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
 
-                     SqlParameter param = new SqlParameter();
+                 SqlParameter param = new SqlParameter();
 
-                     param.ParameterName = "@Id";
-                     param.Value = state.Id;
-                     sqlCmd.Parameters.Add(param);
+                 param.ParameterName = "@Id";
+                 param.Value = state.Id;
+                 sqlCmd.Parameters.Add(param);
 
-                     param = new SqlParameter();
+                 param = new SqlParameter();
 
-                     param.ParameterName = "@Type";
-                     param.Value = state.Type;
-                     sqlCmd.Parameters.Add(param);
+                 param.ParameterName = "@Type";
+                 param.Value = state.Type;
+                 sqlCmd.Parameters.Add(param);
 
-                     sqlCmd.ExecuteNonQuery();
+                 sqlCmd.ExecuteNonQuery();
 
-                     sqlCmd.Dispose();
+                 sqlCmd.Dispose();
 
-                 }
-                 catch (SqlException ex)
-                 {
-                     Console.WriteLine(ex.ToString());
-                 }
-             }*/
-
-            /* public void Delete(int id)
+             }
+             catch (SqlException ex)
              {
-                 try
-                 {
-                     SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
-
-                     sqlConn.Open();
-
-                     var queryString = "DELETE FROM [dbo].[Function] WHERE [Function_Id] = @Id";
-
-                     SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
-
-                     SqlParameter param = new SqlParameter();
-
-                     param.ParameterName = "@Id";
-                     param.Value = id;
-                     sqlCmd.Parameters.Add(param);
-
-                     sqlCmd.ExecuteNonQuery();
-
-                     sqlCmd.Dispose();
-                 }
-                 catch(SqlException ex)
-                 {
-                     Console.WriteLine(ex.ToString());
-                 }
+                 Console.WriteLine(ex.ToString());
              }
          }*/
 
-      }
+        /* public void Delete(int id)
+         {
+             try
+             {
+                 SqlConnection sqlConn = new SqlConnection(sqlConnectionFactory.GetConnectionString());
+
+                 sqlConn.Open();
+
+                 var queryString = "DELETE FROM [dbo].[Function] WHERE [Function_Id] = @Id";
+
+                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConn);
+
+                 SqlParameter param = new SqlParameter();
+
+                 param.ParameterName = "@Id";
+                 param.Value = id;
+                 sqlCmd.Parameters.Add(param);
+
+                 sqlCmd.ExecuteNonQuery();
+
+                 sqlCmd.Dispose();
+             }
+             catch(SqlException ex)
+             {
+                 Console.WriteLine(ex.ToString());
+             }
+         }
+     }*/
+
+    }
 
 }

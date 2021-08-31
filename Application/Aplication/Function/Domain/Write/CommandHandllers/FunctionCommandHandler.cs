@@ -70,8 +70,21 @@ namespace Application.Aplication.Function.Domain.Write.CommandHandllers
                   writeFunctionRepository.Delete(state);
             }
 
+            public void Handle(List<int> idList)
+            {
+                foreach (int element in idList)
+                {
+                    FunctionState productState = writeFunctionRepository.GetById(element);
+                    if (productState.Id != 0)
+                    {
+                        writeFunctionRepository.Delete(productState);
+                    }
+                    
+                }
+            }
 
-            private void ValidateId(FunctionModel functionModel)
+
+        private void ValidateId(FunctionModel functionModel)
             {
 
                   IEnumerable<FunctionModel> functionsModel = readFunctionReposirory.GetAll();
@@ -90,5 +103,7 @@ namespace Application.Aplication.Function.Domain.Write.CommandHandllers
             }
 
       }
+
+
 
 }

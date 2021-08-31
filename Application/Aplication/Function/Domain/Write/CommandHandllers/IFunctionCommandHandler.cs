@@ -1,4 +1,5 @@
 using Application.Aplication.Function.Domain.Write.Commands;
+using System.Collections.Generic;
 
 namespace Application.Aplication.Function.Domain.Write.CommandHandllers
 {
@@ -13,6 +14,8 @@ namespace Application.Aplication.Function.Domain.Write.CommandHandllers
 
 
             public void Handle(int id);
-      }
+
+            public void Handle(List<int> idList);
+    }
 
 }

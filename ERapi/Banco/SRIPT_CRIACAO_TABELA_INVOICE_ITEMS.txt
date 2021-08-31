@@ -1,0 +1,9 @@
+	CREATE TABLE Invoice_Items(
+    Invoice_Items_Id int NOT NULL UNIQUE,
+    Invoice_Id nvarchar(60) NOT NULL,
+	Product_Id nvarchar(60) NOT NULL,
+	Unit_Value Decimal(10,2),
+	Cost Decimal(10,2),
+    PRIMARY KEY (Invoice_Items_Id),
+    CONSTRAINT FK_Invoice_Id FOREIGN KEY (Invoice_Id) REFERENCES [ER].[dbo].[Invoice](Invoice_Id),
+	CONSTRAINT FK_Product_Id FOREIGN KEY (Product_Id) REFERENCES [ER].[dbo].[Product](Id));

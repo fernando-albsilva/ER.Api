@@ -12,6 +12,8 @@ namespace Application.Aplication.Function.Domain.Write.Repositories
 
             public void Delete(FunctionState state);
 
+             public FunctionState GetById(int Id);
+
       }
 
 }
