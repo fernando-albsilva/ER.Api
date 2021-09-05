@@ -47,9 +47,9 @@ public class WorkersController : ControllerBase
         }
 
         #endregion 
-/*
-        #region Commands
 
+        #region Commands
+        /*
         [HttpPost]
         [Route("Worker/Create")]
         public void Create(CreateWorker cmd)
@@ -64,12 +64,15 @@ public class WorkersController : ControllerBase
             WorkerCommandHandler.Handle(cmd);
         }
 
+       
+
         [HttpDelete]
         [Route("Worker/Delete")]
         public void Delete(Guid Id)
         {
             WorkerCommandHandler.Handle(Id);
         }
+         */
 
         [HttpPost]
         [Route("Worker/DeleteByList")]
@@ -78,7 +81,7 @@ public class WorkersController : ControllerBase
             WorkerCommandHandler.Handle(IdList);
         }
 
-        #endregion*/
+        #endregion
     }
 
 }

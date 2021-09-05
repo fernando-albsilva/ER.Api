@@ -10,8 +10,4 @@
     <PackageReference Include="NHibernateProfiler" Version="6.0.6025" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Aplication\Worker\Domain\Maps\Write\" />
-  </ItemGroup>
-
 </Project>

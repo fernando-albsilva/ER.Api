@@ -24,8 +24,8 @@ namespace Application.Aplication.Worker.Domain.Write.Aggregates
                   validateWorkerCommand(cmd);
                   State = new WorkerState
                   {
-                        Id = cmd.Id,
-                        Function_Id = cmd.FunctionIdFk,
+                        Worker_Id = cmd.Id,
+                        Function = cmd.Function,
                         Name = cmd.Name,
                         Email = cmd.Email,
                         Cpf = cmd.Cpf,

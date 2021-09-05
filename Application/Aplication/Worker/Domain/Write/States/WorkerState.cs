@@ -1,17 +1,18 @@
-using Application.Aplication.Product.Domain.Write.Entities;
+using Application.Aplication.Function.Domain.Write.States;
+using Application.Aplication.Worker.Domain.Write.WorkerBaseState;
 
 namespace Application.Aplication.Worker.Domain.Write.States
 {
 
-      public class WorkerState : BaseEntity
-      {
+      public class WorkerState : WorkerBaseWriteState
+    {
 
-            public int Function_Id { get; set; }
-            public string Name { get; set; }
-            public string Cpf { get; set; }
-            public string Phone_Number { get; set; }
-            public string Adress { get; set; }
-            public string Email { get; set; }
+            public virtual FunctionState Function{ get; set; }
+            public virtual string Name { get; set; }
+            public virtual string Cpf { get; set; }
+            public virtual string Phone_Number { get; set; }
+            public virtual string Adress { get; set; }
+            public virtual string Email { get; set; }
       }
 
 }

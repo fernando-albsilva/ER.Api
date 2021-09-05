@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
+using Application.Aplication.Function.Domain.Write.States;
 using Application.Aplication.Worker.Domain.Write.Aggregates;
 using Application.Aplication.Worker.Domain.Write.Commands;
 using Application.Aplication.Worker.Domain.Write.Repositories;
-
+using Application.Aplication.Worker.Domain.Write.States;
 
 namespace Application.Aplication.Worker.Domain.Write.CommandHandlers
 {
@@ -14,22 +16,31 @@ namespace Application.Aplication.Worker.Domain.Write.CommandHandlers
             {
                   this.writeWorkerRepository = writeWorkerRepository;
             }
-            public void Handle(CreateWorker cmd)
+           /* public void Handle(CreateWorker cmd)
             {
                   cmd.Id = Guid.NewGuid();
                   var aggregate = new WorkerAggregate(cmd);
                   writeWorkerRepository.Save(aggregate.State);
-            }
+            }*/
 
-            public void Handle(UpdateWorker cmd)
+          /*  public void Handle(UpdateWorker cmd)
             {
                   throw new NotImplementedException();
-            }
+            }*/
 
-            public void Handle(Guid Id)
+          /*  public void Handle(Guid Id)
             {
                   throw new NotImplementedException();
+            }*/
+
+            public void Handle(List<Guid> idList)
+            {
+                foreach (Guid element in idList)
+                {
+                    WorkerState workerState = writeWorkerRepository.GetById(element);
+                    writeWorkerRepository.Delete(workerState);
+                }
             }
-      }
+    }
 
 }
