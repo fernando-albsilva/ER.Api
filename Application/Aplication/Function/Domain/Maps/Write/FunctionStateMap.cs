@@ -11,7 +11,7 @@ namespace Application.Aplication.Function.Domain.Maps.Write
                   Table("[Function]");
 
                   // Does not have id because column Id is auto incremente (identity)
-                  Id(x => x.Id);
+                  Id(x => x.Id).GeneratedBy.Identity();
 
                   Map(x => x.Type);
             }

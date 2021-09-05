@@ -1,0 +1,10 @@
+-- Syntax for SQL Server and Azure SQL Database  
+  
+IF OBJECT_ID('dbo.WorkersView', 'V') IS NOT NULL
+	 DROP VIEW dbo.WorkersView
+GO
+    CREATE VIEW dbo.WorkersView AS
+	SELECT Name, Cpf, Phone_Number, Adress, Email, Type
+		FROM Worker W inner join [Function] F
+		on F.Id = W.Function_Id;
+

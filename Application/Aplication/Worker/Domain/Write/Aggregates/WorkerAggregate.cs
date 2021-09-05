@@ -25,12 +25,12 @@ namespace Application.Aplication.Worker.Domain.Write.Aggregates
                   State = new WorkerState
                   {
                         Id = cmd.Id,
-                        FunctionIdFk = cmd.FunctionIdFk,
+                        Function_Id = cmd.FunctionIdFk,
                         Name = cmd.Name,
                         Email = cmd.Email,
                         Cpf = cmd.Cpf,
-                        Address = cmd.Address,
-                        PhoneNumber = cmd.PhoneNumber
+                        Adress = cmd.Address,
+                        Phone_Number = cmd.PhoneNumber
                   };
 
             }

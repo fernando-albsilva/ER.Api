@@ -24,6 +24,9 @@ using Application.Aplication.Product.Domain.Write.CommandHandlers;
 using Application.Aplication.Function.Domain.Write.CommandHandllers;
 using Application.Aplication.Worker.Domain.Write.CommandHandlers;
 using Application.Aplication.Product.Domain.Maps.Read;
+using Application.Aplication.Function.Domain.Maps.Read;
+using Application.Aplication.Worker.Domain.Maps.Read;
+using Application.Aplication.Worker.Domain.Read.Repositories;
 
 namespace ERapi
 {
@@ -43,15 +46,17 @@ namespace ERapi
             //just having one coppy of instance
             //Sql connection
             services.AddSingleton<ISqlConnectionFactory,SqlConnectionFactory>();
-            
+
             //Repositories ( Read )
-            services.AddScoped<IBaseReadProductRepository,ProductReadRepository>();
+            services.AddScoped<IBaseReadProductRepository, ProductReadRepository>();
             services.AddScoped<IBaseReadFunctionRepository, FunctionReadRepository>();
+            services.AddScoped<IBaseReadWorkerRepository, WorkerReadRepository>();
 
             //Reopsitories ( Write )
             services.AddScoped<IBaseWriteProductRepository,ProductWriteRepository>();
             services.AddScoped<IBaseWriteFunctionRepository,FunctionWriteRepository>();
             services.AddScoped<IBaseWriteWorkerRepository, WorkerWriteRepository>();
+
 
             //CommandHandlers
             services.AddScoped<IProductCommandHandler,ProductCommandHandler>();
@@ -79,7 +84,10 @@ namespace ERapi
                                       .BuildSessionFactory();*/
             var _sessionFactory = Fluently.Configure()
                             .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connStr))
-                            .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ProductModelMap>())
+                            .Mappings(m => m.FluentMappings
+                                .AddFromAssemblyOf<ProductModelMap>()
+                                .AddFromAssemblyOf<FunctionModelMap>()
+                                .AddFromAssemblyOf<WorkerModelMap>())
                             .BuildSessionFactory();
             services.AddScoped(factory =>
             {

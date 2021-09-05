@@ -14,6 +14,8 @@ namespace Application.Aplication.Function.Domain.Maps.Read
                   Id(x => x.Id);
 
                   Map(x => x.Type);
+
+                 
             }
       }
 }
