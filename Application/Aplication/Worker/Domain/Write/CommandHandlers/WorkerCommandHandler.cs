@@ -16,24 +16,25 @@ namespace Application.Aplication.Worker.Domain.Write.CommandHandlers
             {
                   this.writeWorkerRepository = writeWorkerRepository;
             }
-           /* public void Handle(CreateWorker cmd)
-            {
-                  cmd.Id = Guid.NewGuid();
-                  var aggregate = new WorkerAggregate(cmd);
-                  writeWorkerRepository.Save(aggregate.State);
-            }*/
+        /* public void Handle(CreateWorker cmd)
+         {
+               cmd.Id = Guid.NewGuid();
+               var aggregate = new WorkerAggregate(cmd);
+               writeWorkerRepository.Save(aggregate.State);
+         }*/
 
-          /*  public void Handle(UpdateWorker cmd)
-            {
-                  throw new NotImplementedException();
-            }*/
+        /*  public void Handle(UpdateWorker cmd)
+          {
+                throw new NotImplementedException();
+          }*/
 
-          /*  public void Handle(Guid Id)
-            {
-                  throw new NotImplementedException();
-            }*/
+        public void Handle(Guid Id)
+        {
+            WorkerState workerState = writeWorkerRepository.GetById(Id);
+            writeWorkerRepository.Delete(workerState);
+        }
 
-            public void Handle(List<Guid> idList)
+        public void Handle(List<Guid> idList)
             {
                 foreach (Guid element in idList)
                 {

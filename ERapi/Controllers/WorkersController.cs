@@ -65,14 +65,15 @@ public class WorkersController : ControllerBase
         }
 
        
-
+         
+        */
         [HttpDelete]
         [Route("Worker/Delete")]
         public void Delete(Guid Id)
         {
             WorkerCommandHandler.Handle(Id);
         }
-         */
+       
 
         [HttpPost]
         [Route("Worker/DeleteByList")]
