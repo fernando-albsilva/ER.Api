@@ -4,6 +4,7 @@ using Application.Aplication.Worker.Domain.Write.CommandHandlers;
 using Application.Aplication.Worker.Domain.Write.Commands;
 using Application.Aplication.Worker.Domain.Write.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace ERapi.Controllers 
@@ -37,13 +38,13 @@ public class WorkersController : ControllerBase
 
         }
 
-      /*  [HttpGet]
+        [HttpGet]
         [Route("Worker/GetById")]
         public WorkerModel GetById(Guid id)
         {
-            var productModel = WorkerReadRepository.GetById(id);
-            return productModel;
-        }*/
+            var workerModel = WorkerReadRepository.GetById(id);
+            return workerModel;
+        }
 
         #endregion 
 /*

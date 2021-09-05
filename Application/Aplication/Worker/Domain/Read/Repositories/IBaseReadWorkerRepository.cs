@@ -7,6 +7,7 @@ namespace Application.Aplication.Worker.Domain.Read.Repositories
       public interface IBaseReadWorkerRepository
       {
         public IEnumerable<WorkerModel> GetAll();
-        // public WorkerModel GetById(Guid Id);
+
+        public WorkerModel GetById(Guid Id);
       }
 }

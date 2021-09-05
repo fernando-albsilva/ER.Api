@@ -1,0 +1,106 @@
+USE [ER]
+GO
+
+INSERT INTO [dbo].[Worker]
+           ([Worker_Id]
+           ,[Function_Id]
+           ,[Name]
+           ,[Cpf]
+           ,[Phone_Number]
+           ,[Adress]
+           ,[Email])
+     VALUES
+           (NEWID()
+           ,1002
+           ,'Pedro'
+           ,'14006821180'
+           ,'21-958-585-555'
+           ,'Rua 10 Bairro 20 , niteroi'
+           ,'pedro@gmail.com.br')
+
+
+INSERT INTO [dbo].[Worker]
+           ([Worker_Id]
+           ,[Function_Id]
+           ,[Name]
+           ,[Cpf]
+           ,[Phone_Number]
+           ,[Adress]
+           ,[Email])
+     VALUES
+           (NEWID()
+           ,1003
+           ,'Pedro'
+           ,'14006821180'
+           ,'21-958-585-555'
+           ,'Rua 10 Bairro 20 , niteroi'
+           ,'pedro@gmail.com.br')
+
+INSERT INTO [dbo].[Worker]
+           ([Worker_Id]
+           ,[Function_Id]
+           ,[Name]
+           ,[Cpf]
+           ,[Phone_Number]
+           ,[Adress]
+           ,[Email])
+     VALUES
+           (NEWID()
+           ,1004
+           ,'Joao'
+           ,'14006821180'
+           ,'21-958-585-555'
+           ,'Rua 10 Bairro 20 , niteroi'
+           ,'joao@gmail.com.br')
+
+INSERT INTO [dbo].[Worker]
+           ([Worker_Id]
+           ,[Function_Id]
+           ,[Name]
+           ,[Cpf]
+           ,[Phone_Number]
+           ,[Adress]
+           ,[Email])
+     VALUES
+           (NEWID()
+           ,1005
+           ,'Helena'
+           ,'14006821180'
+           ,'21-958-585-555'
+           ,'Rua 10 Bairro 20 , niteroi'
+           ,'Helena@gmail.com.br')
+
+INSERT INTO [dbo].[Worker]
+           ([Worker_Id]
+           ,[Function_Id]
+           ,[Name]
+           ,[Cpf]
+           ,[Phone_Number]
+           ,[Adress]
+           ,[Email])
+     VALUES
+           (NEWID()
+           ,1006
+           ,'Joana'
+           ,'14006821180'
+           ,'21-958-585-555'
+           ,'Rua 10 Bairro 20 , niteroi'
+           ,'Joana@gmail.com.br')
+
+
+INSERT INTO [dbo].[Worker]
+           ([Worker_Id]
+           ,[Function_Id]
+           ,[Name]
+           ,[Cpf]
+           ,[Phone_Number]
+           ,[Adress]
+           ,[Email])
+     VALUES
+           (NEWID()
+           ,1007
+           ,'Julia'
+           ,'14006821180'
+           ,'21-958-585-555'
+           ,'Rua 10 Bairro 20 , niteroi'
+           ,'Julia@gmail.com.br')

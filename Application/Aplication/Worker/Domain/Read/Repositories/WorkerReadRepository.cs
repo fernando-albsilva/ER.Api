@@ -22,5 +22,15 @@ namespace Application.Aplication.Worker.Domain.Read.Repositories
                 return list;
             }
 
-        }
+            public WorkerModel GetById(Guid Id)
+            {
+                var worker = new WorkerModel();
+                var list = _session.Query<WorkerModel>().Where(x => x.Worker_Id == Id).ToList();
+
+                worker = list.FirstOrDefault(x=>x.Worker_Id != Guid.Empty);
+
+                return worker;
+            }
+
+    }
 }
