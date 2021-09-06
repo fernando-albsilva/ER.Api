@@ -54,7 +54,15 @@ namespace Application.Aplication.Worker.Domain.Write.Repositories
 
         }
 
+        public void Update(WorkerState state)
+        {
+            using (var tran = _session.BeginTransaction())
+            {
+                _session.Update(state);
+                tran.Commit();
+            }
+        }
 
-      }
+    }
 
 }

@@ -10,6 +10,7 @@ namespace Application.Aplication.Worker.Domain.Write.Repositories
         public void Delete(WorkerState state);
         public WorkerState GetById(Guid Id);
         public void Save(WorkerState state);
+        public void Update(WorkerState state);
 
       }
 

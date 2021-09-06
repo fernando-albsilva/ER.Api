@@ -24,7 +24,7 @@ namespace Application.Aplication.Worker.Domain.Write.Aggregates
                   validateWorkerCommand(cmd);
                   State = new WorkerState
                   {
-                        Worker_Id = cmd.Id,
+                        Worker_Id = cmd.Worker_Id,
                         Function = cmd.Function,
                         Name = cmd.Name,
                         Email = cmd.Email,
@@ -35,11 +35,21 @@ namespace Application.Aplication.Worker.Domain.Write.Aggregates
 
             }
 
+            public void Change(UpdateWorker cmd)
+            {
+                validateWorkerCommand(cmd);
+                State.Function = cmd.Function;
+                State.Name = cmd.Name;
+                State.Email = cmd.Email;
+                State.Email = cmd.Cpf;
+                State.Email = cmd.Address;
+                State.Email = cmd.Phone_Number;
+
+            }
 
 
 
-
-            private void validateWorkerCommand(SaveWorkerCommand cmd)
+        private void validateWorkerCommand(SaveWorkerCommand cmd)
             {
 
 

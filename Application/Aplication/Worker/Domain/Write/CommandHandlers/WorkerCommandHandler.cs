@@ -19,23 +19,26 @@ namespace Application.Aplication.Worker.Domain.Write.CommandHandlers
             
             public void Handle(CreateWorker cmd)
             {
-                  cmd.Id = Guid.NewGuid();
+                  cmd.Worker_Id = Guid.NewGuid();
                   var aggregate = new WorkerAggregate(cmd);
                   writeWorkerRepository.Save(aggregate.State);
             }
 
-            /*  public void Handle(UpdateWorker cmd)
-              {
-                    throw new NotImplementedException();
-              }*/
+            public void Handle(UpdateWorker cmd)
+            {
+                WorkerState workerState = writeWorkerRepository.GetById(cmd.Worker_Id);
+                var aggregate = new WorkerAggregate(workerState);
+                aggregate.Change(cmd);
+                writeWorkerRepository.Update(aggregate.State);
+            }
 
-        public void Handle(Guid Id)
-        {
-            WorkerState workerState = writeWorkerRepository.GetById(Id);
-            writeWorkerRepository.Delete(workerState);
-        }
+            public void Handle(Guid Id)
+            {
+                WorkerState workerState = writeWorkerRepository.GetById(Id);
+                writeWorkerRepository.Delete(workerState);
+            }
 
-        public void Handle(List<Guid> idList)
+            public void Handle(List<Guid> idList)
             {
                 foreach (Guid element in idList)
                 {
@@ -43,6 +46,6 @@ namespace Application.Aplication.Worker.Domain.Write.CommandHandlers
                     writeWorkerRepository.Delete(workerState);
                 }
             }
-    }
+      }
 
 }

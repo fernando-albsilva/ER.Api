@@ -1,11 +1,11 @@
 using Application.Aplication.Function.Domain.Write.States;
-using Application.Aplication.Product.Domain.Write.Entities;
+using Application.Aplication.Worker.Domain.Write.WorkerBaseState;
 
 namespace Application.Aplication.Worker.Domain.Write.Commands
 {
 
-      public class SaveWorkerCommand : BaseEntity
-      {
+      public class SaveWorkerCommand : WorkerBaseWriteState
+    {
 
             public FunctionState Function{ get; set; }
             public string Name { get; set; }

@@ -56,7 +56,7 @@ public class WorkersController : ControllerBase
         {
             WorkerCommandHandler.Handle(cmd);
         }
-        /*
+        
         [HttpPut]
         [Route("Worker/Update")]
         public void Update(UpdateWorker cmd)
@@ -64,9 +64,6 @@ public class WorkersController : ControllerBase
             WorkerCommandHandler.Handle(cmd);
         }
 
-       
-         
-        */
         [HttpDelete]
         [Route("Worker/Delete")]
         public void Delete(Guid Id)
