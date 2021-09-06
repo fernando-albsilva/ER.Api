@@ -1,0 +1,10 @@
+Use ER
+GO
+
+CREATE TABLE Users (
+    Id nvarchar(60) NOT NULL,
+    UserName nvarchar(100) NOT NULL,
+    Password nvarchar(255) NOT NULL,
+    Role nvarchar(30) NOT NULL,
+    PRIMARY KEY (Id)
+);

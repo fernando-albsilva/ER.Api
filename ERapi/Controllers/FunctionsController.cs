@@ -3,6 +3,7 @@ using Application.Aplication.Function.Domain.Read.Model;
 using Application.Aplication.Function.Domain.Read.Repositories;
 using Application.Aplication.Function.Domain.Write.CommandHandllers;
 using Application.Aplication.Function.Domain.Write.Commands;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace ERapi.Controllers
     //GET  /Functions
 
     [ApiController]
+    [Authorize]
     public class FunctionsController : ControllerBase
     {
 
@@ -31,6 +33,7 @@ namespace ERapi.Controllers
 
         [HttpGet]
         [Route("Functions/GetAll")]
+        [Authorize(Roles = "Admin")]
         public IEnumerable<FunctionModel> GetAll()
         {
             var functionModelList = readFunctionRepository.GetAll();

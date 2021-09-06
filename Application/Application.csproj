@@ -10,4 +10,8 @@
     <PackageReference Include="NHibernateProfiler" Version="6.0.6025" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Aplication\Auth\User\Write\" />
+  </ItemGroup>
+
 </Project>
