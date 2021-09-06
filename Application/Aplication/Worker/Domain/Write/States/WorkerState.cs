@@ -11,7 +11,7 @@ namespace Application.Aplication.Worker.Domain.Write.States
             public virtual string Name { get; set; }
             public virtual string Cpf { get; set; }
             public virtual string Phone_Number { get; set; }
-            public virtual string Adress { get; set; }
+            public virtual string Address { get; set; }
             public virtual string Email { get; set; }
       }
 

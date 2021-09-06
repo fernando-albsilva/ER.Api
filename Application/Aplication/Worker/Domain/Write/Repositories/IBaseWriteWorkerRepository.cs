@@ -7,9 +7,9 @@ namespace Application.Aplication.Worker.Domain.Write.Repositories
       public interface IBaseWriteWorkerRepository
       {
 
-            public void Delete(WorkerState state);
-
+        public void Delete(WorkerState state);
         public WorkerState GetById(Guid Id);
+        public void Save(WorkerState state);
 
       }
 

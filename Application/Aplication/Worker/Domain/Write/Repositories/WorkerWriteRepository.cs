@@ -13,12 +13,18 @@ namespace Application.Aplication.Worker.Domain.Write.Repositories
 
         private readonly ISession _session;
 
+        public WorkerWriteRepository(ISession _session)
+        {
+
+            this._session = _session;
+        }
+
         public WorkerState GetById(Guid Id)
         {
             var workerState = new WorkerState();
             var list = _session.Query<WorkerState>().Where(x => x.Worker_Id == Id).ToList();
 
-            workerState = list.FirstOrDefault(x=> x.Worker_Id != Guid.Empty);
+            workerState = list.FirstOrDefault(x => x.Worker_Id != Guid.Empty);
 
             if (list.Count < 1)
             {
@@ -28,10 +34,14 @@ namespace Application.Aplication.Worker.Domain.Write.Repositories
             return workerState;
         }
 
-        public WorkerWriteRepository(ISession _session)
+        public void Save(WorkerState state)
         {
+            using (var tran = _session.BeginTransaction())
+            {
+                _session.Save(state);
+                tran.Commit();
+            }
 
-            this._session = _session;
         }
 
         public void Delete(WorkerState state)

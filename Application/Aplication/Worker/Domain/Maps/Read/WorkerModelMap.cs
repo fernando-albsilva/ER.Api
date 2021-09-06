@@ -18,7 +18,7 @@ namespace Application.Aplication.Worker.Domain.Maps.Read
                 Map(x => x.Name);
                 Map(x => x.Cpf);
                 Map(x => x.Phone_Number);
-                Map(x => x.Adress);
+                Map(x => x.Address);
                 Map(x => x.Email);
                 Map(x => x.Type); 
             }

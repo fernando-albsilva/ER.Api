@@ -29,8 +29,8 @@ namespace Application.Aplication.Worker.Domain.Write.Aggregates
                         Name = cmd.Name,
                         Email = cmd.Email,
                         Cpf = cmd.Cpf,
-                        Adress = cmd.Address,
-                        Phone_Number = cmd.PhoneNumber
+                        Address = cmd.Address,
+                        Phone_Number = cmd.Phone_Number
                   };
 
             }
@@ -60,7 +60,7 @@ namespace Application.Aplication.Worker.Domain.Write.Aggregates
                   {
                         throw new Exception("Não existe Endereço do trabalhador.");
                   }
-                  else if (string.IsNullOrEmpty(cmd.PhoneNumber))
+                  else if (string.IsNullOrEmpty(cmd.Phone_Number))
                   {
                         throw new Exception("Não existe Telefone do trabalhador.");
                   }

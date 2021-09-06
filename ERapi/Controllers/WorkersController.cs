@@ -49,14 +49,14 @@ public class WorkersController : ControllerBase
         #endregion 
 
         #region Commands
-        /*
+        
         [HttpPost]
         [Route("Worker/Create")]
         public void Create(CreateWorker cmd)
         {
             WorkerCommandHandler.Handle(cmd);
         }
-
+        /*
         [HttpPut]
         [Route("Worker/Update")]
         public void Update(UpdateWorker cmd)
