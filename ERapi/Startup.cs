@@ -25,6 +25,8 @@ using ERapi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Application.Aplication.Auth.User.Read.Repositories;
+using Application.Aplication.Home.Domain.Maps.Read;
+using Application.Aplication.Home.Domain.Read.Repositories;
 
 namespace ERapi
 {
@@ -50,6 +52,7 @@ namespace ERapi
             services.AddScoped<IBaseReadFunctionRepository, FunctionReadRepository>();
             services.AddScoped<IBaseReadWorkerRepository, WorkerReadRepository>();
             services.AddScoped<IBaseReadUserRepository, UserReadRepository>();
+            services.AddScoped< IBaseReadHomeRepository, HomeReadRepository > ();
 
 
 
@@ -84,7 +87,8 @@ namespace ERapi
                             .Mappings(m => m.FluentMappings
                                 .AddFromAssemblyOf<ProductModelMap>()
                                 .AddFromAssemblyOf<FunctionModelMap>()
-                                .AddFromAssemblyOf<WorkerModelMap>())
+                                .AddFromAssemblyOf<WorkerModelMap>()
+                                .AddFromAssemblyOf<WaiterModelMap>())
                             .BuildSessionFactory();
             services.AddScoped(factory =>
             {

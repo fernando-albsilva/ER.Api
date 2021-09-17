@@ -14,7 +14,7 @@ namespace ERapi.Controllers
     //GET  /Functions
 
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class FunctionsController : ControllerBase
     {
 
@@ -33,7 +33,7 @@ namespace ERapi.Controllers
 
         [HttpGet]
         [Route("Functions/GetAll")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IEnumerable<FunctionModel> GetAll()
         {
             var functionModelList = readFunctionRepository.GetAll();

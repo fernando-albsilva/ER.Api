@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Aplication\Auth\User\Write\" />
+    <Folder Include="Aplication\Home\Domain\Write\" />
   </ItemGroup>
 
 </Project>
