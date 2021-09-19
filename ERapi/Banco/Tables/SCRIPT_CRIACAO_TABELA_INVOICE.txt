@@ -1,0 +1,13 @@
+-- CREATE [Invoice] TABLE
+
+Use ER
+GO
+
+CREATE TABLE Invoice(
+    Id nvarchar(60) NOT NULL,
+    WorkerId nvarchar(60) NOT NULL,
+	Date Date,
+    PRIMARY KEY (Id),
+    CONSTRAINT FK_WorkerId FOREIGN KEY (WorkerId) REFERENCES [ER].[dbo].[Worker](Id) );
+
+GO

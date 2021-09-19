@@ -1,0 +1,17 @@
+-- CREATE [Worker] TABLE
+
+Use ER
+GO
+
+CREATE TABLE Worker(
+    Id nvarchar(60) NOT NULL,
+    FunctionId int NOT NULL,
+	Name nvarchar(100) NOT NULL,
+	Cpf nvarchar(20),
+	PhoneNumber nvarchar(20),
+	Address nvarchar(150),
+	Email nvarchar(100),
+    PRIMARY KEY (Id),
+    CONSTRAINT FK_FunctionId FOREIGN KEY (FunctionId) REFERENCES [ER].[dbo].[Function](Id) );
+
+GO

@@ -19,14 +19,14 @@ namespace Application.Aplication.Worker.Domain.Write.CommandHandlers
             
             public void Handle(CreateWorker cmd)
             {
-                  cmd.Worker_Id = Guid.NewGuid();
+                  cmd.Id = Guid.NewGuid();
                   var aggregate = new WorkerAggregate(cmd);
                   writeWorkerRepository.Save(aggregate.State);
             }
 
             public void Handle(UpdateWorker cmd)
             {
-                WorkerState workerState = writeWorkerRepository.GetById(cmd.Worker_Id);
+                WorkerState workerState = writeWorkerRepository.GetById(cmd.Id);
                 var aggregate = new WorkerAggregate(workerState);
                 aggregate.Change(cmd);
                 writeWorkerRepository.Update(aggregate.State);

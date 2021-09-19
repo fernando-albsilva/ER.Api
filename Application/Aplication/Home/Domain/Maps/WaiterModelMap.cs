@@ -12,7 +12,7 @@ namespace Application.Aplication.Home.Domain.Maps.Read
 
             Table("[WaiterView]");
 
-            Id(x => x.Worker_Id);
+            Id(x => x.WorkerId);
 
             Map(x => x.Name);
             

@@ -1,7 +1,0 @@
-
-	CREATE TABLE Product(
-    Id nvarchar(60) NOT NULL,
-    Name nvarchar(100) NOT NULL,
-	Unit_Value Decimal(10,2),
-	Cost Decimal(10,2),
-    PRIMARY KEY (Id) );

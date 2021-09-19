@@ -25,9 +25,9 @@ namespace Application.Aplication.Worker.Domain.Read.Repositories
             public WorkerModel GetById(Guid Id)
             {
                 var worker = new WorkerModel();
-                var list = _session.Query<WorkerModel>().Where(x => x.Worker_Id == Id).ToList();
+                var list = _session.Query<WorkerModel>().Where(x => x.Id == Id).ToList();
 
-                worker = list.FirstOrDefault(x=>x.Worker_Id != Guid.Empty);
+                worker = list.FirstOrDefault(x=>x.Id != Guid.Empty);
 
                 return worker;
             }

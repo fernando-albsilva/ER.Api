@@ -24,13 +24,13 @@ namespace Application.Aplication.Worker.Domain.Write.Aggregates
                   validateWorkerCommand(cmd);
                   State = new WorkerState
                   {
-                        Worker_Id = cmd.Worker_Id,
+                        Id = cmd.Id,
                         Function = cmd.Function,
                         Name = cmd.Name,
                         Email = cmd.Email,
                         Cpf = cmd.Cpf,
                         Address = cmd.Address,
-                        Phone_Number = cmd.Phone_Number
+                        PhoneNumber = cmd.PhoneNumber
                   };
 
             }
@@ -43,7 +43,7 @@ namespace Application.Aplication.Worker.Domain.Write.Aggregates
                 State.Email = cmd.Email;
                 State.Email = cmd.Cpf;
                 State.Email = cmd.Address;
-                State.Email = cmd.Phone_Number;
+                State.Email = cmd.PhoneNumber;
 
             }
 
@@ -70,7 +70,7 @@ namespace Application.Aplication.Worker.Domain.Write.Aggregates
                   {
                         throw new Exception("Não existe Endereço do trabalhador.");
                   }
-                  else if (string.IsNullOrEmpty(cmd.Phone_Number))
+                  else if (string.IsNullOrEmpty(cmd.PhoneNumber))
                   {
                         throw new Exception("Não existe Telefone do trabalhador.");
                   }

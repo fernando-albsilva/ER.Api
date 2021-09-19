@@ -1,0 +1,21 @@
+-- INSERT INTO [Worker] TABLE 
+
+USE [ER]
+GO
+
+INSERT INTO [dbo].[Worker]
+
+	([Id],[FunctionId],[Name],[Cpf],[PhoneNumber],[Address],[Email])
+
+ VALUES
+    (NEWID(),1002,'Pedro','111111111111','21-958-585-551','Rua 1 Bairro 1, niteroi','pedro@gmail.com.br'),
+	(NEWID(),1002,'joao','222222222222','21-958-585-552','Rua 2 Bairro 22 , niteroi','joao@gmail.com.br'),
+	(NEWID(),1002,'Helena','333333333333','21-958-585-553','Rua 3 Bairro 3 , niteroi','Helena@gmail.com.br'),
+	(NEWID(),1002,'Gustavo','444444444444','21-958-585-554','Rua 4 Bairro 4 , niteroi','Gustavo@gmail.com.br'),
+	(NEWID(),1002,'Julia','555555555555','21-958-585-555','Rua 5 Bairro 5 , niteroi','Julia@gmail.com.br'),
+	(NEWID(),1003,'Gloria','66666666666','21-958-585-556','Rua 6 Bairro 6 , niteroi','Gloria@gmail.com.br'),
+	(NEWID(),1003,'Fabio','7777777777','21-958-585-557','Rua 7 Bairro 7 , niteroi','Fabio@gmail.com.br'),
+	(NEWID(),1003,'Luiz','888888888888','21-958-585-558','Rua 8 Bairro 8 , niteroi','Luiz@gmail.com.br'),
+	(NEWID(),1004,'Paula','999999999999','21-958-585-559','Rua 9 Bairro 9 , niteroi','Paula@gmail.com.br')
+
+GO

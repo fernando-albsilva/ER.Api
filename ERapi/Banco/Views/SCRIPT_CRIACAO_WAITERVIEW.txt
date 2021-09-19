@@ -1,0 +1,22 @@
+-- CREATE [dbo].[WaiterView]  VIEW
+
+Use ER
+GO 
+
+DROP VIEW IF EXISTS [dbo].[WaiterView] 
+GO
+
+CREATE VIEW [WaiterView] 
+AS
+
+	SELECT W.[Id] as WorkerId
+		 , W.[Name] 
+	FROM 
+		[Worker] w inner join [Function] f
+		on w.[FunctionId] = f.[Id]
+	where
+		1=1
+	AND f.[Type] LIKE '%Garçom%'
+	OR	f.[Type] LIKE '%garçom%'
+
+GO

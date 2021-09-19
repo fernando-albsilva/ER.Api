@@ -1,0 +1,23 @@
+-- CREATE [dbo.WorkersView] VIEW
+
+Use ER
+GO 
+  
+IF OBJECT_ID('dbo.WorkersView', 'V') IS NOT NULL
+	 DROP VIEW dbo.WorkersView
+GO
+    
+CREATE VIEW dbo.WorkersView AS
+
+	SELECT W.[Id]
+		 , W.[Name]
+		 , W.[Cpf]
+		 , W.[PhoneNumber]
+		 , W.[Address]
+		 , W.[Email]
+		 , F.[Type]
+	FROM [Worker] W inner join [Function] F
+		 on F.Id = W.FunctionId;
+
+
+GO

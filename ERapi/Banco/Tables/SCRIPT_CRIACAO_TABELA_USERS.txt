@@ -1,3 +1,5 @@
+-- CREATE [Users] TABLE 
+
 Use ER
 GO
 
@@ -8,3 +10,5 @@ CREATE TABLE Users (
     Role nvarchar(30) NOT NULL,
     PRIMARY KEY (Id)
 );
+
+GO

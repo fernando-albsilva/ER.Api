@@ -1,0 +1,11 @@
+-- CREATE [Function] TABLE
+Use ER
+GO
+
+CREATE TABLE [Function]
+(
+	Id int IDENTITY(1002,1) PRIMARY KEY,
+	Type nvarchar(80)
+);
+
+GO

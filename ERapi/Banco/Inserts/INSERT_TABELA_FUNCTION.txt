@@ -1,0 +1,13 @@
+-- INSERT INTO [FUNCTION] TABLE
+
+Use ER
+GO
+
+BEGIN
+INSERT INTO [Function] ([Type]) VALUES 
+('Garçom'),
+('Caixa'),
+('Gerente')
+END
+
+GO

@@ -12,11 +12,11 @@ namespace Application.Aplication.Worker.Domain.Maps.Write
                 Schema("dbo");
                 Table("Worker");
 
-                Id(x => x.Worker_Id);
+                Id(x => x.Id);
             
                 Map(x => x.Name);
                 Map(x => x.Cpf);
-                Map(x => x.Phone_Number);
+                Map(x => x.PhoneNumber);
                 Map(x => x.Address);
                 Map(x => x.Email);
                 References(x => x.Function,"Function_Id");

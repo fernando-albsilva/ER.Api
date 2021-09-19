@@ -22,13 +22,13 @@ namespace Application.Aplication.Worker.Domain.Write.Repositories
         public WorkerState GetById(Guid Id)
         {
             var workerState = new WorkerState();
-            var list = _session.Query<WorkerState>().Where(x => x.Worker_Id == Id).ToList();
+            var list = _session.Query<WorkerState>().Where(x => x.Id == Id).ToList();
 
-            workerState = list.FirstOrDefault(x => x.Worker_Id != Guid.Empty);
+            workerState = list.FirstOrDefault(x => x.Id != Guid.Empty);
 
             if (list.Count < 1)
             {
-                workerState.Worker_Id = Guid.Empty;
+                workerState.Id = Guid.Empty;
             }
 
             return workerState;
