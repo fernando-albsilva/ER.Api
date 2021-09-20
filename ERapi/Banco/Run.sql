@@ -62,7 +62,7 @@ GO
 CREATE TABLE Product(
     Id nvarchar(60) NOT NULL,
     Name nvarchar(100) NOT NULL,
-	Unit_Value Decimal(10,2),
+	UnitValue Decimal(10,2),
 	Cost Decimal(10,2),
     PRIMARY KEY (Id) );
 
@@ -159,7 +159,7 @@ GO
 CREATE VIEW [WaiterView] 
 AS
 
-	SELECT W.[Id]
+	SELECT W.[Id] as WorkerId
 		 , W.[Name] 
 	FROM 
 		[Worker] w inner join [Function] f
@@ -211,3 +211,27 @@ INSERT INTO [dbo].[Worker]
 
 GO
 
+-------------------------------------------------------------------------------------
+-- INSERT INTO [Product] TABLE
+
+USE [ER]
+GO
+
+INSERT INTO [dbo].[Product]
+
+           ([Id],[Name],[UnitValue],[Cost])
+
+     VALUES
+           (NEWID(),'Coca-Cola',6.50,4.00),
+		   (NEWID(),'Guarana',5.50,3.50),
+		   (NEWID(),'Suco de Laranja',7.50,4.50),
+		   (NEWID(),'Batata Frita',16.50,8.00),
+		   (NEWID(),'Hamburguer',22.50,15.50),
+		   (NEWID(),'Aneis de Cebola',28.50,19.00),
+		   (NEWID(),'Picanha Fatiada',55.50,32.00),
+		   (NEWID(),'Skol Lata',7.50,4.30),
+		   (NEWID(),'Pizza Media',36.50,18.40),
+		   (NEWID(),'Crepe Doce',25,16.70),
+		   (NEWID(),'Crepe Salgado ',6.50,4.0)
+
+GO
