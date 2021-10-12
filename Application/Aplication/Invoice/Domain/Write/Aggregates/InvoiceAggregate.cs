@@ -1,42 +1,42 @@
 using System;
-using Application.Aplication.Product.Domain.Write.Commands;
-using Application.Aplication.Product.Domain.Write.States;
+using Application.Aplication.Invoice.Domain.Write.Commands;
+using Application.Aplication.Invoice.Domain.Write.States;
 
-namespace Application.Aplication.Product.Domain.Write.Aggregates
+namespace Application.Aplication.Invoice.Domain.Write.Aggregates
 {
-      public class ProductAggregate
+      public class InvoiceAggregate
       {
             public InvoiceState State;
 
-            public ProductAggregate()
+            public InvoiceAggregate()
             {
             }
-            public ProductAggregate(InvoiceState state)
+            public InvoiceAggregate(InvoiceState state)
             {
                     State = state;
             }
-            public ProductAggregate(CreateProduct cmd)
-            {
+            public InvoiceAggregate(CreateInvoice cmd)
+            {/*
                   validadeProductCommand(cmd);
-                  State = new InvoiceState
+                  State = new ProductState
                   {
                         Id = cmd.Id,
                         Name = cmd.Name,
                         UnitValue = cmd.UnitValue,
                         Cost = cmd.Cost
-                  };
+                  };*/
             }
 
-            public void Change(UpdateProduct cmd)
+          /*  public void Change(UpdateProduct cmd)
             {
                   validadeProductCommand(cmd);
                   State.Name = cmd.Name;
                   State.UnitValue = cmd.UnitValue;
                   State.Cost = cmd.Cost;
 
-            }
+            }*/
 
-            public void validadeProductCommand(UpdateProductCommand cmd)
+           /* public void validadeProductCommand(UpdateProductCommand cmd)
             {
                   if (string.IsNullOrEmpty(cmd.Name))
                   {
@@ -50,6 +50,6 @@ namespace Application.Aplication.Product.Domain.Write.Aggregates
                   {
                         throw new Exception("Não existe Valor do Custo do produto.");
                   }
-            }
+            }*/
       }
 }

@@ -5,19 +5,19 @@ using System.Linq;
 
 namespace Application.Aplication.Product.Domain.Write.Repositories
 {
-      public class ProductWriteRepository : IBaseWriteProductRepository
+      public class InvoiceWriteRepository : IBaseWriteInvoiceRepository
       {
             private readonly ISession _session;
-            public ProductWriteRepository(ISession _session)
+            public InvoiceWriteRepository(ISession _session)
             {
 
                   this._session = _session;
             }
 
-            public ProductState GetById(Guid Id)
+            public InvoiceState GetById(Guid Id)
             {
-                var productState = new ProductState();
-                var list = _session.Query<ProductState>().Where(x => x.Id == Id).ToList();
+                var productState = new InvoiceState();
+                var list = _session.Query<InvoiceState>().Where(x => x.Id == Id).ToList();
 
                 productState = list.ElementAt(0);
 
@@ -29,7 +29,7 @@ namespace Application.Aplication.Product.Domain.Write.Repositories
                 return productState;
             }
 
-            public void Save(ProductState state)
+            public void Save(InvoiceState state)
                 {
                       using (var tran = _session.BeginTransaction())
                       {
@@ -39,7 +39,7 @@ namespace Application.Aplication.Product.Domain.Write.Repositories
 
                 }
 
-            public void Delete(ProductState state)
+            public void Delete(InvoiceState state)
             {
                   using (var tran = _session.BeginTransaction())
                   {
@@ -49,7 +49,7 @@ namespace Application.Aplication.Product.Domain.Write.Repositories
 
             }
 
-            public void Update(ProductState state)
+            public void Update(InvoiceState state)
             {
                   using (var tran = _session.BeginTransaction())
                   {

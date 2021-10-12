@@ -57,13 +57,13 @@ namespace ERapi
 
 
             //Reopsitories ( Write )
-            services.AddScoped<IBaseWriteProductRepository, ProductWriteRepository>();
+            services.AddScoped<IBaseWriteInvoiceRepository, InvoiceWriteRepository>();
             services.AddScoped<IBaseWriteFunctionRepository, FunctionWriteRepository>();
             services.AddScoped<IBaseWriteWorkerRepository, WorkerWriteRepository>();
 
 
             //CommandHandlers
-            services.AddScoped<IProductCommandHandler, ProductCommandHandler>();
+            services.AddScoped<IInvoiceCommandHandler, InvoiceCommandhandler>();
             services.AddScoped<IFunctionCommandHandler, FunctionCommandHandler>();
             services.AddScoped<IWorkerCommandHandler, WorkerCommandHandler>();
 

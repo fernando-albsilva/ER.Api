@@ -1,35 +1,41 @@
 using System;
-using Application.Aplication.Product.Domain.Read.Model;
-using Application.Aplication.Product.Domain.Read.Repositories;
-using Application.Aplication.Product.Domain.Write.Commands;
-using Application.Aplication.Product.Domain.Write.Repositories;
-using Application.Aplication.Product.Domain.Write.States;
-using Application.Aplication.Product.Domain.Write.Aggregates;
+using Application.Aplication.Invoice.Domain.Read.Repositories;
+using Application.Aplication.Invoice.Domain.Write.Commands;
+using Application.Aplication.Invoice.Domain.Write.Repositories;
+using Application.Aplication.Invoice.Domain.Write.States;
+using Application.Aplication.Invoice.Domain.Write.Aggregates;
 using System.Collections.Generic;
 
-namespace Application.Aplication.Product.Domain.Write.CommandHandlers
+namespace Application.Aplication.Invoice.Domain.Write.CommandHandlers
 {
       public class InvoiceCommandhandler : IInvoiceCommandHandler
       {
-            private readonly IBaseReadProductRepository readRepository;
+            private readonly IBaseReadInvoiceRepository readRepository;
             private readonly IBaseWriteInvoiceRepository writeRepository;
 
-            public InvoiceCommandhandler(IBaseReadProductRepository readRepository, IBaseWriteInvoiceRepository writeRepository)
+            public InvoiceCommandhandler(IBaseReadInvoiceRepository readRepository, IBaseWriteInvoiceRepository writeRepository)
             {
                   this.readRepository = readRepository;
                   this.writeRepository = writeRepository;
             }
 
-            public void Handle(CreateProduct cmd)
+        /*    public void Handle(CreateInvoice cmd)
             {
                   cmd.Id = Guid.NewGuid();
-                  var aggregate = new ProductAggregate(cmd);
+                  var aggregate = new InvoiceAggregate(cmd);
                   writeRepository.Save(aggregate.State);
+            }*/
+
+            public void Handle(CreateInvoice cmd)
+            {
+                throw new NotImplementedException();
             }
 
-            public void Handle(UpdateProduct cmd)
+     
+
+        /*    public void Handle(UpdateProduct cmd)
             {
-                  InvoiceState productState = writeRepository.GetById(cmd.Id);
+                  ProductState productState = writeRepository.GetById(cmd.Id);
                   ValidadeId(productState);
                   var aggregate = new ProductAggregate(productState);
                   aggregate.Change(cmd);
@@ -38,7 +44,7 @@ namespace Application.Aplication.Product.Domain.Write.CommandHandlers
 
             public void Handle(Guid Id)
             {
-                  InvoiceState productState = writeRepository.GetById(Id);
+                  ProductState productState = writeRepository.GetById(Id);
                   ValidadeId(productState);
                   writeRepository.Delete(productState);
             }
@@ -47,13 +53,13 @@ namespace Application.Aplication.Product.Domain.Write.CommandHandlers
             {
                  foreach (Guid element in idList)
                  {
-                    InvoiceState productState = writeRepository.GetById(element);
+                    ProductState productState = writeRepository.GetById(element);
                     ValidadeId(productState);
                     writeRepository.Delete(productState);
                  }
             }
 
-            private void ValidadeId(InvoiceState productState)
+            private void ValidadeId(ProductState productState)
                 {
 
                       if (productState.Id == Guid.Empty)
@@ -61,6 +67,6 @@ namespace Application.Aplication.Product.Domain.Write.CommandHandlers
                             throw new Exception("Não existe registro com esse Id.");
                       }
 
-                }
-      }
+                }*/
+    }
 }

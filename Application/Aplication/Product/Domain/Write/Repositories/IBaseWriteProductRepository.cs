@@ -4,11 +4,11 @@ using Application.Aplication.Product.Domain.Write.States;
 
 namespace Application.Aplication.Product.Domain.Write.Repositories
 {
-      public interface IBaseWriteProductRepository
+      public interface IBaseWriteInvoiceRepository
       {
-            public ProductState GetById(Guid Id);
-            public void Save(ProductState state);
-            public void Delete(ProductState state);
-            public void Update(ProductState state);
+            public InvoiceState GetById(Guid Id);
+            public void Save(InvoiceState state);
+            public void Delete(InvoiceState state);
+            public void Update(InvoiceState state);
       }
 }

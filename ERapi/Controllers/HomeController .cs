@@ -1,5 +1,6 @@
 using Application.Aplication.Home.Domain.Read.Model;
 using Application.Aplication.Home.Domain.Read.Repositories;
+using Application.Aplication.Invoice.Domain.Write.Commands;
 using Application.Aplication.Product.Domain.Read.Model;
 using Application.Aplication.Product.Domain.Read.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -46,8 +47,13 @@ public class HomeController : ControllerBase
         #endregion
 
         #region Commands
+        [HttpPost]
+        [Route("Home/CreateInvoice")]
+        public void createInvoice(CreateInvoice cmd)
+            {
+            var teste = cmd;
 
-
+        }
 
         #endregion
     }
