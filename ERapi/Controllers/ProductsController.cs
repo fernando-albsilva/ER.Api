@@ -15,11 +15,11 @@ namespace ERapi.Controllers
     public class ProductsController : ControllerBase
     {
       private readonly IBaseReadProductRepository readRepository;
-      private readonly IBaseWriteInvoiceRepository writeRepository;
-      private readonly IInvoiceCommandHandler productCommandHandler;
+      private readonly IBaseWriteProductRepository writeRepository;
+      private readonly IProductCommandHandler productCommandHandler;
       
 
-        public ProductsController(IBaseReadProductRepository readRepository,IBaseWriteInvoiceRepository writeRepository,IInvoiceCommandHandler productCommandHandler)
+        public ProductsController(IBaseReadProductRepository readRepository,IBaseWriteProductRepository writeRepository,IProductCommandHandler productCommandHandler)
         {
          this.readRepository = readRepository;
          this.writeRepository = writeRepository;

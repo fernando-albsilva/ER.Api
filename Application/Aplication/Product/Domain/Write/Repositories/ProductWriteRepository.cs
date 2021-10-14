@@ -5,58 +5,58 @@ using System.Linq;
 
 namespace Application.Aplication.Product.Domain.Write.Repositories
 {
-      public class InvoiceWriteRepository : IBaseWriteInvoiceRepository
-      {
-            private readonly ISession _session;
-            public InvoiceWriteRepository(ISession _session)
-            {
+    public class ProductWriteRepository : IBaseWriteProductRepository
+    {
+        private readonly ISession _session;
+        public ProductWriteRepository(ISession _session)
+        {
 
-                  this._session = _session;
+            this._session = _session;
+        }
+
+        public ProductState GetById(Guid Id)
+        {
+            var productState = new ProductState();
+            var list = _session.Query<ProductState>().Where(x => x.Id == Id).ToList();
+
+            productState = list.ElementAt(0);
+
+            if (list.Count < 1)
+            {
+                productState.Id = Guid.Empty;
             }
 
-            public InvoiceState GetById(Guid Id)
+            return productState;
+        }
+
+        public void Save(ProductState state)
+        {
+            using (var tran = _session.BeginTransaction())
             {
-                var productState = new InvoiceState();
-                var list = _session.Query<InvoiceState>().Where(x => x.Id == Id).ToList();
-
-                productState = list.ElementAt(0);
-
-                if (list.Count < 1)
-                {
-                    productState.Id = Guid.Empty;
-                }
-
-                return productState;
+                _session.Save(state);
+                tran.Commit();
             }
 
-            public void Save(InvoiceState state)
-                {
-                      using (var tran = _session.BeginTransaction())
-                      {
-                            _session.Save(state);
-                            tran.Commit();
-                      }
+        }
 
-                }
-
-            public void Delete(InvoiceState state)
+        public void Delete(ProductState state)
+        {
+            using (var tran = _session.BeginTransaction())
             {
-                  using (var tran = _session.BeginTransaction())
-                  {
-                        _session.Delete(state);
-                        tran.Commit();
-                  }
-
+                _session.Delete(state);
+                tran.Commit();
             }
 
-            public void Update(InvoiceState state)
+        }
+
+        public void Update(ProductState state)
+        {
+            using (var tran = _session.BeginTransaction())
             {
-                  using (var tran = _session.BeginTransaction())
-                  {
-                        _session.Update(state);
-                        tran.Commit();
-                  }
+                _session.Update(state);
+                tran.Commit();
             }
+        }
 
 
 

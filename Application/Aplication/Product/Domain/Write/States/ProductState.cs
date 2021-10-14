@@ -2,7 +2,7 @@ using Application.Aplication.Product.Domain.Write.Entities;
 
 namespace Application.Aplication.Product.Domain.Write.States
 {
-      public class InvoiceState : BaseEntity
+      public class ProductState : BaseEntity
       {
             public virtual string Name { get; set; }
             public virtual decimal UnitValue { get; set; }

@@ -2,9 +2,7 @@ using System;
 using Application.Aplication.Invoice.Domain.Read.Repositories;
 using Application.Aplication.Invoice.Domain.Write.Commands;
 using Application.Aplication.Invoice.Domain.Write.Repositories;
-using Application.Aplication.Invoice.Domain.Write.States;
 using Application.Aplication.Invoice.Domain.Write.Aggregates;
-using System.Collections.Generic;
 
 namespace Application.Aplication.Invoice.Domain.Write.CommandHandlers
 {
@@ -28,8 +26,10 @@ namespace Application.Aplication.Invoice.Domain.Write.CommandHandlers
 
             public void Handle(CreateInvoice cmd)
             {
-                throw new NotImplementedException();
-            }
+                cmd.Id = Guid.NewGuid();
+                var aggregate = new InvoiceAggregate(cmd);
+                writeRepository.Save(aggregate.State);
+             }
 
      
 

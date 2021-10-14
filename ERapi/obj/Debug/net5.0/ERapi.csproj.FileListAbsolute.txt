@@ -73,6 +73,7 @@ C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.Generat
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.AssemblyInfoInputs.cache
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.AssemblyInfo.cs
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.csproj.CoreCompileInputs.cache
+C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\bin\Debug\net5.0\appsettings.json
@@ -157,4 +158,3 @@ C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.dll
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ref\ERapi.dll
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.pdb
 C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.genruntimeconfig.cache
-C:\Users\PICHAU\Desktop\Easy Restaurant Api\ERapi\obj\Debug\net5.0\ERapi.MvcApplicationPartsAssemblyInfo.cs

@@ -4,7 +4,7 @@ using Application.Aplication.Product.Domain.Write.Commands;
 
 namespace Application.Aplication.Product.Domain.Write.CommandHandlers
 {
-      public interface IInvoiceCommandHandler
+      public interface IProductCommandHandler
       {
             public void Handle(CreateProduct cmd);
 

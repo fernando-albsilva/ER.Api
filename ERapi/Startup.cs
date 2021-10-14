@@ -13,7 +13,7 @@ using Application.Aplication.Function.Domain.Read.Repositories;
 using Application.Aplication.Product.Domain.Write.Repositories;
 using Application.Aplication.Function.Domain.Write.Repositories;
 using Application.Aplication.Worker.Domain.Write.Repositories;
-using Application.Aplication.Product.Domain.Write.CommandHandlers;
+
 using Application.Aplication.Function.Domain.Write.CommandHandllers;
 using Application.Aplication.Worker.Domain.Write.CommandHandlers;
 using Application.Aplication.Product.Domain.Maps.Read;
@@ -27,6 +27,10 @@ using Microsoft.IdentityModel.Tokens;
 using Application.Aplication.Auth.User.Read.Repositories;
 using Application.Aplication.Home.Domain.Maps.Read;
 using Application.Aplication.Home.Domain.Read.Repositories;
+using Application.Aplication.Invoice.Domain.Write.CommandHandlers;
+using Application.Aplication.Product.Domain.Write.CommandHandlers;
+using Application.Aplication.Invoice.Domain.Write.Repositories;
+using Application.Aplication.Invoice.Domain.Read.Repositories;
 
 namespace ERapi
 {
@@ -53,20 +57,23 @@ namespace ERapi
             services.AddScoped<IBaseReadWorkerRepository, WorkerReadRepository>();
             services.AddScoped<IBaseReadUserRepository, UserReadRepository>();
             services.AddScoped< IBaseReadHomeRepository, HomeReadRepository > ();
+            services.AddScoped< IBaseReadInvoiceRepository, InvoiceReadRepository > ();
 
 
 
             //Reopsitories ( Write )
-            services.AddScoped<IBaseWriteInvoiceRepository, InvoiceWriteRepository>();
+            services.AddScoped<IBaseWriteProductRepository, ProductWriteRepository>();
             services.AddScoped<IBaseWriteFunctionRepository, FunctionWriteRepository>();
             services.AddScoped<IBaseWriteWorkerRepository, WorkerWriteRepository>();
+            services.AddScoped<IBaseWriteInvoiceRepository, InvoiceWriteRepository>();
+
 
 
             //CommandHandlers
-            services.AddScoped<IInvoiceCommandHandler, InvoiceCommandhandler>();
             services.AddScoped<IFunctionCommandHandler, FunctionCommandHandler>();
             services.AddScoped<IWorkerCommandHandler, WorkerCommandHandler>();
-
+            services.AddScoped<IProductCommandHandler, ProductCommandHandler>();
+            services.AddScoped<IInvoiceCommandHandler, InvoiceCommandhandler>();
 
             services.AddControllers();
 

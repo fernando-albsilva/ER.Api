@@ -6,19 +6,19 @@ namespace Application.Aplication.Product.Domain.Write.Aggregates
 {
       public class ProductAggregate
       {
-            public InvoiceState State;
+            public ProductState State;
 
             public ProductAggregate()
             {
             }
-            public ProductAggregate(InvoiceState state)
+            public ProductAggregate(ProductState state)
             {
                     State = state;
             }
             public ProductAggregate(CreateProduct cmd)
             {
                   validadeProductCommand(cmd);
-                  State = new InvoiceState
+                  State = new ProductState
                   {
                         Id = cmd.Id,
                         Name = cmd.Name,

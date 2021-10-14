@@ -30,14 +30,14 @@ namespace Application.Aplication.Invoice.Domain.Write.Repositories
             }*/
 
             public void Save(InvoiceState state)
-                {
+            {
                       using (var tran = _session.BeginTransaction())
                       {
                             _session.Save(state);
                             tran.Commit();
                       }
 
-                }
+            }
 /*
             public void Delete(ProductState state)
             {

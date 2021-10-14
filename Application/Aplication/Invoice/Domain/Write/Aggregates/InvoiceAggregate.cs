@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using Application.Aplication.Invoice.Domain.Write.Commands;
 using Application.Aplication.Invoice.Domain.Write.States;
+
 
 namespace Application.Aplication.Invoice.Domain.Write.Aggregates
 {
@@ -16,17 +18,9 @@ namespace Application.Aplication.Invoice.Domain.Write.Aggregates
                     State = state;
             }
             public InvoiceAggregate(CreateInvoice cmd)
-            {/*
-                  validadeProductCommand(cmd);
-                  State = new ProductState
-                  {
-                        Id = cmd.Id,
-                        Name = cmd.Name,
-                        UnitValue = cmd.UnitValue,
-                        Cost = cmd.Cost
-                  };*/
+            {
+                State = new InvoiceState(cmd);
             }
-
           /*  public void Change(UpdateProduct cmd)
             {
                   validadeProductCommand(cmd);

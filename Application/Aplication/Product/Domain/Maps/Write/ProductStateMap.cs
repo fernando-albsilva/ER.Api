@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Aplication.Product.Domain.Maps.Write
 {
-      public class ProductStateMap : ClassMap<InvoiceState>
+      public class ProductStateMap : ClassMap<ProductState>
       {
             public ProductStateMap()
             {
