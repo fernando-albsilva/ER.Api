@@ -235,3 +235,24 @@ INSERT INTO [dbo].[Product]
 		   (NEWID(),'Crepe Salgado ',6.50,4.0)
 
 GO
+
+
+
+
+--- Adicionando coluna CLientName na tabela Invoice
+
+USE ER;
+
+ALTER TABLE Invoice
+ADD ClientName NVARCHAR(150);
+
+GO
+
+--- Adicionando coluna Quantity na tabela InvoiceItems
+
+USE ER;
+
+ALTER TABLE InvoiceItems
+ADD Quantity INT DEFAULT 0 NOT NULL;
+
+GO

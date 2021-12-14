@@ -1,9 +1,9 @@
-using Application.Aplication.Home.Domain.Read.Model;
-using Application.Aplication.Home.Domain.Read.Repositories;
-using Application.Aplication.Invoice.Domain.Write.CommandHandlers;
-using Application.Aplication.Invoice.Domain.Write.Commands;
-using Application.Aplication.Product.Domain.Read.Model;
-using Application.Aplication.Product.Domain.Read.Repositories;
+using Application.Home.Domain.Read.Model;
+using Application.Home.Domain.Read.Repositories;
+using Application.Invoice.Domain.Write.CommandHandlers;
+using Application.Invoice.Domain.Write.Commands;
+using Application.Product.Domain.Read.Model;
+using Application.Product.Domain.Read.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 

@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
-using Application.Aplication.Product.Domain.Read.Repositories;
-using Application.Aplication.Product.Domain.Write.Repositories;
-using Application.Aplication.Product.Domain.Write.CommandHandlers;
-using Application.Aplication.Product.Domain.Read.Model;
-using Application.Aplication.Product.Domain.Write.Commands;
+using Application.Product.Domain.Read.Repositories;
+using Application.Product.Domain.Write.Repositories;
+using Application.Product.Domain.Write.CommandHandlers;
+using Application.Product.Domain.Read.Model;
+using Application.Product.Domain.Write.Commands;
 
 namespace ERapi.Controllers
 {

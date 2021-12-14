@@ -1,0 +1,17 @@
+
+
+using Application.Worker.Domain.Write.States;
+using System;
+using System.Collections.Generic;
+
+namespace Application.Invoice.Domain.Write.States
+{
+    public class InvoiceState
+    {
+        public virtual Guid Id { get; set; }
+        public virtual WorkerState WorkerState { get; set; }
+        public virtual DateTime Date { get; set; }
+        public virtual string ClientName { get; set; }
+        public virtual IList<InvoiceItemState> InvoiceItemsState { get; set; }
+    }
+}

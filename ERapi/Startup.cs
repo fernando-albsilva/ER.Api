@@ -7,30 +7,32 @@ using Microsoft.OpenApi.Models;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 
-using Application.Aplication.Infrastructure;
-using Application.Aplication.Product.Domain.Read.Repositories;
-using Application.Aplication.Function.Domain.Read.Repositories;
-using Application.Aplication.Product.Domain.Write.Repositories;
-using Application.Aplication.Function.Domain.Write.Repositories;
-using Application.Aplication.Worker.Domain.Write.Repositories;
-
-using Application.Aplication.Function.Domain.Write.CommandHandllers;
-using Application.Aplication.Worker.Domain.Write.CommandHandlers;
-using Application.Aplication.Product.Domain.Maps.Read;
-using Application.Aplication.Function.Domain.Maps.Read;
-using Application.Aplication.Worker.Domain.Maps.Read;
-using Application.Aplication.Worker.Domain.Read.Repositories;
 using System.Text;
 using ERapi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Application.Aplication.Auth.User.Read.Repositories;
-using Application.Aplication.Home.Domain.Maps.Read;
-using Application.Aplication.Home.Domain.Read.Repositories;
-using Application.Aplication.Invoice.Domain.Write.CommandHandlers;
-using Application.Aplication.Product.Domain.Write.CommandHandlers;
-using Application.Aplication.Invoice.Domain.Write.Repositories;
-using Application.Aplication.Invoice.Domain.Read.Repositories;
+using Application.DataBaseConnection;
+using Application.Product.Domain.Read.Repositories;
+using Application.Function.Domain.Read.Repositories;
+using Application.Worker.Domain.Read.Repositories;
+using Application.Aplication.Function.Domain.Read.Repositories;
+using Application.Home.Domain.Read.Repositories;
+using Application.Invoice.Domain.Read.Repositories;
+using Application.Product.Domain.Write.Repositories;
+using Application.Function.Domain.Write.Repositories;
+using Application.Worker.Domain.Write.Repositories;
+using Application.Invoice.Domain.Write.Repositories;
+using Application.Function.Domain.Write.CommandHandllers;
+using Application.Worker.Domain.Write.CommandHandlers;
+using Application.Product.Domain.Write.CommandHandlers;
+using Application.Invoice.Domain.Write.CommandHandlers;
+using Application.Product.Domain.Maps.Read;
+using Application.Product.Domain.Maps.Write;
+using Application.Function.Domain.Maps.Read;
+using Application.Worker.Domain.Maps.Read;
+using Application.Home.Domain.Maps.Read;
+using Application.Invoice.Domain.Maps.Write;
 
 namespace ERapi
 {
@@ -93,9 +95,12 @@ namespace ERapi
                             .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connStr))
                             .Mappings(m => m.FluentMappings
                                 .AddFromAssemblyOf<ProductModelMap>()
+                                .AddFromAssemblyOf<ProductStateMap>()
                                 .AddFromAssemblyOf<FunctionModelMap>()
                                 .AddFromAssemblyOf<WorkerModelMap>()
-                                .AddFromAssemblyOf<WaiterModelMap>())
+                                .AddFromAssemblyOf<WaiterModelMap>()
+                                .AddFromAssemblyOf<InvoiceStateMap>()
+                                .AddFromAssemblyOf<InvoiceItemStateMap>())
                             .BuildSessionFactory();
             services.AddScoped(factory =>
             {

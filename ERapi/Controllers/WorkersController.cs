@@ -1,8 +1,8 @@
-using Application.Aplication.Worker.Domain.Read.Model;
-using Application.Aplication.Worker.Domain.Read.Repositories;
-using Application.Aplication.Worker.Domain.Write.CommandHandlers;
-using Application.Aplication.Worker.Domain.Write.Commands;
-using Application.Aplication.Worker.Domain.Write.Repositories;
+using Application.Worker.Domain.Read.Model;
+using Application.Worker.Domain.Read.Repositories;
+using Application.Worker.Domain.Write.CommandHandlers;
+using Application.Worker.Domain.Write.Commands;
+using Application.Worker.Domain.Write.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -36,10 +36,10 @@ public class WorkersController : ControllerBase
             var WorkertModelList = WorkerReadRepository.GetAll();
             return WorkertModelList;
 
-        }
+        }  
 
         [HttpGet]
-        [Route("Worker/GetById")]
+        [Route("Worker/WorkerById")]
         public WorkerModel GetById(Guid id)
         {
             var workerModel = WorkerReadRepository.GetById(id);
