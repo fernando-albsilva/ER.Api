@@ -4,14 +4,14 @@ using FluentNHibernate.Mapping;
 
 namespace Application.Worker.Domain.Maps.Read
 {
-      public class WorkerModelMap : ClassMap<WorkerModel>
+      public class WorkerFlatModelViewModelMap : ClassMap<WorkerFlatModel>
       {
-            public WorkerModelMap()
+            public WorkerFlatModelViewModelMap()
             {
                 ReadOnly();
 
                 Schema("dbo");
-                Table("Worker");
+                Table("WorkersView");
 
                 Id(x => x.Id);
             
@@ -20,7 +20,7 @@ namespace Application.Worker.Domain.Maps.Read
                 Map(x => x.PhoneNumber);
                 Map(x => x.Address);
                 Map(x => x.Email);
-                References(x => x.Function,"FunctionId");
+                Map(x => x.Type);
             }
       }
 }

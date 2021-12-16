@@ -20,7 +20,7 @@ namespace Application.Worker.Domain.Maps.Write
                 Map(x => x.PhoneNumber);
                 Map(x => x.Address);
                 Map(x => x.Email);
-                References(x => x.Function,"FunctionId");
+                References(x => x.Function).Column("FunctionId");
                 HasMany<InvoiceState>(x => x.InvoiceState).KeyColumn("Id");
 
         }

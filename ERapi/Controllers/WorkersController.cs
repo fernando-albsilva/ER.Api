@@ -31,7 +31,7 @@ public class WorkersController : ControllerBase
 
         [HttpGet]
         [Route("Worker/GetAll")]
-        public IEnumerable<WorkerModel> GetAll()
+        public IEnumerable<WorkerFlatModel> GetAll()
         {
             var WorkertModelList = WorkerReadRepository.GetAll();
             return WorkertModelList;

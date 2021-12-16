@@ -16,9 +16,9 @@ namespace Application.Worker.Domain.Read.Repositories
                       this._session = _session;
             }
 
-            public IEnumerable<WorkerModel> GetAll()
+            public IEnumerable<WorkerFlatModel> GetAll()
             {
-                var list = this._session.Query<WorkerModel>().ToList();
+                var list = this._session.Query<WorkerFlatModel>().ToList();
                 return list;
             }
 
