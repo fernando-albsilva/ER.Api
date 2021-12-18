@@ -280,6 +280,6 @@ GO
 
 USE ER;
 
-exec sp_rename '[dbo].[Users]', '[dbo].[User]';
+exec sp_rename 'Users', 'User';
 
 GO
