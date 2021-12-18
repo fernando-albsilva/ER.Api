@@ -1,11 +1,9 @@
 
-using Aplication.Aplication.Auth.User.Read.Model;
-using Application.Aplication.Function.Domain.Read.Repositories;
+using Aplication.Auth.User.Domain.Write.Commands;
+using Application.Auth.Domain.Read.Repositories;
 using ERapi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ERapi.Controllers
@@ -28,7 +26,7 @@ namespace ERapi.Controllers
 
         [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] UserModel userModel)
+        public async Task<ActionResult<dynamic>> Authenticate([FromBody] UserCommand userModel)
         {
 
             var user = readUserRepository.GetByUser(userModel.UserName, userModel.Password);

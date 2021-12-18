@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Auth\User\Write\" />
     <Folder Include="Function\map\" />
     <Folder Include="Home\Domain\Write\" />
   </ItemGroup>

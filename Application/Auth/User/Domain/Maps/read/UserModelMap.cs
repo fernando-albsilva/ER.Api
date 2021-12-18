@@ -1,16 +1,17 @@
 ﻿
-using Aplication.Aplication.Auth.User.Read.Model;
+
+using Aplication.Auth.User.Domain.Read.Model;
 using FluentNHibernate.Mapping;
 
-namespace Application.Aplication.Auth.User.Read.Maps
+namespace Application.Auth.User.Domain.Maps.Read
 {
-      public class UserMap : ClassMap<UserModel>
+      public class UserModelMap : ClassMap<UserModel>
       {
-            public UserMap()
+            public UserModelMap()
             {
                   ReadOnly();
 
-                  Table("[Users]");
+                  Table("[User]");
 
                   Id(x => x.Id);
 

@@ -9,6 +9,7 @@ namespace Application.Product.Domain.Write.Commands
             public string Name { get; set; }
             public decimal UnitValue { get; set; }
             public decimal Cost { get; set; }
+            public int Code { get; set; }
 
       }
 

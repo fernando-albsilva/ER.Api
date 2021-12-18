@@ -11,12 +11,10 @@ using System.Text;
 using ERapi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Application.Aplication.Auth.User.Read.Repositories;
 using Application.DataBaseConnection;
 using Application.Product.Domain.Read.Repositories;
 using Application.Function.Domain.Read.Repositories;
 using Application.Worker.Domain.Read.Repositories;
-using Application.Aplication.Function.Domain.Read.Repositories;
 using Application.Home.Domain.Read.Repositories;
 using Application.Invoice.Domain.Read.Repositories;
 using Application.Product.Domain.Write.Repositories;
@@ -33,6 +31,10 @@ using Application.Function.Domain.Maps.Read;
 using Application.Worker.Domain.Maps.Read;
 using Application.Home.Domain.Maps.Read;
 using Application.Invoice.Domain.Maps.Write;
+using Application.Auth.Domain.Read.Repositories;
+using Application.Auth.User.Read.Repositories;
+using Application.Auth.User.Domain.Write.Repositories;
+using Application.Auth.User.Domain.Write.CommandHandlers;
 
 namespace ERapi
 {
@@ -67,6 +69,7 @@ namespace ERapi
             services.AddScoped<IBaseWriteProductRepository, ProductWriteRepository>();
             services.AddScoped<IBaseWriteFunctionRepository, FunctionWriteRepository>();
             services.AddScoped<IBaseWriteWorkerRepository, WorkerWriteRepository>();
+            services.AddScoped<IBaseWriteUserRepository, UserWriteRepository>();
             services.AddScoped<IBaseWriteInvoiceRepository, InvoiceWriteRepository>();
 
 
@@ -74,6 +77,7 @@ namespace ERapi
             //CommandHandlers
             services.AddScoped<IFunctionCommandHandler, FunctionCommandHandler>();
             services.AddScoped<IWorkerCommandHandler, WorkerCommandHandler>();
+            services.AddScoped<IUserCommandHandler, UserCommandHandler>();
             services.AddScoped<IProductCommandHandler, ProductCommandHandler>();
             services.AddScoped<IInvoiceCommandHandler, InvoiceCommandhandler>();
 

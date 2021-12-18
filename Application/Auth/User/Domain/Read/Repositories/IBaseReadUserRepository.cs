@@ -1,9 +1,8 @@
-using System;
+using Aplication.Auth.User.Domain.Read.Model;
 using System.Collections.Generic;
-using Aplication.Aplication.Auth.User.Read.Model;
 
 
-namespace Application.Aplication.Function.Domain.Read.Repositories
+namespace Application.Auth.Domain.Read.Repositories
 {
 
       public interface IBaseReadUserRepository

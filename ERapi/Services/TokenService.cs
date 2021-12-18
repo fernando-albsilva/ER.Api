@@ -6,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Security.Claims;
-using Aplication.Aplication.Auth.User.Read.Model;
+using Aplication.Auth.User.Domain.Read.Model;
 
 namespace ERapi.Services
 {

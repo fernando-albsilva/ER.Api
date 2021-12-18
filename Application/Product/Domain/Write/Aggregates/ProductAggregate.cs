@@ -23,7 +23,8 @@ namespace Application.Product.Domain.Write.Aggregates
                         Id = cmd.Id,
                         Name = cmd.Name,
                         UnitValue = cmd.UnitValue,
-                        Cost = cmd.Cost
+                        Cost = cmd.Cost,
+                        Code = cmd.Code
                   };
             }
 
@@ -33,6 +34,7 @@ namespace Application.Product.Domain.Write.Aggregates
                   State.Name = cmd.Name;
                   State.UnitValue = cmd.UnitValue;
                   State.Cost = cmd.Cost;
+                  State.Code= cmd.Code;
 
             }
 
@@ -50,6 +52,10 @@ namespace Application.Product.Domain.Write.Aggregates
                   {
                         throw new Exception("Não existe Valor do Custo do produto.");
                   }
-            }
+                  if (cmd.Code == 0)
+                  {
+                    throw new Exception("Não existe código do produto.");
+                  }
+        }
       }
 }

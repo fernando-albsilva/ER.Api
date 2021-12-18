@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
 using Application.Product.Domain.Read.Repositories;
-using Application.Product.Domain.Write.Repositories;
 using Application.Product.Domain.Write.CommandHandlers;
 using Application.Product.Domain.Read.Model;
 using Application.Product.Domain.Write.Commands;
@@ -15,14 +13,12 @@ namespace ERapi.Controllers
     public class ProductsController : ControllerBase
     {
       private readonly IBaseReadProductRepository readRepository;
-      private readonly IBaseWriteProductRepository writeRepository;
       private readonly IProductCommandHandler productCommandHandler;
       
 
-        public ProductsController(IBaseReadProductRepository readRepository,IBaseWriteProductRepository writeRepository,IProductCommandHandler productCommandHandler)
+        public ProductsController(IBaseReadProductRepository readRepository,IProductCommandHandler productCommandHandler)
         {
          this.readRepository = readRepository;
-         this.writeRepository = writeRepository;
          this.productCommandHandler = productCommandHandler;
        
         }

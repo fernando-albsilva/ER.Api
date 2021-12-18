@@ -15,6 +15,7 @@ namespace Application.Product.Domain.Maps.Write
                   Map(x => x.Name);
                   Map(x => x.UnitValue);
                   Map(x => x.Cost);
+                  Map(x => x.Code);
                   HasMany(x => x.InvoiceItemState).KeyColumn("ProductId").Cascade.AllDeleteOrphan();
             }
       }

@@ -2,7 +2,6 @@ using Application.Worker.Domain.Read.Model;
 using Application.Worker.Domain.Read.Repositories;
 using Application.Worker.Domain.Write.CommandHandlers;
 using Application.Worker.Domain.Write.Commands;
-using Application.Worker.Domain.Write.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,14 +14,12 @@ public class WorkersController : ControllerBase
 {
 
         private readonly IBaseReadWorkerRepository WorkerReadRepository;
-        private readonly IBaseWriteWorkerRepository WorkerWriteRepository;
         private readonly IWorkerCommandHandler WorkerCommandHandler;
 
 
-        public WorkersController(IBaseReadWorkerRepository workerReadRepository, IBaseWriteWorkerRepository workerWriteRepository, IWorkerCommandHandler workerCommandHandler)
+        public WorkersController(IBaseReadWorkerRepository workerReadRepository, IWorkerCommandHandler workerCommandHandler)
         {
             this.WorkerReadRepository = workerReadRepository;
-            this.WorkerWriteRepository = workerWriteRepository;
             this.WorkerCommandHandler = workerCommandHandler;
 
         }

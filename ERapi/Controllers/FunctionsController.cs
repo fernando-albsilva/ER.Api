@@ -3,9 +3,7 @@ using Application.Function.Domain.Read.Model;
 using Application.Function.Domain.Read.Repositories;
 using Application.Function.Domain.Write.CommandHandllers;
 using Application.Function.Domain.Write.Commands;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 
 namespace ERapi.Controllers

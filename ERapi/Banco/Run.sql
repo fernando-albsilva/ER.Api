@@ -256,3 +256,30 @@ ALTER TABLE InvoiceItems
 ADD Quantity INT DEFAULT 0 NOT NULL;
 
 GO
+
+--- Adicionando coluna Code na tabela Product
+
+USE ER;
+
+ALTER TABLE Product
+ADD Code int;
+
+GO
+
+--- Adicionando ForeignKey UserId na tabela Invoice
+
+USE ER;
+
+ALTER TABLE [Invoice]
+ADD UserId NVARCHAR(60),
+FOREIGN KEY(UserId) REFERENCES [ER].[dbo].[Invoice](Id);
+
+GO
+
+--- Renomeando tabela [Users] para [User] 
+
+USE ER;
+
+exec sp_rename '[dbo].[Users]', '[dbo].[User]';
+
+GO

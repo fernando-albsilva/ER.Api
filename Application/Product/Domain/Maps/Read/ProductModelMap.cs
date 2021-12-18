@@ -17,6 +17,7 @@ namespace Application.Product.Domain.Maps.Read
                   Map(x => x.Name);
                   Map(x => x.UnitValue);
                   Map(x => x.Cost);
+                  Map(x => x.Code);
             }
       }
 }
