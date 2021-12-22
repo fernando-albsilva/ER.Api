@@ -34,6 +34,7 @@
       "ERapi/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "AspNetCore.Authentication.Plugin": "1.0.1",
           "Microsoft.AspNetCore.Authentication": "2.2.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.9",
           "Swashbuckle.AspNetCore": "5.6.3",
@@ -341,6 +342,22 @@
         },
         "compile": {
           "lib/netstandard1.1/Antlr3.Runtime.dll": {}
+        }
+      },
+      "AspNetCore.Authentication.Plugin/1.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "2.2.0",
+          "Microsoft.IdentityModel.Tokens": "6.7.1",
+          "System.IdentityModel.Tokens.Jwt": "6.7.1"
+        },
+        "runtime": {
+          "lib/netcoreapp2.2/AuthenticationPlugin.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp2.2/AuthenticationPlugin.dll": {}
         }
       },
       "Azure.Core/1.4.1": {
@@ -3697,6 +3714,13 @@
       "sha512": "sha512-ZwCEpLCLZXkjzf1lYEixp9hgVlYYk33ACHn6xjFyVhGRi2BpoYQez0qtatbetdylASWYTG+cGz0CGR4z66JM4w==",
       "path": "antlr3.runtime/3.5.1",
       "hashPath": "antlr3.runtime.3.5.1.nupkg.sha512"
+    },
+    "AspNetCore.Authentication.Plugin/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cSPfOwOz1hhIg+hvi3egoLc2BHUjLi411NuVWK+8P7L2ieDUMjXjx0MwBzO6WLGxC/1ixqZ+2fagPRsUrpCLzQ==",
+      "path": "aspnetcore.authentication.plugin/1.0.1",
+      "hashPath": "aspnetcore.authentication.plugin.1.0.1.nupkg.sha512"
     },
     "Azure.Core/1.4.1": {
       "type": "package",

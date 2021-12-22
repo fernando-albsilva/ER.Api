@@ -8,7 +8,6 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 
 using System.Text;
-using ERapi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Application.DataBaseConnection;
@@ -35,6 +34,7 @@ using Application.Auth.Domain.Read.Repositories;
 using Application.Auth.User.Read.Repositories;
 using Application.Auth.User.Domain.Write.Repositories;
 using Application.Auth.User.Domain.Write.CommandHandlers;
+using System;
 
 namespace ERapi
 {
@@ -111,7 +111,23 @@ namespace ERapi
                 return _sessionFactory.OpenSession();
             });
 
-            //token
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+               .AddJwtBearer(options =>
+               {
+                   options.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       ValidateIssuer = true,
+                       ValidateAudience = true,
+                       ValidateLifetime = true,
+                       ValidateIssuerSigningKey = true,
+                       ValidIssuer = Configuration["Tokens:Issuer"],
+                       ValidAudience = Configuration["Tokens:Issuer"],
+                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Key"])),
+                       ClockSkew = TimeSpan.Zero,
+                   };
+               });
+
+           /* //token
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
             services.AddAuthentication(x =>
             {
@@ -128,7 +144,7 @@ namespace ERapi
                      ValidateIssuer = false,
                      ValidateAudience = false
                  };
-             });
+             });*/
 
 
         }

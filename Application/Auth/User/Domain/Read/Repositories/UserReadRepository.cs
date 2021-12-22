@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Aplication.Auth.User.Domain.Read.Model;
 using Application.Auth.Domain.Read.Repositories;
+using Application.Auth.User.Domain.Read.Model;
 using NHibernate;
 
 namespace Application.Auth.User.Read.Repositories
@@ -15,20 +16,20 @@ namespace Application.Auth.User.Read.Repositories
             {
                   this._session = _session;
             }
-            UserModel IBaseReadUserRepository.GetByUser(string userName, string Password)
+            UserModel IBaseReadUserRepository.GetByUser(string userName)
             {
                 var user = new UserModel();
-                var list = _session.Query<UserModel>().Where(x => x.UserName == userName && x.Password == Password).ToList();
+                var list = _session.Query<UserModel>().Where(x => x.UserName == userName).ToList();
 
                 user = list.FirstOrDefault(x => x.Id != Guid.Empty);
 
                 return user;
             }
 
-            IEnumerable<UserModel> IBaseReadUserRepository.GetAll()
+            public IEnumerable<UserFlatModel> GetAll()
             {
-                var list = _session.Query<UserModel>().ToList();
+                var list = _session.Query<UserFlatModel>().ToList();
                 return list;
-            }
+             }
     }
 }

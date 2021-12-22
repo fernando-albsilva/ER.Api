@@ -3,6 +3,7 @@ using Application.Function.Domain.Read.Model;
 using Application.Function.Domain.Read.Repositories;
 using Application.Function.Domain.Write.CommandHandllers;
 using Application.Function.Domain.Write.Commands;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -12,7 +13,7 @@ namespace ERapi.Controllers
     //GET  /Functions
 
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class FunctionsController : ControllerBase
     {
 
@@ -30,8 +31,8 @@ namespace ERapi.Controllers
         #region Querys
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         [Route("Functions/GetAll")]
-        //[Authorize(Roles = "Admin")]
         public IEnumerable<FunctionModel> GetAll()
         {
             var functionModelList = readFunctionRepository.GetAll();
@@ -39,6 +40,7 @@ namespace ERapi.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         [Route("Functions/GetById")]
         public FunctionModel GetById(int id)
         {
@@ -53,6 +55,7 @@ namespace ERapi.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         [Route("Functions/Create")]
         public void Create(CreateFunction cmd)
         {
@@ -62,6 +65,7 @@ namespace ERapi.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "admin")]
         [Route("Functions/Update")]
 
         public void Update(UpdateFunction cmd)
@@ -72,6 +76,7 @@ namespace ERapi.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "admin")]
         [Route("Functions/Delete")]
         
         public void Delete(int id)
@@ -81,6 +86,7 @@ namespace ERapi.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         [Route("Functions/DeleteByList")]
         public void DeleteByList(List<int> IdList)
         {

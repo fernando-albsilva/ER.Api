@@ -1,6 +1,4 @@
-﻿
-
-using Aplication.Auth.User.Domain.Read.Model;
+﻿using Aplication.Auth.User.Domain.Read.Model;
 using FluentNHibernate.Mapping;
 
 namespace Application.Auth.User.Domain.Maps.Read

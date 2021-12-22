@@ -18,9 +18,8 @@ namespace ERapi.Controllers
 
         public ProductsController(IBaseReadProductRepository readRepository,IProductCommandHandler productCommandHandler)
         {
-         this.readRepository = readRepository;
-         this.productCommandHandler = productCommandHandler;
-       
+             this.readRepository = readRepository;
+             this.productCommandHandler = productCommandHandler;
         }
 
         #region Querys

@@ -52,10 +52,6 @@ namespace Application.Product.Domain.Write.Aggregates
                   {
                         throw new Exception("Não existe Valor do Custo do produto.");
                   }
-                  if (cmd.Code == 0)
-                  {
-                    throw new Exception("Não existe código do produto.");
-                  }
-        }
+            }
       }
 }
