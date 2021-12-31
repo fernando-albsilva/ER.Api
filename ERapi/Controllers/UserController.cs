@@ -27,7 +27,9 @@ namespace ERapi.Controllers
             this.userCommandHandler = userCommandHandler;
             this.userReadRepository = userReadRepository;
         }
-       
+
+        #region Querys
+
         [HttpGet]
         [Authorize(Roles = "admin")]
         [Route("User/GetAll")]
@@ -37,13 +39,40 @@ namespace ERapi.Controllers
             return functionModelList;
         }
 
+        #endregion
+
+        #region Commands
+
         [HttpPost]
+        [Authorize(Roles = "admin")]
         [Route("User/Create")]
-        public void Create(CreateUser cmd)
+        public IActionResult Create(CreateUser cmd)
         {
             cmd.Password = SecurePasswordHasherHelper.Hash(cmd.Password);
-            this.userCommandHandler.Handle(cmd);
+            userCommandHandler.Handle(cmd);
+            return Ok();
         }
 
+        //Ajustar update verificar todo caminho
+        [HttpPut]
+        [Authorize(Roles = "admin")]
+        [Route("User/Update")]
+
+        public IActionResult Update(UpdateUser cmd)
+        {
+            userCommandHandler.Handle(cmd);
+            return Ok();
+        }
+
+        // Ajustar deleteByIds verificar todo caminho
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        [Route("User/DeleteByList")]
+        public void DeleteByList(List<Guid> IdList)
+        {
+            userCommandHandler.Handle(IdList);
+        }
+
+        #endregion
     }
 }
