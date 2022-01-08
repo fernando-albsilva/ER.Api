@@ -11,10 +11,6 @@ namespace Application.Worker.Domain.Read.Model
             public virtual string PhoneNumber { get; set; }
             public virtual string Address { get; set; }
             public virtual string Email { get; set; }
-            /*public virtual string Type { get; set; }*/
             public virtual FunctionModel Function{ get; set; }
-
-        //TODO tirar o type do wokerModel e trazer o functionModel com type e id
-
       }
 }

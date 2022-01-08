@@ -9,5 +9,7 @@ namespace Application.Worker.Domain.Read.Repositories
         public IEnumerable<WorkerFlatModel> GetAll();
 
         public WorkerModel GetById(Guid Id);
+
+        public List<WorkerFlatModel> GetWorkersByFunctionWaiter();
       }
 }

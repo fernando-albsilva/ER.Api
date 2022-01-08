@@ -27,10 +27,14 @@ namespace Application.Worker.Domain.Read.Repositories
                 var worker = new WorkerModel();
                 var list = _session.Query<WorkerModel>().Where(x => x.Id == Id).ToList();
 
-                worker = list.FirstOrDefault(x=>x.Id != Guid.Empty);
+                worker = list.FirstOrDefault(x => x.Id != Guid.Empty);
 
                 return worker;
             }
 
+            public List<WorkerFlatModel> GetWorkersByFunctionWaiter()
+            {
+                return _session.Query<WorkerFlatModel>().Where(x => x.Type == "Garçom").Select(x => new WorkerFlatModel { Name = x.Name, Id = x.Id, Type = x.Type }).ToList();
+            }
     }
 }
