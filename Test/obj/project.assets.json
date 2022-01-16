@@ -8439,11 +8439,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PICHAU\\Desktop\\Easy Restaurant Api\\Test\\Test.csproj",
+      "projectUniqueName": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "C:\\Users\\PICHAU\\Desktop\\Easy Restaurant Api\\Test\\Test.csproj",
+      "projectPath": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Test\\Test.csproj",
       "packagesPath": "C:\\Users\\PICHAU\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PICHAU\\Desktop\\Easy Restaurant Api\\Test\\obj\\",
+      "outputPath": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -8464,8 +8464,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\PICHAU\\Desktop\\Easy Restaurant Api\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\PICHAU\\Desktop\\Easy Restaurant Api\\Application\\Application.csproj"
+            "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Application\\Application.csproj": {
+              "projectPath": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Application\\Application.csproj"
             }
           }
         }

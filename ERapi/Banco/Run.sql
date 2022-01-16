@@ -283,3 +283,109 @@ USE ER;
 exec sp_rename 'Users', 'User';
 
 GO
+
+-- Adicionando coluna Duration na tabela invoice
+
+ALTER TABLE Invoice
+ADD Duration TIME;
+
+GO
+
+-- Adicionando coluna StartTime na tabela ActiveInvoice
+
+ALTER TABLE ActiveInvoice
+ADD StartTime TIME;
+
+GO
+
+/****** Criando Tabela ActiveInvoiceItems ******/
+
+
+USE [ER]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ActiveInvoiceItems](
+	[Id] [int] NOT NULL,
+	[ActiveInvoiceId] [nvarchar](60) NOT NULL,
+	[ProductId] [nvarchar](60) NOT NULL,
+	[Quantity] [smallint] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ActiveInvoiceItems]  WITH CHECK ADD  CONSTRAINT [FK_ActiveInvoiceId] FOREIGN KEY([ActiveInvoiceId])
+REFERENCES [dbo].[ActiveInvoice] ([Id])
+GO
+
+ALTER TABLE [dbo].[ActiveInvoiceItems] CHECK CONSTRAINT [FK_ActiveInvoiceId]
+GO
+
+ALTER TABLE [dbo].[ActiveInvoiceItems]  WITH CHECK ADD  CONSTRAINT [FK_ProductId_From_ActiveInvoiceItems] FOREIGN KEY([ProductId])
+REFERENCES [dbo].[Product] ([Id])
+GO
+
+ALTER TABLE [dbo].[ActiveInvoiceItems] CHECK CONSTRAINT [FK_ProductId_From_ActiveInvoiceItems]
+GO
+
+
+
+
+
+/****** Criando Tabela ActiveInvoice  ******/
+
+USE [ER]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ActiveInvoice](
+	[Id] [nvarchar](60) NOT NULL,
+	[UserId] [nvarchar](60) NOT NULL,
+	[WorkerId] [nvarchar](60) NOT NULL,
+	[Date] [date] NULL,
+	[ClientName] [nvarchar](150) NULL,
+	[TableNumber] [smallint] NULL,
+	[IndividualCheckNumber] [smallint] NULL,
+	[IsTable] [bit] NULL,
+	[StartTime] [time](7) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ActiveInvoice]  WITH CHECK ADD  CONSTRAINT [FK_UserId_From_ActiveInvoice] FOREIGN KEY([UserId])
+REFERENCES [dbo].[User] ([Id])
+GO
+
+ALTER TABLE [dbo].[ActiveInvoice] CHECK CONSTRAINT [FK_UserId_From_ActiveInvoice]
+GO
+
+ALTER TABLE [dbo].[ActiveInvoice]  WITH CHECK ADD  CONSTRAINT [FK_WorkerId_From_ActiveInvoice] FOREIGN KEY([WorkerId])
+REFERENCES [dbo].[Worker] ([Id])
+GO
+
+ALTER TABLE [dbo].[ActiveInvoice] CHECK CONSTRAINT [FK_WorkerId_From_ActiveInvoice]
+GO
+
+

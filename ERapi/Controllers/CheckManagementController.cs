@@ -1,4 +1,6 @@
-﻿using Application.Worker.Domain.Read.Model;
+﻿using Application.Product.Domain.Read.Model;
+using Application.Product.Domain.Read.Repositories;
+using Application.Worker.Domain.Read.Model;
 using Application.Worker.Domain.Read.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,9 +18,14 @@ namespace ERapi.Controllers
     public class CheckManagementController : ControllerBase
     {
         private readonly IBaseReadWorkerRepository WorkerReadRepository;
-        public CheckManagementController(IBaseReadWorkerRepository workerReadRepository)
+        private readonly IBaseReadProductRepository ProductReadRepository;
+        public CheckManagementController(
+            IBaseReadWorkerRepository workerReadRepository,
+            IBaseReadProductRepository productReadRepository
+        )
         {
             this.WorkerReadRepository = workerReadRepository;
+            this.ProductReadRepository = productReadRepository;
         }
 
         [HttpGet]
@@ -27,6 +34,12 @@ namespace ERapi.Controllers
         public List<WorkerFlatModel> GetWorkersByFunctionWaiter()
         {
             return WorkerReadRepository.GetWorkersByFunctionWaiter();
+        }
+        
+        [Route("CheckManagement/Products")]
+        public List<ProductModel> GetAvailableProducts()
+        {
+            return ProductReadRepository.GetAll().ToList();
         }
 
     }
