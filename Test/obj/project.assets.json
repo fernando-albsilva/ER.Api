@@ -8433,39 +8433,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PICHAU\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Test\\Test.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\ProjetoTeste\\ER\\ER API\\ER.Api\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Test\\Test.csproj",
-      "packagesPath": "C:\\Users\\PICHAU\\.nuget\\packages\\",
-      "outputPath": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Test\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\ProjetoTeste\\ER\\ER API\\ER.Api\\Test\\Test.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\ProjetoTeste\\ER\\ER API\\ER.Api\\Test\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\PICHAU\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/constant/auth/d9410323-fa2c-4038-9008-5ce931fcca23/api/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Application\\Application.csproj": {
-              "projectPath": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\Application\\Application.csproj"
+            "C:\\Users\\Admin\\Desktop\\ProjetoTeste\\ER\\ER API\\ER.Api\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\ProjetoTeste\\ER\\ER API\\ER.Api\\Application\\Application.csproj"
             }
           }
         }
@@ -8512,7 +8508,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

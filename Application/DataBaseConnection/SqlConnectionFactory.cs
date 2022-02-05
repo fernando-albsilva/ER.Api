@@ -6,8 +6,11 @@ namespace Application.DataBaseConnection
 
         public string GetConnectionString()
         {
-            return "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ER;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
+   
+            return "Data Source=SIA-FSILVA;" +
+                  "Initial Catalog=ER;" +
+                  "User id=sa;" +
+                  "Password=fer200790nando;";
         }
     }
 }

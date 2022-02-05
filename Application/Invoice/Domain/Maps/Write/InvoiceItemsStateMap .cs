@@ -7,15 +7,12 @@ namespace Application.Invoice.Domain.Maps.Write
     {
         public InvoiceItemStateMap()
         {
-            Table("InvoiceItems");
+            Table("InvoiceItem");
 
             Id(x => x.Id, "Id");
-            References(x => x.InvoiceState).Column("InvoiceId");
-            References(x => x.ProductState).Column("ProductId");
-            Map(x => x.UnitValue, "UnitValue");
-            Map(x => x.Cost, "Cost");
             Map(x => x.Quantity, "Quantity");
-                //.Cascade.AllDeleteOrphan();
+            References(x => x.InvoiceState).Column("ActiveInvoiceId");
+            References(x => x.ProductState).Column("ProductId");
         }
     }
 }

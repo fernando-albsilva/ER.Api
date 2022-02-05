@@ -39,12 +39,12 @@ namespace ERapi.Controllers
 
             if (user == null)
             {
-                return NotFound(new { message = "Usuário não encontrado" });
+                return NotFound(new { message = "Nome de usuário ou senha incorreta" });
             }
 
             if (!SecurePasswordHasherHelper.Verify(cmd.Password, user.Password))
             {
-                return Unauthorized(new { message = "Usuário não autorizado" });
+                return Unauthorized(new { message = "Nome de usuário ou senha incorreta" });
             }
 
             var claims = new[]

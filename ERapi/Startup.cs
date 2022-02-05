@@ -35,6 +35,8 @@ using Application.Auth.User.Read.Repositories;
 using Application.Auth.User.Domain.Write.Repositories;
 using Application.Auth.User.Domain.Write.CommandHandlers;
 using System;
+using Application.ActiveInvoice.Domain.Write.CommandHandlers;
+using Application.ActiveInvoice.Domain.Write.Repositories;
 
 namespace ERapi
 {
@@ -60,8 +62,8 @@ namespace ERapi
             services.AddScoped<IBaseReadFunctionRepository, FunctionReadRepository>();
             services.AddScoped<IBaseReadWorkerRepository, WorkerReadRepository>();
             services.AddScoped<IBaseReadUserRepository, UserReadRepository>();
-            services.AddScoped< IBaseReadHomeRepository, HomeReadRepository > ();
-            services.AddScoped< IBaseReadInvoiceRepository, InvoiceReadRepository > ();
+            services.AddScoped<IBaseReadHomeRepository, HomeReadRepository> ();
+            services.AddScoped<IBaseReadInvoiceRepository, InvoiceReadRepository> ();
 
 
 
@@ -71,6 +73,7 @@ namespace ERapi
             services.AddScoped<IBaseWriteWorkerRepository, WorkerWriteRepository>();
             services.AddScoped<IBaseWriteUserRepository, UserWriteRepository>();
             services.AddScoped<IBaseWriteInvoiceRepository, InvoiceWriteRepository>();
+            services.AddScoped<IBaseWriteActiveInvoiceRepository, ActiveInvoiceWriteRepository>();
 
 
 
@@ -80,6 +83,7 @@ namespace ERapi
             services.AddScoped<IUserCommandHandler, UserCommandHandler>();
             services.AddScoped<IProductCommandHandler, ProductCommandHandler>();
             services.AddScoped<IInvoiceCommandHandler, InvoiceCommandhandler>();
+            services.AddScoped<IActiveInvoiceCommandHandler, ActiveInvoiceCommandHandler>();
 
             services.AddControllers();
 

@@ -43,7 +43,7 @@ GO
 Use ER
 GO
 
-CREATE TABLE Users (
+CREATE TABLE [User] (
     Id nvarchar(60) NOT NULL,
     UserName nvarchar(100) NOT NULL,
     Password nvarchar(255) NOT NULL,
@@ -64,6 +64,7 @@ CREATE TABLE Product(
     Name nvarchar(100) NOT NULL,
 	UnitValue Decimal(10,2),
 	Cost Decimal(10,2),
+	Code int,
     PRIMARY KEY (Id) );
 
 GO
@@ -96,9 +97,14 @@ GO
 CREATE TABLE Invoice(
     Id nvarchar(60) NOT NULL,
     WorkerId nvarchar(60) NOT NULL,
-	Date Date,
+	UserId NVARCHAR(60),
+	ClientName NVARCHAR(150),
+	[Date] Date,
+	Duration TIME,
     PRIMARY KEY (Id),
-    CONSTRAINT FK_WorkerId FOREIGN KEY (WorkerId) REFERENCES [ER].[dbo].[Worker](Id) );
+    CONSTRAINT FK_WorkerId FOREIGN KEY (WorkerId) REFERENCES [ER].[dbo].[Worker](Id),
+	CONSTRAINT FK_UserId FOREIGN KEY(UserId) REFERENCES [ER].[dbo].[Invoice](Id)
+);
 
 GO
 
@@ -109,12 +115,13 @@ GO
 Use ER
 GO
 
-CREATE TABLE InvoiceItems(
+CREATE TABLE InvoiceItem(
     Id int NOT NULL UNIQUE,
     InvoiceId nvarchar(60) NOT NULL,
 	ProductId nvarchar(60) NOT NULL,
 	UnitValue Decimal(10,2),
 	Cost Decimal(10,2),
+	Quantity INT DEFAULT 0 NOT NULL,
     PRIMARY KEY (Id),
     CONSTRAINT FK_InvoiceId FOREIGN KEY (InvoiceId) REFERENCES [ER].[dbo].[Invoice](Id),
 	CONSTRAINT FK_ProductId FOREIGN KEY (ProductId) REFERENCES [ER].[dbo].[Product](Id));
@@ -237,125 +244,16 @@ INSERT INTO [dbo].[Product]
 GO
 
 
+-------------------------------------------------------------------------------------
+-- INSERT INTO [User] TABLE
 
-
---- Adicionando coluna CLientName na tabela Invoice
-
-USE ER;
-
-ALTER TABLE Invoice
-ADD ClientName NVARCHAR(150);
-
+INSERT INTO [User]
+    ([Id],[UserName],[Password],[Role])
+VALUES
+    (NEWID(),'admin','$DNEFSA$V1$10000$HoX4J8+ZzVKcWv3+4tCyN6Eq3zGcuGG1HbOUv+tkpaktmuXg','admin')
 GO
 
---- Adicionando coluna Quantity na tabela InvoiceItems
-
-USE ER;
-
-ALTER TABLE InvoiceItems
-ADD Quantity INT DEFAULT 0 NOT NULL;
-
-GO
-
---- Adicionando coluna Code na tabela Product
-
-USE ER;
-
-ALTER TABLE Product
-ADD Code int;
-
-GO
-
---- Adicionando ForeignKey UserId na tabela Invoice
-
-USE ER;
-
-ALTER TABLE [Invoice]
-ADD UserId NVARCHAR(60),
-FOREIGN KEY(UserId) REFERENCES [ER].[dbo].[Invoice](Id);
-
-GO
-
---- Renomeando tabela [Users] para [User] 
-
-USE ER;
-
-exec sp_rename 'Users', 'User';
-
-GO
-
--- Adicionando coluna Duration na tabela invoice
-
-ALTER TABLE Invoice
-ADD Duration TIME;
-
-GO
-
--- Adicionando coluna StartTime na tabela ActiveInvoice
-
-ALTER TABLE ActiveInvoice
-ADD StartTime TIME;
-
-GO
-
-/****** Criando Tabela ActiveInvoiceItems ******/
-
-
-USE [ER]
-GO
-
-
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[ActiveInvoiceItems](
-	[Id] [int] NOT NULL,
-	[ActiveInvoiceId] [nvarchar](60) NOT NULL,
-	[ProductId] [nvarchar](60) NOT NULL,
-	[Quantity] [smallint] NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
-UNIQUE NONCLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[ActiveInvoiceItems]  WITH CHECK ADD  CONSTRAINT [FK_ActiveInvoiceId] FOREIGN KEY([ActiveInvoiceId])
-REFERENCES [dbo].[ActiveInvoice] ([Id])
-GO
-
-ALTER TABLE [dbo].[ActiveInvoiceItems] CHECK CONSTRAINT [FK_ActiveInvoiceId]
-GO
-
-ALTER TABLE [dbo].[ActiveInvoiceItems]  WITH CHECK ADD  CONSTRAINT [FK_ProductId_From_ActiveInvoiceItems] FOREIGN KEY([ProductId])
-REFERENCES [dbo].[Product] ([Id])
-GO
-
-ALTER TABLE [dbo].[ActiveInvoiceItems] CHECK CONSTRAINT [FK_ProductId_From_ActiveInvoiceItems]
-GO
-
-
-
-
-
-/****** Criando Tabela ActiveInvoice  ******/
-
-USE [ER]
-GO
-
-
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
+/****** Criando Tabela ActiveInvoice ******/
 
 CREATE TABLE [dbo].[ActiveInvoice](
 	[Id] [nvarchar](60) NOT NULL,
@@ -365,27 +263,25 @@ CREATE TABLE [dbo].[ActiveInvoice](
 	[ClientName] [nvarchar](150) NULL,
 	[TableNumber] [smallint] NULL,
 	[IndividualCheckNumber] [smallint] NULL,
-	[IsTable] [bit] NULL,
-	[StartTime] [time](7) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
+	[StartTime] [time] NULL,
+	PRIMARY KEY (Id),
+    CONSTRAINT FK_UserId_ActiveInvoice FOREIGN KEY ([UserId]) REFERENCES [ER].[dbo].[User](Id),
+	CONSTRAINT FK_WorkerId_ActiveInvoice FOREIGN KEY ([WorkerId]) REFERENCES [ER].[dbo].[Worker](Id)
+);
 
-ALTER TABLE [dbo].[ActiveInvoice]  WITH CHECK ADD  CONSTRAINT [FK_UserId_From_ActiveInvoice] FOREIGN KEY([UserId])
-REFERENCES [dbo].[User] ([Id])
-GO
-
-ALTER TABLE [dbo].[ActiveInvoice] CHECK CONSTRAINT [FK_UserId_From_ActiveInvoice]
-GO
-
-ALTER TABLE [dbo].[ActiveInvoice]  WITH CHECK ADD  CONSTRAINT [FK_WorkerId_From_ActiveInvoice] FOREIGN KEY([WorkerId])
-REFERENCES [dbo].[Worker] ([Id])
-GO
-
-ALTER TABLE [dbo].[ActiveInvoice] CHECK CONSTRAINT [FK_WorkerId_From_ActiveInvoice]
 GO
 
 
+/****** Criando Tabela ActiveInvoiceItems ******/
+
+CREATE TABLE [dbo].[ActiveInvoiceItems](
+	[Id] [int] NOT NULL,
+	[ActiveInvoiceId] [nvarchar](60) NOT NULL,
+	[ProductId] [nvarchar](60) NOT NULL,
+	[Quantity] [smallint] NOT NULL,
+	PRIMARY KEY (Id) ,
+	CONSTRAINT Fk_ActiveInvoiceId FOREIGN KEY ([ActiveInvoiceId]) REFERENCES [ER].[dbo].[ActiveInvoice]([Id]),
+	CONSTRAINT Fk_ProductId_ActiveInvoiceIvems FOREIGN KEY ([ProductId]) REFERENCES [ER].[dbo].[Product]([Id])
+)
+
+GO

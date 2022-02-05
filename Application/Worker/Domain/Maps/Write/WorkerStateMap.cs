@@ -21,7 +21,7 @@ namespace Application.Worker.Domain.Maps.Write
                 Map(x => x.Address);
                 Map(x => x.Email);
                 References(x => x.Function).Column("FunctionId");
-                HasMany<InvoiceState>(x => x.InvoiceState).KeyColumn("Id");
+                HasMany(x => x.InvoiceState).KeyColumn("Id");
 
         }
       }
