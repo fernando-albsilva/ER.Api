@@ -14,16 +14,17 @@ namespace Application.ActiveInvoice.Domain.Maps.Write
         {
             Table("ActiveInvoice");
 
-            Id(x => x.Id, "Id");
-            Map(x => x.UserId);
-            Map(x => x.WorkerId);
+            Id(x => x.Id);
+
             Map(x => x.Date);
             Map(x => x.ClientName);
             Map(x => x.TableNumber);
             Map(x => x.IndividualCheckNumber);
             Map(x => x.StartTime);
+            References(x => x.User,"UserId");
+            References(x => x.Worker,"WorkerId");
 
-            HasMany(x => x.ActiveInvoiceItemsState);
+            HasMany(x => x.ActiveInvoiceItemsState).KeyColumn("ActiveInvoiceId");
 
             //TODO
             // Mapear de acordo com a tabela

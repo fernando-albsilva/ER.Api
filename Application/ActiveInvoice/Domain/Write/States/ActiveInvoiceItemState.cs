@@ -1,4 +1,5 @@
-﻿using Application.Product.Domain.Write.States;
+﻿using Application.Product.Domain.Read.Model;
+using Application.Product.Domain.Write.States;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace Application.ActiveInvoice.Domain.Write.States
     public class ActiveInvoiceItemState
     {
         public virtual Guid? Id { get; set; }
-        public virtual Guid? ActiveInvoiceId { get; set; }
-        public virtual Guid? ProductId { get; set; }
+        public virtual ProductModel Product { get; set; }
         public virtual int? Quantity { get; set; }
+        public virtual ActiveInvoiceState ActiveInvoiceState{ get; set; }
     }
 }

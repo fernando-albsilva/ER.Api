@@ -11,9 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ActiveInvoice\Domain\Maps\Read\" />
-    <Folder Include="ActiveInvoice\Domain\Read\Model\" />
-    <Folder Include="ActiveInvoice\Domain\Read\Repositories\" />
     <Folder Include="Function\map\" />
     <Folder Include="Home\Domain\Write\" />
   </ItemGroup>

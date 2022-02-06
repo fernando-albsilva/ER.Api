@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.Product.Domain.Read.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,7 @@ namespace Application.Invoice.Domain.Write.ValueObject
     public class ActiveInvoiceItem
     {
         public virtual Guid? Id { get; set; }
-        public virtual Guid? InvoiceActiveId { get; set; }
-        public virtual Guid? ProductId { get; set; }
+        public virtual ProductModel Product { get; set; }
         public virtual int? Quantity { get; set; }
     }
 }

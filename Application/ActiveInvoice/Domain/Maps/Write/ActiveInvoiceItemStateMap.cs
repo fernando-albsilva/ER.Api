@@ -12,12 +12,15 @@ namespace Application.ActiveInvoice.Domain.Maps.Write
     {
         public ActiveInvoiceItemStateMap()
         {
-            Table("InvoiceItem");
+            Table("ActiveInvoiceItem");
 
             Id(x => x.Id, "Id");
             Map(x => x.Quantity, "Quantity");
-            Map(x => x.ActiveInvoiceId, "ActiveInvoiceId");
-            Map(x => x.ProductId, "ProductId");
+
+            References(x => x.Product, "ProductId");
+            References(x => x.ActiveInvoiceState) // you'll need 'Property' in your class definition too
+            .Column("ActiveInvoiceId");
+     
 
         }
     }

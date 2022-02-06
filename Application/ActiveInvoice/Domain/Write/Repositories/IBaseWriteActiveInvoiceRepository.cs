@@ -9,6 +9,9 @@ namespace Application.ActiveInvoice.Domain.Write.Repositories
 {
     public interface IBaseWriteActiveInvoiceRepository
     {
+        public ActiveInvoiceState GetByTableNumber(int? number);
         public void save(ActiveInvoiceState state);
+        public void save(ActiveInvoiceItemState state);
+        public void Update(ActiveInvoiceState state);
     }
 }

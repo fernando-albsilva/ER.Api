@@ -37,6 +37,8 @@ using Application.Auth.User.Domain.Write.CommandHandlers;
 using System;
 using Application.ActiveInvoice.Domain.Write.CommandHandlers;
 using Application.ActiveInvoice.Domain.Write.Repositories;
+using Application.ActiveInvoice.Domain.Read.Repositories;
+using Application.ActiveInvoice.Domain.Maps.Write;
 
 namespace ERapi
 {
@@ -64,6 +66,7 @@ namespace ERapi
             services.AddScoped<IBaseReadUserRepository, UserReadRepository>();
             services.AddScoped<IBaseReadHomeRepository, HomeReadRepository> ();
             services.AddScoped<IBaseReadInvoiceRepository, InvoiceReadRepository> ();
+            services.AddScoped<IBaseReadActiveInvoiceRepository, ActiveInvoiceReadRepository> ();
 
 
 
@@ -108,7 +111,10 @@ namespace ERapi
                                 .AddFromAssemblyOf<WorkerModelMap>()
                                 .AddFromAssemblyOf<WaiterModelMap>()
                                 .AddFromAssemblyOf<InvoiceStateMap>()
-                                .AddFromAssemblyOf<InvoiceItemStateMap>())
+                                .AddFromAssemblyOf<InvoiceItemStateMap>()
+                                .AddFromAssemblyOf<ActiveInvoiceStateMap>()
+                                .AddFromAssemblyOf<ActiveInvoiceItemStateMap>()
+                             )
                             .BuildSessionFactory();
             services.AddScoped(factory =>
             {

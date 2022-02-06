@@ -274,8 +274,8 @@ GO
 
 /****** Criando Tabela ActiveInvoiceItems ******/
 
-CREATE TABLE [dbo].[ActiveInvoiceItems](
-	[Id] [int] NOT NULL,
+CREATE TABLE [dbo].[ActiveInvoiceItem](
+	[Id] [nvarchar](60) NOT NULL,
 	[ActiveInvoiceId] [nvarchar](60) NOT NULL,
 	[ProductId] [nvarchar](60) NOT NULL,
 	[Quantity] [smallint] NOT NULL,

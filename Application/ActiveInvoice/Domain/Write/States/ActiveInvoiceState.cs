@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Aplication.Auth.User.Domain.Read.Model;
+using Application.Worker.Domain.Read.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,15 +11,16 @@ namespace Application.ActiveInvoice.Domain.Write.States
     public class ActiveInvoiceState
     {
         public virtual Guid? Id { get; set; }
-        public virtual Guid? UserId { get; set; }
-        public virtual Guid? WorkerId { get; set; }
+        public virtual UserModel User{ get; set; }
+        public virtual WorkerModel Worker { get; set; }
         public virtual DateTime? Date { get; set; }
-        public virtual string? ClientName { get; set; }
+        public virtual string ClientName { get; set; }
         public virtual int? TableNumber { get; set; }
         public virtual int? IndividualCheckNumber { get; set; }
-        public virtual string? StartTime { get; set; }
+        public virtual string StartTime { get; set; }
 
-        public virtual List<ActiveInvoiceItemState> ActiveInvoiceItemsState { get; set; }
+        public virtual IList<ActiveInvoiceItemState>? ActiveInvoiceItemsState { get; set; }
+        public virtual ActiveInvoiceState ActiveInvoice { get; set; }
 
 
     }
