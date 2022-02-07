@@ -9,9 +9,9 @@ namespace Application.ActiveInvoice.Domain.Write.CommandHandlers
 {
     public interface IActiveInvoiceCommandHandler
     {
-        public void handle(CreateActiveInvoiceCommand cmd);
-        public void handle(UpdateActiveInvoiceCommand cmd);
-        public void handle(CreateActiveInvoiceItemCommand cmd);
-        public void handle(Guid id);
+        public void Handle(CreateActiveInvoiceCommand cmd);
+        public void Handle(UpdateActiveInvoiceCommand cmd);
+        public void Handle(CreateActiveInvoiceItemCommand cmd);
+        public void RemoveActiveInvoiceItem(Guid id);
     }
 }

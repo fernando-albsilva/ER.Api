@@ -71,7 +71,7 @@ namespace ERapi.Controllers
         [Route("CheckManagement/CrateActiveTable")]
         public IActionResult CrateActiveTable(CreateActiveInvoiceCommand cmd)
         { 
-            ActiveInvoiceCommandHandler.handle(cmd);
+            ActiveInvoiceCommandHandler.Handle(cmd);
             return Ok();
         }
 
@@ -79,7 +79,7 @@ namespace ERapi.Controllers
         [Route("CheckManagement/UpdateActiveTable")]
         public IActionResult UpdateActiveTable(UpdateActiveInvoiceCommand cmd)
         { 
-            ActiveInvoiceCommandHandler.handle(cmd);
+            ActiveInvoiceCommandHandler.Handle(cmd);
             return Ok();
         }
 
@@ -87,7 +87,15 @@ namespace ERapi.Controllers
         [Route("CheckManagement/AddItemInInvoice")]
         public IActionResult AddItemInInvoice(CreateActiveInvoiceItemCommand cmd)
         {
-            ActiveInvoiceCommandHandler.handle(cmd);
+            ActiveInvoiceCommandHandler.Handle(cmd);
+            return Ok();
+        } 
+        
+        [HttpDelete]
+        [Route("CheckManagement/RemoveActiveInvoiceItem")]
+        public IActionResult RemoveActiveInvoiceItem(Guid id)
+        {
+            ActiveInvoiceCommandHandler.RemoveActiveInvoiceItem(id);
             return Ok();
         }
 

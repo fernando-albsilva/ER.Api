@@ -11,7 +11,9 @@ namespace Application.ActiveInvoice.Domain.Write.Repositories
     {
         public ActiveInvoiceState GetByTableNumber(int? number);
         public void save(ActiveInvoiceState state);
-        public void save(ActiveInvoiceItemState state);
         public void Update(ActiveInvoiceState state);
+        public void save(ActiveInvoiceItemState state);
+        public void Delete(ActiveInvoiceItemState state);
+        public ActiveInvoiceItemState GetActiveInvoiceItemById(Guid id);
     }
 }

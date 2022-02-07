@@ -51,6 +51,15 @@ namespace Application.ActiveInvoice.Domain.Write.Repositories
             }
         }
 
+        public void Delete(ActiveInvoiceItemState state)
+        {
+            using (var tran = _session.BeginTransaction())
+            {
+                _session.Delete(state);
+                tran.Commit();
+            }
+        }
+
         public void Update(ActiveInvoiceState state)
         {
             using (var tran = _session.BeginTransaction())
@@ -58,6 +67,21 @@ namespace Application.ActiveInvoice.Domain.Write.Repositories
                 _session.SaveOrUpdate(state);
                 tran.Commit();
             }
+        }
+
+        public ActiveInvoiceItemState GetActiveInvoiceItemById(Guid id)
+        {
+            var activeInvoiceItemState = new ActiveInvoiceItemState();
+            var list = _session.Query<ActiveInvoiceItemState>().Where(x => x.Id == id).ToList();
+
+            activeInvoiceItemState = list.ElementAt(0);
+
+            if (list.Count < 1)
+            {
+                activeInvoiceItemState.Id = Guid.Empty;
+            }
+
+            return activeInvoiceItemState;
         }
     }
 }

@@ -20,13 +20,13 @@ namespace Application.ActiveInvoice.Domain.Write.CommandHandlers
         {
             ActiveInvoiceWriteRepository = activeInvoiceWriteRepository;
         }
-        public void handle(CreateActiveInvoiceCommand cmd)
+        public void Handle(CreateActiveInvoiceCommand cmd)
         {
             var aggregate = new ActiveInvoiceAggregate(cmd);
             ActiveInvoiceWriteRepository.save(aggregate.State);
         }
 
-        public void handle(UpdateActiveInvoiceCommand cmd)
+        public void Handle(UpdateActiveInvoiceCommand cmd)
         {
             ActiveInvoiceState activeInvoiceState = new ActiveInvoiceState();
             
@@ -48,13 +48,19 @@ namespace Application.ActiveInvoice.Domain.Write.CommandHandlers
             ActiveInvoiceWriteRepository.Update(aggregate.State);
         }
 
-        public void handle(CreateActiveInvoiceItemCommand cmd)
+        public void Handle(CreateActiveInvoiceItemCommand cmd)
         {
             var aggregate = new ActiveInvoiceItemAggregate(cmd);
             ActiveInvoiceWriteRepository.save(aggregate.State);
         }
+        public void RemoveActiveInvoiceItem(Guid Id)
+        {
+            ActiveInvoiceItemState activeInvoiceItemState = ActiveInvoiceWriteRepository.GetActiveInvoiceItemById(Id);
+            ValidadeActiveInvoiceItemId(activeInvoiceItemState);
+            ActiveInvoiceWriteRepository.Delete(activeInvoiceItemState);
+        }
 
-        public void handle(Guid id)
+        public void Handle(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -63,6 +69,15 @@ namespace Application.ActiveInvoice.Domain.Write.CommandHandlers
         {
 
             if (activeInvoiceState.Id == Guid.Empty)
+            {
+                throw new Exception("Não existe registro com esse Id.");
+            }
+
+        }
+        private void ValidadeActiveInvoiceItemId(ActiveInvoiceItemState activeInvoiceItemState)
+        {
+
+            if (activeInvoiceItemState.Id == Guid.Empty)
             {
                 throw new Exception("Não existe registro com esse Id.");
             }
