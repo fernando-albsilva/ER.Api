@@ -39,6 +39,8 @@ using Application.ActiveInvoice.Domain.Write.CommandHandlers;
 using Application.ActiveInvoice.Domain.Write.Repositories;
 using Application.ActiveInvoice.Domain.Read.Repositories;
 using Application.ActiveInvoice.Domain.Maps.Write;
+using Application.Auth.User.Domain.Maps.Read;
+using Application.Worker.Domain.Read.Model;
 
 namespace ERapi
 {
@@ -109,7 +111,9 @@ namespace ERapi
                                 .AddFromAssemblyOf<ProductStateMap>()
                                 .AddFromAssemblyOf<FunctionModelMap>()
                                 .AddFromAssemblyOf<WorkerModelMap>()
+                                .AddFromAssemblyOf<WorkerActiveInvoiceModel>()
                                 .AddFromAssemblyOf<WaiterModelMap>()
+                                .AddFromAssemblyOf<UserModelMap>()
                                 .AddFromAssemblyOf<InvoiceStateMap>()
                                 .AddFromAssemblyOf<InvoiceItemStateMap>()
                                 .AddFromAssemblyOf<ActiveInvoiceStateMap>()

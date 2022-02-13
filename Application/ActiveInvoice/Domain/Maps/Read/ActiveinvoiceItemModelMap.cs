@@ -19,7 +19,7 @@ namespace Application.ActiveInvoice.Domain.Maps.Read
             Id(x => x.Id, "Id");
             Map(x => x.Quantity, "Quantity");
             Map(x => x.ActiveInvoiceId, "ActiveInvoiceId");
-            Map(x => x.ProductId, "ProductId");
+            References(x => x.Product, "ProductId");
         }
     }
 }

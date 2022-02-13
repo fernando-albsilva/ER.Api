@@ -18,11 +18,12 @@ namespace Application.ActiveInvoice.Domain.Maps.Read
 
             Id(x => x.Id);
             Map(x => x.UserId);
-            Map(x => x.WorkerId);
             Map(x => x.Date);
             Map(x => x.ClientName);
             Map(x => x.TableNumber);
             Map(x => x.StartTime);
+
+            References(x => x.Worker,"WorkerId");
 
             HasMany(x => x.ActiveInvoiceItems).KeyColumn("ActiveInvoiceId");
         }
