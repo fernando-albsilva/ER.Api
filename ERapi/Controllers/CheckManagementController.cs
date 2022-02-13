@@ -67,6 +67,13 @@ namespace ERapi.Controllers
             return ActiveInvoiceReadRepository.GetAll();
         }
 
+        [HttpGet]
+        [Route("CheckManagement/GetActiveTablesAndIndividualChecks")]
+        public IList<ActiveTablesAndIndividualChecksModel> GetActiveTablesAndIndividualChecks()
+        {
+            return ActiveInvoiceReadRepository.GetActiveTablesAndIndividualChecks();
+        }
+
         [HttpPost]
         [Route("CheckManagement/CrateActiveTable")]
         public IActionResult CrateActiveTable(CreateActiveInvoiceCommand cmd)

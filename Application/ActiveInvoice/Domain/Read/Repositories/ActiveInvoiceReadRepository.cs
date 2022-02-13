@@ -32,5 +32,10 @@ namespace Application.ActiveInvoice.Domain.Read.Repositories
             return _session.Query<ActiveInvoiceModel>().ToList();
 
         }
+
+        public IList<ActiveTablesAndIndividualChecksModel> GetActiveTablesAndIndividualChecks()
+        {
+            return _session.Query<ActiveTablesAndIndividualChecksModel>().ToList();
+        }
     }
 }

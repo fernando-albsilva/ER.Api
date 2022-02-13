@@ -11,5 +11,6 @@ namespace Application.ActiveInvoice.Domain.Read.Repositories
     {
         public ActiveInvoiceModel GetById(Guid Id);
         public IList<ActiveInvoiceModel> GetAll();
+        public IList<ActiveTablesAndIndividualChecksModel> GetActiveTablesAndIndividualChecks();
     }
 }
