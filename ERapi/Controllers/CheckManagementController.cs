@@ -2,6 +2,7 @@
 using Application.ActiveInvoice.Domain.Read.Repositories;
 using Application.ActiveInvoice.Domain.Write.CommandHandlers;
 using Application.ActiveInvoice.Domain.Write.Commands;
+using Application.Invoice.Domain.Write.CommandHandlers;
 using Application.Product.Domain.Read.Model;
 using Application.Product.Domain.Read.Repositories;
 using Application.Worker.Domain.Read.Model;
@@ -25,17 +26,20 @@ namespace ERapi.Controllers
         private readonly IBaseReadProductRepository ProductReadRepository;
         private readonly IBaseReadActiveInvoiceRepository ActiveInvoiceReadRepository;
         private readonly IActiveInvoiceCommandHandler ActiveInvoiceCommandHandler;
+        private readonly IInvoiceCommandHandler InvoiceCommandHandler;
         public CheckManagementController(
             IBaseReadWorkerRepository workerReadRepository,
             IBaseReadProductRepository productReadRepository,
             IBaseReadActiveInvoiceRepository activeInvoiceReadRepository,
-            IActiveInvoiceCommandHandler activeInvoiceCommandHandler
+            IActiveInvoiceCommandHandler activeInvoiceCommandHandler,
+            IInvoiceCommandHandler invoiceCommandHandler
         )
         {
             WorkerReadRepository = workerReadRepository;
             ProductReadRepository = productReadRepository;
             ActiveInvoiceReadRepository = activeInvoiceReadRepository;
             ActiveInvoiceCommandHandler = activeInvoiceCommandHandler;
+            InvoiceCommandHandler = invoiceCommandHandler;
         }
 
         [HttpGet]
@@ -95,6 +99,16 @@ namespace ERapi.Controllers
         public IActionResult AddItemInInvoice(CreateActiveInvoiceItemCommand cmd)
         {
             ActiveInvoiceCommandHandler.Handle(cmd);
+            return Ok();
+        }  
+        
+        [HttpPost]
+        [Route("CheckManagement/CloseCheck")]
+        public IActionResult CloseCheck([FromForm] Guid activeInvoiceId)
+        {
+            var activeInvoice = ActiveInvoiceReadRepository.GetById(activeInvoiceId);
+            InvoiceCommandHandler.Handle(activeInvoice);
+            ActiveInvoiceCommandHandler.CloseCheck(activeInvoiceId);
             return Ok();
         } 
         

@@ -1,4 +1,5 @@
 ﻿using Aplication.Auth.User.Domain.Read.Model;
+using Aplication.Auth.User.Domain.Write.States;
 using Application.Invoice.Domain.Write.ValueObject;
 using Application.Worker.Domain.Read.Model;
 using System;

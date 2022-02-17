@@ -1,9 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Aplication.Auth.User.Domain.Read.Model;
+using Aplication.Auth.User.Domain.Write.States;
 using Application.Invoice.Domain.Write.Commands;
 using Application.Invoice.Domain.Write.States;
+using Application.Product.Domain.Read.Model;
 using Application.Product.Domain.Write.States;
+using Application.Worker.Domain.Read.Model;
+using Application.Worker.Domain.Write.States;
 
 namespace Application.Invoice.Domain.Write.Aggregates
 {
@@ -18,61 +23,36 @@ namespace Application.Invoice.Domain.Write.Aggregates
             {
                     State = state;
             }
-            public InvoiceAggregate(CreateInvoice cmd)
+            public InvoiceAggregate(CreateInvoiceCommand cmd)
             {
-             
-              State.Id = cmd.Id;
-              State.WorkerState.Id = cmd.WorkerId;
-              State.Date = cmd.Date;
-              State.ClientName = cmd.ClientName;
-              State.InvoiceItemsState = convertToInvoiceItemsState(cmd.InvoiceItems);
-              
-            }
 
-            private List<InvoiceItemState> convertToInvoiceItemsState(List<InvoiceItem> CmdInvoiceItems)
+            State = new InvoiceState()
             {
-                var list = new List<InvoiceItemState>();
-                var item = new InvoiceItemState();
-                item.InvoiceState = new InvoiceState();
-                item.ProductState = new ProductState();
+                Id = cmd.Id,
+                Date = cmd.Date,
+                ClientName = cmd.ClientName,
+                Worker = cmd.Worker,
+                User = cmd.User,
+                InvoiceItemsState = new List<InvoiceItemState>()
+            };
 
-                CmdInvoiceItems.ForEach(CmdItem =>
+                foreach (var invoiceItem in cmd.InvoiceItems)
                 {
-                    item.Id = CmdItem.Id;
-                    item.InvoiceState.Id = CmdItem.InvoiceId;
-                    item.ProductState.Id = CmdItem.ProductId;
-                    item.UnitValue = CmdItem.UnitValue;
-                    item.Cost = CmdItem.Cost;
-                    item.Quantity = CmdItem.Quantity;
-                    list.Add(item);
-                    item = new InvoiceItemState();
+                    var item = new InvoiceItemState
+                    {
+                        Id = invoiceItem.Id,
+                        Quantity = invoiceItem.Quantity,
+                        Cost = invoiceItem.Cost,
+                        UnitValue = invoiceItem.UnitValue,
+                        Product = invoiceItem.Product,
+                        Invoice = State
+                    };
 
-                });
-                return list;
+                    State.InvoiceItemsState.Add(item);
+                }
+
             }
-                /*  public void Change(UpdateProduct cmd)
-            {
-                  validadeProductCommand(cmd);
-                  State.Name = cmd.Name;
-                  State.UnitValue = cmd.UnitValue;
-                  State.Cost = cmd.Cost;
 
-            }*/
-
-           /* public void validadeProductCommand(UpdateProductCommand cmd)
-            {
-                  if (string.IsNullOrEmpty(cmd.Name))
-                  {
-                        throw new Exception("Não existe nome do produto.");
-                  }
-                  if (cmd.UnitValue == 0)
-                  {
-                        throw new Exception("Não existe Valor Unitario do produto.");
-                  }
-                  if (cmd.Cost == 0)
-                  {
-                        throw new Exception("Não existe Valor do Custo do produto.");
-                  }
-            }*/
+         
       }
 }

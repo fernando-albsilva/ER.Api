@@ -11,8 +11,10 @@ namespace Application.Invoice.Domain.Maps.Write
 
             Id(x => x.Id, "Id");
             Map(x => x.Quantity, "Quantity");
-            References(x => x.InvoiceState).Column("ActiveInvoiceId");
-            References(x => x.ProductState).Column("ProductId");
+            Map(x => x.Cost, "Cost");
+            Map(x => x.UnitValue, "UnitValue");
+            References(x => x.Invoice).Column("InvoiceId");
+            References(x => x.Product).Column("ProductId");
         }
     }
 }

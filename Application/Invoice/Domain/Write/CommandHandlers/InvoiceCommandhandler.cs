@@ -3,6 +3,11 @@ using Application.Invoice.Domain.Read.Repositories;
 using Application.Invoice.Domain.Write.Commands;
 using Application.Invoice.Domain.Write.Repositories;
 using Application.Invoice.Domain.Write.Aggregates;
+using Application.ActiveInvoice.Domain.Read.Model;
+using NHibernate.Util;
+using System.Collections.Generic;
+using Application.Worker.Domain.Read.Model;
+using Aplication.Auth.User.Domain.Read.Model;
 
 namespace Application.Invoice.Domain.Write.CommandHandlers
 {
@@ -17,57 +22,48 @@ namespace Application.Invoice.Domain.Write.CommandHandlers
                   this.writeRepository = writeRepository;
             }
 
-        /*    public void Handle(CreateInvoice cmd)
-            {
-                  cmd.Id = Guid.NewGuid();
-                  var aggregate = new InvoiceAggregate(cmd);
-                  writeRepository.Save(aggregate.State);
-            }*/
-
-            public void Handle(CreateInvoice cmd)
+            public void CreateInvoice(CreateInvoiceCommand cmd)
             {
                 cmd.Id = Guid.NewGuid();
                 var aggregate = new InvoiceAggregate(cmd);
         
-            writeRepository.Save(aggregate.State);
-             }
-
-     
-
-        /*    public void Handle(UpdateProduct cmd)
-            {
-                  ProductState productState = writeRepository.GetById(cmd.Id);
-                  ValidadeId(productState);
-                  var aggregate = new ProductAggregate(productState);
-                  aggregate.Change(cmd);
-                  writeRepository.Update(aggregate.State);
+                writeRepository.Save(aggregate.State);
             }
 
-            public void Handle(Guid Id)
+            public void Handle(ActiveInvoiceModel activeInvoice)
             {
-                  ProductState productState = writeRepository.GetById(Id);
-                  ValidadeId(productState);
-                  writeRepository.Delete(productState);
+                var cmd = parseActiveInvoice(activeInvoice);
+                CreateInvoice(cmd);
             }
 
-            public void Handle(List<Guid> idList)
+            private CreateInvoiceCommand parseActiveInvoice(ActiveInvoiceModel activeInvoice)
             {
-                 foreach (Guid element in idList)
-                 {
-                    ProductState productState = writeRepository.GetById(element);
-                    ValidadeId(productState);
-                    writeRepository.Delete(productState);
-                 }
-            }
-
-            private void ValidadeId(ProductState productState)
+                var cmd = new CreateInvoiceCommand
                 {
+                    Id = activeInvoice.Id != null ? activeInvoice.Id : Guid.NewGuid(),
+                    ClientName = activeInvoice.ClientName,
+                    Date = activeInvoice.Date,
+                    Worker = new WorkerModel { Id = activeInvoice.Worker.Id },
+                    User = new UserModel { Id = (Guid)activeInvoice.UserId },
+                    InvoiceItems = new List<InvoiceItem>()
+                 };
 
-                      if (productState.Id == Guid.Empty)
-                      {
-                            throw new Exception("Não existe registro com esse Id.");
-                      }
+                    foreach(var item in activeInvoice.ActiveInvoiceItems)
+                    {
+                        var invoiceItem = new InvoiceItem
+                        {
+                             Id = item.Id,
+                             Cost = item.Product.Cost,
+                             InvoiceId = item.ActiveInvoiceId,
+                             Product = item.Product,
+                             Quantity = item.Quantity,
+                             UnitValue = item.Product.UnitValue
+                        };
 
-                }*/
-    }
+                        cmd.InvoiceItems.Add(invoiceItem);
+                    }
+
+                return cmd;
+            }
+      }
 }

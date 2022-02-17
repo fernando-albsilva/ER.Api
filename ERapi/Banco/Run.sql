@@ -103,7 +103,7 @@ CREATE TABLE Invoice(
 	Duration TIME,
     PRIMARY KEY (Id),
     CONSTRAINT FK_WorkerId FOREIGN KEY (WorkerId) REFERENCES [ER].[dbo].[Worker](Id),
-	CONSTRAINT FK_UserId FOREIGN KEY(UserId) REFERENCES [ER].[dbo].[Invoice](Id)
+	CONSTRAINT FK_UserId FOREIGN KEY(UserId) REFERENCES [ER].[dbo].[User](Id)
 );
 
 GO
@@ -116,7 +116,7 @@ Use ER
 GO
 
 CREATE TABLE InvoiceItem(
-    Id int NOT NULL UNIQUE,
+    Id nvarchar(60) NOT NULL UNIQUE,
     InvoiceId nvarchar(60) NOT NULL,
 	ProductId nvarchar(60) NOT NULL,
 	UnitValue Decimal(10,2),

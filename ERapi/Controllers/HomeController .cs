@@ -49,16 +49,15 @@ public class HomeController : ControllerBase
 
         }
         #endregion
-
-        #region Commands
+/*
+        
         [HttpPost]
         [Route("Home/CreateInvoice")]
-        public void createInvoice(CreateInvoice cmd)
+        public void CreateInvoice(CreateInvoiceCommand cmd)
         {
             InvoiceCommandhandler.Handle(cmd);
-        }
+        }*/
 
-        #endregion
     }
 
 }

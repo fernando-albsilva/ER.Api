@@ -13,5 +13,6 @@ namespace Application.ActiveInvoice.Domain.Write.CommandHandlers
         public void Handle(UpdateActiveInvoiceCommand cmd);
         public void Handle(CreateActiveInvoiceItemCommand cmd);
         public void RemoveActiveInvoiceItem(Guid id);
+        public void CloseCheck(Guid activeInvoiceId);
     }
 }

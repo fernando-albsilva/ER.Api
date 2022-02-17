@@ -12,9 +12,12 @@ namespace Application.Invoice.Domain.Maps.Write
 
             Id(x => x.Id, "Id");
 
-            References(x => x.WorkerState).Column("WorkerId");
             Map(x => x.Date, "Date");
             Map(x => x.ClientName, "ClientName");
+
+            References(x => x.Worker).Column("WorkerId");
+            References(x => x.User).Column("UserId");
+          
             HasMany(x => x.InvoiceItemsState).KeyColumn("InvoiceId");
 
                 //.Cascade.AllDeleteOrphan();

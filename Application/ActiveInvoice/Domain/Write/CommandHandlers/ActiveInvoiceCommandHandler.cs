@@ -65,6 +65,11 @@ namespace Application.ActiveInvoice.Domain.Write.CommandHandlers
             throw new NotImplementedException();
         }
 
+        public void CloseCheck(Guid activeInvoiceId)
+        {
+            throw new NotImplementedException();
+        }
+
         private void ValidadeId(ActiveInvoiceState activeInvoiceState)
         {
 
@@ -88,7 +93,5 @@ namespace Application.ActiveInvoice.Domain.Write.CommandHandlers
         {
             return cmd.TableNumber is not null;
         }
-
-      
     }
 }
