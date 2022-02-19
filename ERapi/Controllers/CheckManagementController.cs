@@ -2,6 +2,8 @@
 using Application.ActiveInvoice.Domain.Read.Repositories;
 using Application.ActiveInvoice.Domain.Write.CommandHandlers;
 using Application.ActiveInvoice.Domain.Write.Commands;
+using Application.Invoice.Domain.Read.Model;
+using Application.Invoice.Domain.Read.Repositories;
 using Application.Invoice.Domain.Write.CommandHandlers;
 using Application.Product.Domain.Read.Model;
 using Application.Product.Domain.Read.Repositories;
@@ -18,19 +20,21 @@ namespace ERapi.Controllers
 {
 
     [ApiController]
-    [Authorize]
+    //[Authorize]
 
     public class CheckManagementController : ControllerBase
     {
         private readonly IBaseReadWorkerRepository WorkerReadRepository;
         private readonly IBaseReadProductRepository ProductReadRepository;
         private readonly IBaseReadActiveInvoiceRepository ActiveInvoiceReadRepository;
+        private readonly IBaseReadInvoiceRepository InvoiceReadRepository;
         private readonly IActiveInvoiceCommandHandler ActiveInvoiceCommandHandler;
         private readonly IInvoiceCommandHandler InvoiceCommandHandler;
         public CheckManagementController(
             IBaseReadWorkerRepository workerReadRepository,
             IBaseReadProductRepository productReadRepository,
             IBaseReadActiveInvoiceRepository activeInvoiceReadRepository,
+            IBaseReadInvoiceRepository invoiceReadRepository,
             IActiveInvoiceCommandHandler activeInvoiceCommandHandler,
             IInvoiceCommandHandler invoiceCommandHandler
         )
@@ -38,6 +42,7 @@ namespace ERapi.Controllers
             WorkerReadRepository = workerReadRepository;
             ProductReadRepository = productReadRepository;
             ActiveInvoiceReadRepository = activeInvoiceReadRepository;
+            InvoiceReadRepository = invoiceReadRepository;
             ActiveInvoiceCommandHandler = activeInvoiceCommandHandler;
             InvoiceCommandHandler = invoiceCommandHandler;
         }
@@ -76,6 +81,14 @@ namespace ERapi.Controllers
         public IList<ActiveTablesAndIndividualChecksModel> GetActiveTablesAndIndividualChecks()
         {
             return ActiveInvoiceReadRepository.GetActiveTablesAndIndividualChecks();
+        }
+        
+        [HttpGet]
+        [Route("CheckManagement/GetInvoiceById")]
+        public InvoiceModel GetInvoiceById(Guid id)
+        {
+            var invoiceModel = InvoiceReadRepository.GetById(id);
+            return invoiceModel;
         }
 
         [HttpPost]

@@ -20,7 +20,7 @@ namespace Application.Worker.Domain.Maps.Read
                 Map(x => x.PhoneNumber);
                 Map(x => x.Address);
                 Map(x => x.Email);
-                References(x => x.Function,"FunctionId");
+               // References(x => x.Function,"FunctionId");
             }
       }
 }
