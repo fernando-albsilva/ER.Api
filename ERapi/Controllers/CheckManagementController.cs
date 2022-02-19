@@ -18,8 +18,8 @@ namespace ERapi.Controllers
 {
 
     [ApiController]
-    /*[Authorize]*/
-    
+    [Authorize]
+
     public class CheckManagementController : ControllerBase
     {
         private readonly IBaseReadWorkerRepository WorkerReadRepository;
@@ -43,7 +43,7 @@ namespace ERapi.Controllers
         }
 
         [HttpGet]
-        /*[Authorize(Roles = "admin")]*/
+        [Authorize(Roles = "admin")]
         [Route("CheckManagement/Workers")]
         public List<WorkerFlatModel> GetWorkersByFunctionWaiter()
         {

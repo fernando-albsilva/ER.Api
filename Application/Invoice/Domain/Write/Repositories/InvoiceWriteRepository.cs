@@ -23,27 +23,15 @@ namespace Application.Invoice.Domain.Write.Repositories
                 }
 
             }
-/*
-            public void Delete(ProductState state)
+
+            public void Delete(InvoiceState state)
             {
-                  using (var tran = _session.BeginTransaction())
-                  {
-                        _session.Delete(state);
-                        tran.Commit();
-                  }
+                using (var tran = _session.BeginTransaction())
+                {
+                    _session.Delete(state);
+                    tran.Commit();
+                }
 
-            }*/
-/*
-            public void Update(ProductState state)
-            {
-                  using (var tran = _session.BeginTransaction())
-                  {
-                        _session.Update(state);
-                        tran.Commit();
-                  }
-            }*/
-
-
-
-    }
+            }
+      }
 }

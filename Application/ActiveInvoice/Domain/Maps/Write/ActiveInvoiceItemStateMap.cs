@@ -18,8 +18,8 @@ namespace Application.ActiveInvoice.Domain.Maps.Write
             Map(x => x.Quantity, "Quantity");
 
             References(x => x.Product, "ProductId");
-            References(x => x.ActiveInvoiceState) // you'll need 'Property' in your class definition too
-            .Column("ActiveInvoiceId");
+            References(x => x.ActiveInvoiceState) 
+                .Column("ActiveInvoiceId");
      
 
         }

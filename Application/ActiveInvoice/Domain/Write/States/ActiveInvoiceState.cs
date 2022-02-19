@@ -20,7 +20,6 @@ namespace Application.ActiveInvoice.Domain.Write.States
         public virtual string StartTime { get; set; }
 
         public virtual IList<ActiveInvoiceItemState>? ActiveInvoiceItemsState { get; set; }
-        public virtual ActiveInvoiceState ActiveInvoice { get; set; }
 
 
     }

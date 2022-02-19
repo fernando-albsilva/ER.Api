@@ -10,11 +10,5 @@ namespace Application.Invoice.Domain.Write.CommandHandlers
       {
             public void CreateInvoice(CreateInvoiceCommand cmd);
             public void Handle(ActiveInvoiceModel activeInvoice);
-/*
-            public void Handle(UpdateProduct cmd);
-
-            public void Handle(Guid Id);
-
-            public void Handle(List<Guid> cmd);*/
       }
 }

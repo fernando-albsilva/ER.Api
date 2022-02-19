@@ -5,12 +5,11 @@ namespace Application.DataBaseConnection
     {
 
         public string GetConnectionString()
-        {
-   
-            return "Data Source=SIA-FSILVA;" +
+        {  
+            return "Data Source=(localdb)\\MSSQLLocalDB;" +
                   "Initial Catalog=ER;" +
                   "User id=sa;" +
-                  "Password=fer200790nando;";
+                  "Password=123456;";
         }
     }
 }

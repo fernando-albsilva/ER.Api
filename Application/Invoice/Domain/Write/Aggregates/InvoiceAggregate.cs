@@ -23,18 +23,21 @@ namespace Application.Invoice.Domain.Write.Aggregates
             {
                     State = state;
             }
+           
             public InvoiceAggregate(CreateInvoiceCommand cmd)
             {
 
-            State = new InvoiceState()
-            {
-                Id = cmd.Id,
-                Date = cmd.Date,
-                ClientName = cmd.ClientName,
-                Worker = cmd.Worker,
-                User = cmd.User,
-                InvoiceItemsState = new List<InvoiceItemState>()
-            };
+                State = new InvoiceState()
+                {
+                    Id = cmd.Id,
+                    Date = cmd.Date,
+                    ClientName = cmd.ClientName,
+                    Worker = cmd.Worker,
+                    User = cmd.User
+                };
+
+
+                 var itemsStateList = new List<InvoiceItemState>();
 
                 foreach (var invoiceItem in cmd.InvoiceItems)
                 {
@@ -48,9 +51,10 @@ namespace Application.Invoice.Domain.Write.Aggregates
                         Invoice = State
                     };
 
-                    State.InvoiceItemsState.Add(item);
+                    itemsStateList.Add(item);
                 }
 
+                State.InvoiceItemsState = itemsStateList;
             }
 
          

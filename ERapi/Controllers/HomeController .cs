@@ -7,12 +7,12 @@ using Application.Product.Domain.Read.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace ERapi.Controllers 
+namespace ERapi.Controllers
 {
 
-[ApiController]
-public class HomeController : ControllerBase
-{
+    [ApiController]
+    public class HomeController : ControllerBase
+    {
 
         private readonly IBaseReadHomeRepository HomeReadRepository;
         private readonly IBaseReadProductRepository ProductReadRepository;
@@ -27,7 +27,7 @@ public class HomeController : ControllerBase
             this.HomeReadRepository = homeReadRepository;
             this.ProductReadRepository = productReadRepository;
             this.InvoiceCommandhandler = invoiceCommandhandler;
-            
+
         }
 
         #region Querys
@@ -48,16 +48,8 @@ public class HomeController : ControllerBase
             return ProductModelList;
 
         }
+
         #endregion
-/*
-        
-        [HttpPost]
-        [Route("Home/CreateInvoice")]
-        public void CreateInvoice(CreateInvoiceCommand cmd)
-        {
-            InvoiceCommandhandler.Handle(cmd);
-        }*/
 
     }
-
 }

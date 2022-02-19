@@ -67,7 +67,8 @@ namespace Application.ActiveInvoice.Domain.Write.CommandHandlers
 
         public void CloseCheck(Guid activeInvoiceId)
         {
-            throw new NotImplementedException();
+            var activeInvoiceState = ActiveInvoiceWriteRepository.GetActiveInvoiceById(activeInvoiceId);
+            ActiveInvoiceWriteRepository.Delete(activeInvoiceState);
         }
 
         private void ValidadeId(ActiveInvoiceState activeInvoiceState)

@@ -24,7 +24,11 @@ namespace Application.ActiveInvoice.Domain.Maps.Write
             References(x => x.User,"UserId");
             References(x => x.Worker,"WorkerId");
 
-            HasMany(x => x.ActiveInvoiceItemsState).KeyColumn("ActiveInvoiceId");
+            HasMany(x => x.ActiveInvoiceItemsState)
+                .KeyColumn("ActiveInvoiceId")
+                .Cascade
+                .AllDeleteOrphan()
+                .Inverse();
 
             //TODO
             // Mapear de acordo com a tabela

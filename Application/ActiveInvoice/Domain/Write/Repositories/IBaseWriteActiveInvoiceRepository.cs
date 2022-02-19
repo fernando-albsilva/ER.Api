@@ -14,6 +14,8 @@ namespace Application.ActiveInvoice.Domain.Write.Repositories
         public void Update(ActiveInvoiceState state);
         public void save(ActiveInvoiceItemState state);
         public void Delete(ActiveInvoiceItemState state);
-        public ActiveInvoiceItemState GetActiveInvoiceItemById(Guid id);
+        public void Delete(ActiveInvoiceState state);
+        public ActiveInvoiceItemState GetActiveInvoiceItemById(Guid id); 
+        public ActiveInvoiceState GetActiveInvoiceById(Guid id);
     }
 }

@@ -16,6 +16,7 @@ namespace Application.Invoice.Domain.Write.States
         public virtual UserModel User { get; set; }
         public virtual DateTime? Date { get; set; }
         public virtual string ClientName { get; set; }
-        public virtual IList<InvoiceItemState> InvoiceItemsState { get; set; }
+        public virtual DateTime Duration { get; set; }
+        public virtual IList<InvoiceItemState>? InvoiceItemsState { get; set; } 
     }
 }
