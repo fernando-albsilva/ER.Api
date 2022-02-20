@@ -15,6 +15,11 @@ namespace Application.Invoice.Domain.Read.Repositories
                       this._session = _session;
             }
 
+        public IList<InvoiceFlatModel> GetAllInvoices()
+        {
+            return _session.Query<InvoiceFlatModel>().ToList();
+        }
+
         public InvoiceModel GetById(Guid id)
         {
             var invoiceModel = new InvoiceModel();

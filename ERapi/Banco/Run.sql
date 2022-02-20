@@ -285,3 +285,28 @@ CREATE TABLE [dbo].[ActiveInvoiceItem](
 )
 
 GO
+
+
+/****** Criando view [dbo].[InvoiceFlatModelView] . ******/
+
+
+CREATE OR ALTER VIEW [dbo].[InvoiceFlatModelView]
+
+AS
+SELECT 
+	[I].[Id] AS [Id],
+	[I].[ClientName] AS [ClientName],
+	[I].[Date] AS [Date],
+	[I].[Duration] AS [Duration],
+	[W].[Name] AS [WorkerName],
+	(SELECT SUM([II].[UnitValue]*[II].[Quantity]) AS [Total] From [InvoiceItem] [II] Where  [II].[InvoiceId] = [I].[Id]) AS [TotalValue]
+FROM
+	[dbo].[Invoice] [I]
+INNER JOIN
+	[dbo].[Worker] [W]
+ON
+	[I].[WorkerId] = [W].[Id]
+
+GO
+
+

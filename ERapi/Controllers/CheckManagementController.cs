@@ -20,7 +20,7 @@ namespace ERapi.Controllers
 {
 
     [ApiController]
-    //[Authorize]
+   // [Authorize]
 
     public class CheckManagementController : ControllerBase
     {
@@ -48,7 +48,7 @@ namespace ERapi.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [Route("CheckManagement/Workers")]
         public List<WorkerFlatModel> GetWorkersByFunctionWaiter()
         {
@@ -89,6 +89,14 @@ namespace ERapi.Controllers
         {
             var invoiceModel = InvoiceReadRepository.GetById(id);
             return invoiceModel;
+        } 
+        
+        [HttpGet]
+        [Route("CheckManagement/GetAllInvoice")]
+        public IList<InvoiceFlatModel> GetAllInvoice()
+        {
+            var list = InvoiceReadRepository.GetAllInvoices();
+            return list;
         }
 
         [HttpPost]
