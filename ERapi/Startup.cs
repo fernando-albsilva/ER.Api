@@ -41,6 +41,7 @@ using Application.ActiveInvoice.Domain.Read.Repositories;
 using Application.ActiveInvoice.Domain.Maps.Write;
 using Application.Auth.User.Domain.Maps.Read;
 using Application.Worker.Domain.Read.Model;
+using Application.Auth.User.Domain.Maps.read;
 
 namespace ERapi
 {
@@ -118,6 +119,7 @@ namespace ERapi
                                 .AddFromAssemblyOf<InvoiceItemStateMap>()
                                 .AddFromAssemblyOf<ActiveInvoiceStateMap>()
                                 .AddFromAssemblyOf<ActiveInvoiceItemStateMap>()
+                                .AddFromAssemblyOf<UserInvoiceModelMap>()
                              )
                             .BuildSessionFactory();
             services.AddScoped(factory =>

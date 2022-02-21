@@ -23,7 +23,9 @@ namespace Application.Invoice.Domain.Read.Repositories
         public InvoiceModel GetById(Guid id)
         {
             var invoiceModel = new InvoiceModel();
-            var list = _session.Query<InvoiceModel>().Where(x => x.Id == id).ToList();
+            var list = _session.Query<InvoiceModel>()
+                .Where(x => x.Id == id)
+                .ToList();
 
             invoiceModel = list.ElementAt(0);
 

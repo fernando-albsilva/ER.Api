@@ -1,4 +1,4 @@
-﻿using Aplication.Auth.User.Domain.Read.Model;
+﻿using Application.Auth.User.Domain.Read.Model;
 using Application.Worker.Domain.Read.Model;
 using System;
 using System.Collections.Generic;
@@ -11,8 +11,8 @@ namespace Application.Invoice.Domain.Read.Model
     public class InvoiceModel
     {
         public virtual Guid? Id { get; set; }
-        public virtual WorkerModel Worker { get; set; }
-        public virtual UserModel User { get; set; }
+        public virtual WorkerInvoiceModel Worker { get; set; }
+        public virtual UserInvoiceModel User { get; set; }
         public virtual DateTime? Date { get; set; }
         public virtual string ClientName { get; set; }
         public virtual DateTime Duration { get; set; }
