@@ -28,6 +28,7 @@ namespace Application.ActiveInvoice.Domain.Write.Aggregates
                 Date = cmd.Date,
                 ClientName = cmd.ClientName,
                 TableNumber = cmd.TableNumber,
+                IndividualCheckNumber = cmd.IndividualCheckNumber,
                 StartTime = cmd.StartTime
             };
 

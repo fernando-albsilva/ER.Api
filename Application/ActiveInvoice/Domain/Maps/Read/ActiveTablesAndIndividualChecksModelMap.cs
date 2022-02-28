@@ -20,6 +20,7 @@ namespace Application.ActiveInvoice.Domain.Maps.Read
 
             Map(x => x.TableNumber, "TableNumber");
             Map(x => x.IndividualCheckNumber, "IndividualCheckNumber");
+            Map(x => x.ClientName, "ClientName");
         }
     }
 }

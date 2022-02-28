@@ -18,6 +18,7 @@ namespace Application.ActiveInvoice.Domain.Write.Commands
          public virtual DateTime? Date { get; set; }
          public virtual string ClientName { get; set; }
          public virtual int? TableNumber{ get; set; }
+         public virtual int? IndividualCheckNumber{ get; set; }
          public virtual string StartTime { get; set; }
 
          public IList<ActiveInvoiceItem> ActiveInvoiceItems { get; set; }

@@ -11,5 +11,6 @@ namespace Application.ActiveInvoice.Domain.Read.Model
         public virtual Guid Id{ get; set; }
         public virtual int? TableNumber { get; set; }
         public virtual int? IndividualCheckNumber { get; set; }
+        public virtual string ClientName{ get; set; }
     }
 }
