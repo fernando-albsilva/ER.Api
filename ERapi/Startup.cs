@@ -42,6 +42,7 @@ using Application.ActiveInvoice.Domain.Maps.Write;
 using Application.Auth.User.Domain.Maps.Read;
 using Application.Worker.Domain.Read.Model;
 using Application.Auth.User.Domain.Maps.read;
+using Application.CheckManagement.Domain.Read.Repositories;
 
 namespace ERapi
 {
@@ -70,7 +71,7 @@ namespace ERapi
             services.AddScoped<IBaseReadHomeRepository, HomeReadRepository> ();
             services.AddScoped<IBaseReadInvoiceRepository, InvoiceReadRepository> ();
             services.AddScoped<IBaseReadActiveInvoiceRepository, ActiveInvoiceReadRepository> ();
-
+            services.AddScoped<IBaseReadCheckManagementRepository, CheckManagementReadRepository> ();
 
 
             //Reopsitories ( Write )

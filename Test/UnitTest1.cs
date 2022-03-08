@@ -1,6 +1,4 @@
-using Application.Aplication.Product.Domain.Write.Aggregates;
-using Application.Aplication.Product.Domain.Write.CommandHandlers;
-using Application.Aplication.Product.Domain.Write.Commands;
+
 using NUnit.Framework;
 using System;
 
@@ -24,7 +22,7 @@ namespace Test
         public void novo_teste()
         {
 
-            var cmd = new UpdateProduct();
+            /*var cmd = new UpdateProduct();
             cmd.Id = Guid.NewGuid();
             cmd.Name = "";
             cmd.UnitValue = 10;
@@ -32,7 +30,7 @@ namespace Test
 
             var _sut = new ProductAggregate();
 
-            _sut.Change(cmd);
+            _sut.Change(cmd);*/
 
           
 

@@ -24,9 +24,7 @@ C:\Users\Admin\Desktop\ProjetoTeste\ER\ER API\ER.Api\Application\obj\Debug\net5.
 C:\Users\Admin\Desktop\ProjetoTeste\ER\ER API\ER.Api\Application\obj\Debug\net5.0\Application.pdb
 F:\User\ER.Api\Application\bin\Debug\net5.0\Application.deps.json
 F:\User\ER.Api\Application\bin\Debug\net5.0\Application.dll
-F:\User\ER.Api\Application\bin\Debug\net5.0\ref\Application.dll
 F:\User\ER.Api\Application\bin\Debug\net5.0\Application.pdb
-F:\User\ER.Api\Application\obj\Debug\net5.0\Application.csprojAssemblyReference.cache
 F:\User\ER.Api\Application\obj\Debug\net5.0\Application.GeneratedMSBuildEditorConfig.editorconfig
 F:\User\ER.Api\Application\obj\Debug\net5.0\Application.AssemblyInfoInputs.cache
 F:\User\ER.Api\Application\obj\Debug\net5.0\Application.AssemblyInfo.cs
@@ -34,3 +32,5 @@ F:\User\ER.Api\Application\obj\Debug\net5.0\Application.csproj.CoreCompileInputs
 F:\User\ER.Api\Application\obj\Debug\net5.0\Application.dll
 F:\User\ER.Api\Application\obj\Debug\net5.0\ref\Application.dll
 F:\User\ER.Api\Application\obj\Debug\net5.0\Application.pdb
+F:\User\ER.Api\Application\obj\Debug\net5.0\Application.csproj.AssemblyReference.cache
+F:\User\ER.Api\Application\obj\Debug\net5.0\refint\Application.dll

@@ -15,6 +15,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.CheckManagement.Domain.Read.Model;
+using Application.CheckManagement.Domain.Read.Repositories;
 
 namespace ERapi.Controllers
 {
@@ -28,6 +30,7 @@ namespace ERapi.Controllers
         private readonly IBaseReadProductRepository ProductReadRepository;
         private readonly IBaseReadActiveInvoiceRepository ActiveInvoiceReadRepository;
         private readonly IBaseReadInvoiceRepository InvoiceReadRepository;
+        private readonly IBaseReadCheckManagementRepository CheckManagementRepository;
         private readonly IActiveInvoiceCommandHandler ActiveInvoiceCommandHandler;
         private readonly IInvoiceCommandHandler InvoiceCommandHandler;
         public CheckManagementController(
@@ -35,6 +38,7 @@ namespace ERapi.Controllers
             IBaseReadProductRepository productReadRepository,
             IBaseReadActiveInvoiceRepository activeInvoiceReadRepository,
             IBaseReadInvoiceRepository invoiceReadRepository,
+            IBaseReadCheckManagementRepository checkManagementRepository,
             IActiveInvoiceCommandHandler activeInvoiceCommandHandler,
             IInvoiceCommandHandler invoiceCommandHandler
         )
@@ -43,6 +47,7 @@ namespace ERapi.Controllers
             ProductReadRepository = productReadRepository;
             ActiveInvoiceReadRepository = activeInvoiceReadRepository;
             InvoiceReadRepository = invoiceReadRepository;
+            CheckManagementRepository = checkManagementRepository;
             ActiveInvoiceCommandHandler = activeInvoiceCommandHandler;
             InvoiceCommandHandler = invoiceCommandHandler;
         }
@@ -97,6 +102,14 @@ namespace ERapi.Controllers
         {
             var list = InvoiceReadRepository.GetAllInvoices();
             return list;
+        } 
+        
+        [HttpGet]
+        [Route("CheckManagement/GetCheckManagementSettings")]
+        public CheckManagemantSettingsModel GetCheckManagementConfig(Guid id)
+        {
+            var checkManagementSettings  = CheckManagementRepository.GetSettingsByUserId(id);
+            return checkManagementSettings;
         }
 
         [HttpPost]

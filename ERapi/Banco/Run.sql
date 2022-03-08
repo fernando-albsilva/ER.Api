@@ -173,8 +173,8 @@ AS
 		on w.[FunctionId] = f.[Id]
 	where
 		1=1
-	AND f.[Type] LIKE '%Garçom%'
-	OR	f.[Type] LIKE '%garçom%'
+	AND f.[Type] LIKE '%Garï¿½om%'
+	OR	f.[Type] LIKE '%garï¿½om%'
 
 GO
 
@@ -187,7 +187,7 @@ GO
 
 BEGIN
 INSERT INTO [Function] ([Type]) VALUES 
-('Garçom'),
+('Garï¿½om'),
 ('Caixa'),
 ('Gerente')
 END
@@ -250,7 +250,7 @@ GO
 INSERT INTO [User]
     ([Id],[UserName],[Password],[Role])
 VALUES
-    (NEWID(),'admin','$DNEFSA$V1$10000$HoX4J8+ZzVKcWv3+4tCyN6Eq3zGcuGG1HbOUv+tkpaktmuXg','admin')
+    ('923B77C3-A8EE-481A-983D-66A74A8C3122','admin','$DNEFSA$V1$10000$HoX4J8+ZzVKcWv3+4tCyN6Eq3zGcuGG1HbOUv+tkpaktmuXg','admin')
 GO
 
 /****** Criando Tabela ActiveInvoice ******/
@@ -309,4 +309,33 @@ ON
 
 GO
 
+
+/****** Criando tabela [dbo].[CheckManagementSetting] ******/
+
+IF OBJECT_ID('[dbo].[CheckManagementSetting]', 'U') IS NOT NULL
+DROP TABLE [dbo].[CheckManagementSetting]
+GO
+
+CREATE TABLE [dbo].[CheckManagementSetting]
+(
+    Id UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+    UserId NVARCHAR(60) NOT NULL,
+    TotalTables SMALLINT NOT NULL DEFAULT 50,
+    TotalIndividualChecks SMALLINT NOT NULL DEFAULT 50,
+    SideMenuAvailableTables BIT NOT NULL DEFAULT 1,
+    SideMenuAvailableIndividualChecks BIT NOT NULL DEFAULT 1,
+    CONSTRAINT FK_UserId_CheckManagementSettings
+    FOREIGN KEY (UserId) 
+    REFERENCES [dbo].[User](Id)
+);
+GO
+
+
+/****** Criando configuracoes padrï¿½o usuario ******/
+
+INSERT INTO [dbo].[CheckManagementSetting]
+    ([Id],[UserId])
+VALUES
+    (NEWID(),'923B77C3-A8EE-481A-983D-66A74A8C3122')
+GO
 

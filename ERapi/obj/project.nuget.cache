@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LaLpHtlX6TRT73DX5dAsWKyhKgkB+Aqlk3Djy7+lTrBPEjwu5iqhadpm1DGiq5i/WTipIvRrYLE+YkNz7/d3Nw==",
+  "dgSpecHash": "y1T3BO2YlN33Oa7elwP7l/88+rXIyc+ogXmjoHCpd4b3GzJEopIdbJiq0KDgW0Bn4fO8thONeV7qzr37hk0Wwg==",
   "success": true,
   "projectFilePath": "F:\\User\\ER.Api\\ERapi\\ERapi.csproj",
   "expectedPackageFiles": [
@@ -175,7 +175,8 @@
     "C:\\Users\\PICHAU\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\PICHAU\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\PICHAU\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\PICHAU\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
   ],
   "logs": []
 }
