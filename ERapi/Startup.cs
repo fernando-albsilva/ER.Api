@@ -72,8 +72,7 @@ namespace ERapi
             services.AddScoped<IBaseReadInvoiceRepository, InvoiceReadRepository> ();
             services.AddScoped<IBaseReadActiveInvoiceRepository, ActiveInvoiceReadRepository> ();
             services.AddScoped<IBaseReadCheckManagementRepository, CheckManagementReadRepository> ();
-
-
+            
             //Reopsitories ( Write )
             services.AddScoped<IBaseWriteProductRepository, ProductWriteRepository>();
             services.AddScoped<IBaseWriteFunctionRepository, FunctionWriteRepository>();
@@ -81,8 +80,6 @@ namespace ERapi
             services.AddScoped<IBaseWriteUserRepository, UserWriteRepository>();
             services.AddScoped<IBaseWriteInvoiceRepository, InvoiceWriteRepository>();
             services.AddScoped<IBaseWriteActiveInvoiceRepository, ActiveInvoiceWriteRepository>();
-
-
 
             //CommandHandlers
             services.AddScoped<IFunctionCommandHandler, FunctionCommandHandler>();
@@ -143,27 +140,6 @@ namespace ERapi
                        ClockSkew = TimeSpan.Zero,
                    };
                });
-
-           /* //token
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(x =>
-             {
-                 x.RequireHttpsMetadata = false;
-                 x.SaveToken = true;
-                 x.TokenValidationParameters = new TokenValidationParameters
-                 {
-                     ValidateIssuerSigningKey = true,
-                     IssuerSigningKey = new SymmetricSecurityKey(key),
-                     ValidateIssuer = false,
-                     ValidateAudience = false
-                 };
-             });*/
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -180,8 +156,6 @@ namespace ERapi
 
             app.UseRouting();
 
-            //app.UseCors();
-
             app.UseCors(x => x
             .AllowAnyOrigin()
             .AllowAnyMethod()
@@ -195,10 +169,6 @@ namespace ERapi
             {
                 endpoints.MapControllers();
             });
-
-
         }
-
-
     }
 }

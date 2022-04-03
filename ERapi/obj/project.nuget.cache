@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y1T3BO2YlN33Oa7elwP7l/88+rXIyc+ogXmjoHCpd4b3GzJEopIdbJiq0KDgW0Bn4fO8thONeV7qzr37hk0Wwg==",
+  "dgSpecHash": "N0V+IEcQ4rSqfb50yjC5DcDzydZO/kWdTZApqMuGItcSxlJPCvIcQoohieOpAuIMhUvkfWc/hr+YyNzVHqDCVQ==",
   "success": true,
-  "projectFilePath": "F:\\User\\ER.Api\\ERapi\\ERapi.csproj",
+  "projectFilePath": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\ER.Api\\ERapi\\ERapi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PICHAU\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\aspnetcore.authentication.plugin\\1.0.1\\aspnetcore.authentication.plugin.1.0.1.nupkg.sha512",

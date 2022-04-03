@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aiBRZx6qQbJQ+/NRJ66IfAMZEacbD0xBxk7COHja66L+Q3x8aDM8Jcyc5homKTe7R7Xj+v7QS0eZvOE8B2GvAA==",
+  "dgSpecHash": "XClFvnqME2Diset52criLpIuXxkXx/VsM/VhkX4wQ3t38z7W41qbHsiPxvT2M99rtPVP9KnSSDxtIh7HK4ONyw==",
   "success": true,
-  "projectFilePath": "F:\\User\\ER.Api\\Test\\Test.csproj",
+  "projectFilePath": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\ER.Api\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PICHAU\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\autofixture\\4.17.0\\autofixture.4.17.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KlBAz8udk64xnIFoecendZ1GlxDFD/rnCbahvMtvlbm74grrBUU0nbuGteLO+qV3795rwFUfRUOaQVIOMhXwtQ==",
+  "dgSpecHash": "kAeg59gHejxwbDEe7QFtGs8dVrv6Qnybv2GxoPs96c+I4nznsZSgbY4VF6MomABd7Y5I6RFFFF1wxj+mcMjMXw==",
   "success": true,
-  "projectFilePath": "F:\\User\\ER.Api\\Application\\Application.csproj",
+  "projectFilePath": "F:\\Projetos\\Easy Restaurant\\Easy Restaurant Api\\ER.Api\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PICHAU\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\PICHAU\\.nuget\\packages\\azure.core\\1.4.1\\azure.core.1.4.1.nupkg.sha512",

@@ -34,3 +34,15 @@ F:\User\ER.Api\Application\obj\Debug\net5.0\ref\Application.dll
 F:\User\ER.Api\Application\obj\Debug\net5.0\Application.pdb
 F:\User\ER.Api\Application\obj\Debug\net5.0\Application.csproj.AssemblyReference.cache
 F:\User\ER.Api\Application\obj\Debug\net5.0\refint\Application.dll
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\bin\Debug\net5.0\Application.deps.json
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\bin\Debug\net5.0\Application.dll
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\bin\Debug\net5.0\Application.pdb
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\obj\Debug\net5.0\Application.csproj.AssemblyReference.cache
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\obj\Debug\net5.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\obj\Debug\net5.0\Application.AssemblyInfoInputs.cache
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\obj\Debug\net5.0\Application.AssemblyInfo.cs
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\obj\Debug\net5.0\Application.csproj.CoreCompileInputs.cache
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\obj\Debug\net5.0\Application.dll
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\obj\Debug\net5.0\refint\Application.dll
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\obj\Debug\net5.0\Application.pdb
+F:\Projetos\Easy Restaurant\Easy Restaurant Api\ER.Api\Application\obj\Debug\net5.0\ref\Application.dll

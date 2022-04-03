@@ -1,27 +1,26 @@
--- DELETE ALL TABLES
+-- DELETE DATABASE IF EXISTS AND RECREATE
 
-Use ER
+USE tempdb;
 GO
 
-DECLARE @Sql NVARCHAR(500) DECLARE @Cursor CURSOR
-
-SET @Cursor = CURSOR FAST_FORWARD FOR
-SELECT DISTINCT sql = 'ALTER TABLE [' + tc2.TABLE_SCHEMA + '].[' +  tc2.TABLE_NAME + '] DROP [' + rc1.CONSTRAINT_NAME + '];'
-FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS rc1
-LEFT JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS tc2 ON tc2.CONSTRAINT_NAME =rc1.CONSTRAINT_NAME
-
-OPEN @Cursor FETCH NEXT FROM @Cursor INTO @Sql
-
-WHILE (@@FETCH_STATUS = 0)
+DECLARE @SQL nvarchar(1000);
+IF EXISTS (SELECT 1 FROM sys.databases WHERE [name] = N'ER')
 BEGIN
-Exec sp_executesql @Sql
-FETCH NEXT FROM @Cursor INTO @Sql
-END
+    SET @SQL = N'USE [ER];
 
-CLOSE @Cursor DEALLOCATE @Cursor
+                 ALTER DATABASE ER SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+                 USE [tempdb];
+
+                 DROP DATABASE ER;';
+EXEC (@SQL);
+END;
+
 GO
 
-EXEC sp_MSforeachtable 'DROP TABLE ?'
+USE master;
+GO
+
+CREATE DATABASE ER
 GO
 
 
@@ -173,8 +172,8 @@ AS
 		on w.[FunctionId] = f.[Id]
 	where
 		1=1
-	AND f.[Type] LIKE '%Gar�om%'
-	OR	f.[Type] LIKE '%gar�om%'
+	AND f.[Type] LIKE '%Garçom%'
+	OR	f.[Type] LIKE '%garçom%'
 
 GO
 
@@ -187,7 +186,7 @@ GO
 
 BEGIN
 INSERT INTO [Function] ([Type]) VALUES 
-('Gar�om'),
+('Garçom'),
 ('Caixa'),
 ('Gerente')
 END
@@ -331,7 +330,7 @@ CREATE TABLE [dbo].[CheckManagementSetting]
 GO
 
 
-/****** Criando configuracoes padr�o usuario ******/
+/****** Criando configuracoes padrao usuario ******/
 
 INSERT INTO [dbo].[CheckManagementSetting]
     ([Id],[UserId])
